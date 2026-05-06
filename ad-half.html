@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Print Ad — Half Page · Celebrate Recovery 20th Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── PRINT SETUP ── */
+    @page {
+      size: 9.375in 10.5in;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: white !important;
+        margin: 0;
+        padding: 0;
+      }
+      .print-meta { display: none !important; }
+      .ad-wrap {
+        width: 9.375in !important;
+        height: 10.5in !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+      }
+    }
+
+    /* ── SCREEN PREVIEW ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      font-family: 'Open Sans', Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    .print-meta {
+      background: #333;
+      color: #eee;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 24px;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    /* Ad: 9.375in × 10.5in at 96dpi = 900px × 1008px
+       Displayed at 90% scale: 810px × 907px */
+    .ad-wrap {
+      width: 810px;
+      height: 907px;
+      box-shadow: 0 8px 48px rgba(0,0,0,.40);
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: #0F1F5C;
+    }
+
+    /* ── TOP STRIP ── */
+    .ad-top {
+      background: #E8622A;
+      padding: 11px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ad-top p {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    /* ── MAIN AREA ── */
+    .ad-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* LEFT: Navy panel with subtle Alaska Range background */
+    .ad-left {
+      background: #1E3A8A;
+      background-image: url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/print-alaska-range.jpg');
+      background-size: cover;
+      background-position: center bottom;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px 40px;
+    }
+
+    .ad-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 58, 138, 0.82);
+    }
+
+    .ad-left > * { position: relative; z-index: 1; }
+
+    .ad-logo { margin-bottom: 28px; }
+    .ad-logo img { width: 100%; max-width: 280px; display: block; }
+
+    .ad-main-text {}
+
+    .ad-years {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #F07E50;
+      margin-bottom: 10px;
+    }
+
+    .ad-headline {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 46px;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 8px;
+    }
+
+    .ad-sub {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: rgba(255,255,255,.65);
+      letter-spacing: -.5px;
+      margin-bottom: 28px;
+    }
+
+    /* Dates */
+    .ad-dates { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+
+    .ad-date-card {
+      background: rgba(255,255,255,.08);
+      border-left: 4px solid #E8622A;
+      padding: 10px 16px;
+    }
+
+    .ad-date-name {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      color: #F07E50;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .ad-date-detail {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,.75);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* Venue */
+    .ad-venue {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.5;
+    }
+
+    .ad-venue strong {
+      display: block;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: rgba(255,255,255,.85);
+      margin-bottom: 2px;
+    }
+
+    /* RIGHT: Dark panel with speaker + highlights */
+    .ad-right {
+      background: #0F1F5C;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Speaker photo area */
+    .ad-speaker-photo {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      background: #0D1733;
+    }
+
+    .ad-speaker-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      opacity: .85;
+    }
+
+    /* Gradient overlay on photo */
+    .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, #0F1F5C 100%);
+    }
+
+    /* Speaker name on photo */
+    .speaker-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 20px 24px 16px;
+    }
+
+    .sc-role {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #F07E50;
+      margin-bottom: 4px;
+    }
+
+    .sc-name {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 26px;
+      color: #fff;
+      letter-spacing: -.5px;
+    }
+
+    .sc-bio {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,.65);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* Highlights block */
+    .ad-highlights-block {
+      background: #1E3A8A;
+      padding: 18px 24px;
+    }
+
+    .hl-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,.80);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .hl-row:last-child { border-bottom: none; }
+
+    /* ── BOTTOM CTA ── */
+    .ad-bottom {
+      background: #E8622A;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .cta-left {}
+
+    .reg-label {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.70);
+      margin-bottom: 3px;
+    }
+
+    .reg-url {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: .5px;
+    }
+
+    .cta-right {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,.75);
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .cta-right strong {
+      display: block;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-meta">
+  <strong>Half-Page Horizontal Print Ad</strong><br>
+  Final size: 9.375" × 10.5" at 300 DPI · CMYK · 0.125" bleed all sides<br>
+  Recommended for: Anchorage Daily News (primary), Fairbanks News-Miner (optional)<br>
+  To export: File → Print → Save as PDF (set paper to 9.375" × 10.5")
+</div>
+
+<!-- AD -->
+<div class="ad-wrap">
+
+  <!-- Top stripe -->
+  <div class="ad-top">
+    <p>Celebrate Recovery · 20th Anniversary Celebration</p>
+    <p>June 5–6, 2026 · Fairbanks, Alaska</p>
+  </div>
+
+  <!-- Main two-column layout -->
+  <div class="ad-main">
+
+    <!-- LEFT: Headline + dates + venue -->
+    <div class="ad-left">
+      <div>
+        <div class="ad-logo">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery">
+        </div>
+
+        <div class="ad-main-text">
+          <div class="ad-years">20 Years · Alaska</div>
+          <h1 class="ad-headline">20 Years<br>of Hope &amp;<br>Healing</h1>
+          <p class="ad-sub">in Alaska</p>
+        </div>
+
+        <div class="ad-dates">
+          <div class="ad-date-card">
+            <div class="ad-date-name">Friday, June 5</div>
+            <div class="ad-date-detail">Dinner 6:30 PM · Large Group 7:00 PM<br>Free to attend</div>
+          </div>
+          <div class="ad-date-card">
+            <div class="ad-date-name">Saturday, June 6</div>
+            <div class="ad-date-detail">Full-day Conference · 7:00 AM – 4:30 PM<br>$20 registration · Scholarships available</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ad-venue">
+        <strong>Zion Lutheran Church</strong>
+        2982 Davis Road · Fairbanks, AK 99709
+      </div>
+    </div>
+
+    <!-- RIGHT: Speaker photo + highlights -->
+    <div class="ad-right">
+
+      <!-- Speaker photo -->
+      <div class="ad-speaker-photo">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/tommy-woodard-portrait.jpg" alt="Tommy Woodard">
+        <div class="photo-overlay"></div>
+        <div class="speaker-caption">
+          <div class="sc-role">Keynote Speaker</div>
+          <div class="sc-name">Tommy Woodard</div>
+          <div class="sc-bio">Comedian · Filmmaker · Pastor<br>As seen in Family Camp (2022) &amp; The Forge (2024)</div>
+        </div>
+      </div>
+
+      <!-- Highlights -->
+      <div class="ad-highlights-block">
+        <div class="hl-row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>&nbsp; Live Band &amp; Inspiring Worship — Father Dave &amp; the Church People</div>
+        <div class="hl-row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>&nbsp; Salmon Bake Dinner — catered by Pike's Landing</div>
+        <div class="hl-row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>&nbsp; Door Prizes &amp; Event T-Shirts (register by May 5)</div>
+        <div class="hl-row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>&nbsp; Closing: Hallelujah Chorus — Quinhagak, AK 5th Grade Class</div>
+      </div>
+
+    </div>
+  </div>
+  <!-- /main -->
+
+  <!-- Bottom CTA -->
+  <div class="ad-bottom">
+    <div class="cta-left">
+      <div class="reg-label">Registration Required</div>
+      <div class="reg-url">celebraterecoveryzion.com</div>
+    </div>
+    <div class="cta-right">
+      <strong>Questions?</strong>
+      CRStateRepAK@gmail.com<br>
+      Liz Gerdes · CR Alaska State Representative
+    </div>
+  </div>
+
+</div>
+<!-- /ad -->
+
+</body>
+</html>

@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celebrate Recovery 20th Anniversary — Fairbanks, Alaska</title>
+  <meta name="description" content="Join us for 20 Years of Hope and Healing in Alaska. June 5–6, 2026 at Zion Lutheran Church, Fairbanks AK. Keynote speaker Tommy Woodard. Register today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #1E3A8A;
+      --navy-dark:  #0F1F5C;
+      --navy-lt:    #2D4EA8;
+      --orange:     #E8622A;
+      --orange-dk:  #BF4A18;
+      --orange-lt:  #F07E50;
+      --white:      #FFFFFF;
+      --off-white:  #F8F9FC;
+      --light:      #E8EBF4;
+      --gray:       #6B7280;
+      --gray-lt:    #D1D5DB;
+      --dark:       #0D1733;
+      --text:       #1A1E3A;
+
+      --font-h: 'Montserrat', sans-serif;
+      --font-b: 'Open Sans', sans-serif;
+      --r: 10px;
+      --shadow: 0 6px 32px rgba(14,30,80,.14);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-b);
+      color: var(--text);
+      background: var(--off-white);
+      line-height: 1.6;
+    }
+
+    /* ── PASSWORD OVERLAY ────────────────────── */
+    #pw-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--navy-dark);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    #pw-overlay img.pw-logo {
+      width: 260px;
+      margin-bottom: 40px;
+    }
+
+    .pw-box {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 14px;
+      padding: 40px 44px;
+      text-align: center;
+      max-width: 380px;
+      width: 90%;
+    }
+
+    .pw-box h2 {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: -.02em;
+    }
+
+    .pw-box p {
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 24px;
+    }
+
+    .pw-box input[type=password] {
+      width: 100%;
+      background: rgba(255,255,255,.08);
+      border: 1.5px solid rgba(255,255,255,.18);
+      border-radius: 8px;
+      padding: 13px 16px;
+      font-family: var(--font-b);
+      font-size: 15px;
+      color: #fff;
+      outline: none;
+      letter-spacing: .12em;
+      transition: border-color .2s;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .pw-box input[type=password]:focus {
+      border-color: var(--orange);
+    }
+
+    .pw-btn {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: .04em;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      cursor: pointer;
+      transition: background .18s;
+    }
+
+    .pw-btn:hover { background: var(--orange-dk); }
+
+    .pw-error {
+      color: #fca5a5;
+      font-size: 13px;
+      margin-top: 10px;
+      min-height: 18px;
+    }
+
+    /* ── NAV ─────────────────────────────────── */
+    nav {
+      background: var(--navy-dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.25);
+    }
+
+    .nav-logo { height: 36px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,.70);
+      text-decoration: none;
+      font-family: var(--font-h);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: .04em;
+      transition: color .18s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-cta {
+      background: var(--orange);
+      color: #fff !important;
+      padding: 9px 22px;
+      border-radius: 6px;
+      transition: background .18s !important;
+    }
+
+    .nav-cta:hover { background: var(--orange-dk) !important; }
+
+    /* ── HERO ────────────────────────────────── */
+    .hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 40px 72px;
+      text-align: center;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(15,31,92,.60) 0%, rgba(15,31,92,.75) 100%),
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(45,78,168,.30) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 70% at 80% 30%, rgba(232,98,42,.20) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--orange-lt);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-h);
+      font-weight: 900;
+      font-size: clamp(36px, 6vw, 62px);
+      color: #fff;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span { color: var(--orange-lt); }
+
+    .hero-sub {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: clamp(18px, 3vw, 26px);
+      color: rgba(255,255,255,.80);
+      letter-spacing: -.01em;
+      margin-bottom: 28px;
+    }
+
+    .hero-dates {
+      display: inline-flex;
+      gap: 24px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 100px;
+      padding: 10px 28px;
+      margin-bottom: 36px;
+    }
+
+    .hero-dates span {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 14px;
+      color: rgba(255,255,255,.85);
+    }
+
+    .hero-dates .sep {
+      color: rgba(255,255,255,.30);
+      font-weight: 400;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: .04em;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .18s ease;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      border-color: var(--orange);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dk);
+      border-color: var(--orange-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,98,42,.40);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,.40);
+    }
+
+    .btn-ghost:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,.08);
+    }
+
+    /* ── HIGHLIGHTS BAR ──────────────────────── */
+    .highlights {
+      background: var(--orange);
+      padding: 16px 40px;
+    }
+
+    .highlights-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hl-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hl-item .hl-icon { font-size: 18px; }
+
+    /* ── SECTIONS SHARED ─────────────────────── */
+    .section {
+      padding: 80px 40px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-h);
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--navy);
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-lead {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 600px;
+      line-height: 1.65;
+      margin-bottom: 48px;
+    }
+
+    /* ── ABOUT CR ────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--navy);
+      position: relative;
+    }
+
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--orange);
+    }
+
+    .about-img-wrap img { width: 100%; display: block; object-fit: cover; }
+
+    .about-content h2 {
+      font-family: var(--font-h);
+      font-weight: 900;
+      font-size: 32px;
+      color: var(--navy);
+      letter-spacing: -.025em;
+      margin-bottom: 16px;
+    }
+
+    .about-content p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .stat-box {
+      background: var(--off-white);
+      border: 1.5px solid var(--light);
+      border-radius: var(--r);
+      padding: 18px;
+      border-top: 3px solid var(--orange);
+    }
+
+    .stat-box .stat-num {
+      font-family: var(--font-h);
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--orange);
+      letter-spacing: -.03em;
+    }
+
+    .stat-box .stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* ── SCHEDULE ────────────────────────────── */
+    .schedule-bg { background: var(--navy-dark); }
+
+    .schedule-bg .section-title { color: #fff; }
+    .schedule-bg .section-lead { color: rgba(255,255,255,.60); }
+    .schedule-bg .section-eyebrow { color: var(--orange-lt); }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .day-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      background: var(--orange);
+      padding: 20px 28px;
+    }
+
+    .day-header h3 {
+      font-family: var(--font-h);
+      font-weight: 900;
+      font-size: 20px;
+      color: #fff;
+      letter-spacing: -.02em;
+    }
+
+    .day-header .day-date {
+      font-family: var(--font-h);
+      font-weight: 600;
+      font-size: 13px;
+      color: rgba(255,255,255,.80);
+      margin-top: 2px;
+    }
+
+    .day-body { padding: 24px 28px; }
+
+    .sched-item {
+      display: flex;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .sched-item:last-child { border-bottom: none; }
+
+    .sched-time {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--orange-lt);
+      min-width: 70px;
+      padding-top: 2px;
+      letter-spacing: .03em;
+    }
+
+    .sched-label {
+      font-size: 14px;
+      color: rgba(255,255,255,.85);
+      line-height: 1.4;
+    }
+
+    .sched-label strong {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* ── SPEAKER ─────────────────────────────── */
+    .speaker-section {
+      background: #ffffff;
+    }
+
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: 425px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .speaker-photo-wrap {
+      position: relative;
+      align-self: end;
+    }
+
+    .speaker-photo-wrap img {
+      width: 100%;
+      display: block;
+      mix-blend-mode: multiply;
+    }
+
+    .speaker-badge { display: none; }
+
+    /* ── CONTACT MODAL ─────────────────────── */
+    #contact-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(15,31,92,.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    #contact-modal.open { display: flex; }
+
+    .cm-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 44px 44px 40px;
+      max-width: 460px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(15,31,92,.24);
+      animation: cmSlideIn .22s ease;
+    }
+
+    @keyframes cmSlideIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .cm-close {
+      position: absolute;
+      top: 14px; right: 18px;
+      background: none; border: none;
+      font-size: 24px; line-height: 1;
+      color: var(--gray); cursor: pointer;
+      padding: 4px 8px; border-radius: 4px;
+      transition: color .15s, background .15s;
+    }
+
+    .cm-close:hover { color: var(--text); background: var(--off-white); }
+
+    .cm-eyebrow {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+
+    .cm-title {
+      font-family: var(--font-h);
+      font-weight: 900;
+      font-size: 26px;
+      color: var(--navy);
+      letter-spacing: -.02em;
+      margin-bottom: 4px;
+    }
+
+    .cm-sub {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+
+    .cm-form .fg { margin-bottom: 16px; }
+
+    .cm-form label {
+      display: block;
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .cm-form input,
+    .cm-form textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--light);
+      border-radius: 8px;
+      font-family: var(--font-b);
+      font-size: 15px;
+      color: var(--text);
+      background: var(--off-white);
+      outline: none;
+      transition: border-color .18s, background .18s;
+    }
+
+    .cm-form input:focus,
+    .cm-form textarea:focus {
+      border-color: var(--navy);
+      background: #fff;
+    }
+
+    .cm-form textarea { resize: vertical; min-height: 110px; }
+
+    .cm-submit {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      cursor: pointer;
+      transition: background .18s;
+      margin-top: 4px;
+    }
+
+    .cm-submit:hover { background: var(--orange-dk); }
+
+    .cm-success {
+      display: none;
+      text-align: center;
+      padding: 12px 0 4px;
+    }
+
+    .cm-success-check {
+      width: 56px; height: 56px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      color: #fff;
+    }
+
+    .cm-success h3 {
+      font-family: var(--font-h);
+      font-weight: 900;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .cm-success p { font-size: 14px; color: var(--gray); line-height: 1.55; }
+
+    .contact-trigger {
+      background: none; border: none; padding: 0;
+      font-family: inherit; cursor: pointer;
+      color: inherit; text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .speaker-content { padding-top: 8px; }
+
+    .speaker-name {
+      font-family: var(--font-h);
+      font-weight: 900;
+      font-size: 40px;
+      color: var(--navy);
+      letter-spacing: -.03em;
+      line-height: 1.05;
+      margin-bottom: 6px;
+    }
+
+    .speaker-role {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--orange);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .speaker-bio {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .speaker-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .tag {
+      background: var(--light);
+      color: var(--navy);
+      font-family: var(--font-h);
+      font-weight: 600;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    /* ── REGISTRATION FORM ───────────────────── */
+    .reg-section {
+      background: var(--white);
+    }
+
+    .reg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .reg-info h3 {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--navy);
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+
+    .reg-info ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .reg-info li {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text);
+      align-items: flex-start;
+    }
+
+    .reg-info li .ri-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .reg-note {
+      background: #FFF7ED;
+      border: 1px solid #FED7AA;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #92400E;
+      line-height: 1.5;
+    }
+
+    /* Form */
+    .cr-form {
+      background: var(--off-white);
+      border-radius: 14px;
+      padding: 36px;
+      border: 1.5px solid var(--light);
+    }
+
+    .cr-form h3 {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--navy);
+      letter-spacing: -.02em;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--light);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-row.single { grid-template-columns: 1fr; }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field label {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .05em;
+      color: var(--navy);
+    }
+
+    .field label .req { color: var(--orange); }
+
+    .field input[type=text],
+    .field input[type=email],
+    .field input[type=tel],
+    .field select {
+      font-family: var(--font-b);
+      font-size: 14px;
+      color: var(--text);
+      background: var(--white);
+      border: 1.5px solid var(--gray-lt);
+      border-radius: 8px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color .18s, box-shadow .18s;
+      width: 100%;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(30,58,138,.10);
+    }
+
+    .field select { cursor: pointer; }
+
+    .radio-group,
+    .check-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .radio-label,
+    .check-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .radio-label input[type=radio],
+    .check-label input[type=checkbox] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--orange);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .field-divider {
+      height: 1px;
+      background: var(--light);
+      margin: 8px 0 16px;
+    }
+
+    .field-section-label {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+
+    /* hidden conditional fields */
+    .conditional { display: none; }
+    .conditional.visible { display: block; }
+
+    .submit-row {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-submit {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: .04em;
+      padding: 16px 40px;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all .18s;
+    }
+
+    .btn-submit:hover {
+      background: var(--orange-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,98,42,.38);
+    }
+
+    .submit-note {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ── VENUE ───────────────────────────────── */
+    .venue-section {
+      background: var(--navy);
+    }
+
+    .venue-section .section-title { color: #fff; }
+    .venue-section .section-eyebrow { color: var(--orange-lt); }
+
+    .venue-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .venue-info { color: rgba(255,255,255,.80); }
+
+    .venue-detail {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .vd-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .vd-text h4 {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .vd-text p { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.5; }
+
+    .church-photo-wrap {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,.40);
+    }
+
+    .church-photo-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+    }
+
+    .church-photo-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 20px 20px 16px;
+      background: linear-gradient(to top, rgba(10,20,60,.80) 0%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .church-photo-caption span {
+      font-family: var(--font-h);
+      font-weight: 600;
+      font-size: 12px;
+      color: rgba(255,255,255,.75);
+      letter-spacing: .04em;
+    }
+
+    .church-photo-caption a {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--orange-lt);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer {
+      background: var(--navy-dark);
+      padding: 40px 40px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo img { height: 40px; margin-bottom: 10px; }
+
+    .footer-logo p {
+      font-size: 13px;
+      color: rgba(255,255,255,.50);
+      line-height: 1.5;
+      max-width: 240px;
+    }
+
+    .footer-links h4 {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,.60);
+      text-decoration: none;
+      margin-bottom: 6px;
+      transition: color .18s;
+    }
+
+    .footer-links a:hover { color: #fff; }
+
+    /* Social placeholder */
+    .social-placeholder {
+      display: flex;
+      gap: 10px;
+    }
+
+    .soc-btn {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      color: rgba(255,255,255,.50);
+      text-decoration: none;
+      transition: all .18s;
+    }
+
+    .soc-btn:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-bottom p {
+      font-size: 12px;
+      color: rgba(255,255,255,.30);
+    }
+
+    .footer-bottom a {
+      color: var(--orange-lt);
+      text-decoration: none;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .section { padding: 56px 20px; }
+      .hero { padding: 60px 20px; }
+      .highlights { padding: 14px 20px; }
+      .about-grid,
+      .schedule-grid,
+      .speaker-grid,
+      .reg-grid,
+      .venue-grid { grid-template-columns: 1fr; }
+      .speaker-photo-wrap { max-width: 280px; margin: 0 auto 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 40px 20px 28px; }
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── PASSWORD OVERLAY ── -->
+<div id="pw-overlay">
+  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery" class="pw-logo">
+  <div class="pw-box">
+    <h2>Preview Access</h2>
+    <p>This page is password-protected for review.<br>Contact Celebrate Recovery Zion for access.</p>
+    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off">
+    <button class="pw-btn" onclick="checkPassword()">Unlock Page</button>
+    <div class="pw-error" id="pw-error"></div>
+  </div>
+</div>
+
+<!-- ── STICKY NAV ── -->
+<nav>
+  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery" class="nav-logo">
+  <div class="nav-links">
+    <a href="#about">About CR</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#speaker">Speaker</a>
+    <a href="#venue">Venue</a>
+    <a href="#register" class="nav-cta">Register Now</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto"
+    poster="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/hero-aurora-church.jpg">
+    <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/v1778030889/zionlutheranchurch-celebrate-recovery_it5gev.mp4" type="video/mp4">
+  </video>
+  <div class="hero-inner" style="position:relative;z-index:2;">
+    <div class="hero-eyebrow">Celebrate Recovery · Zion Lutheran Church · Fairbanks, Alaska</div>
+    <h1>20 Years of <span>Hope</span><br>and Healing</h1>
+    <div class="hero-sub">in Alaska</div>
+    <div class="hero-dates">
+      <span>Friday, June 5, 2026</span>
+      <span class="sep">|</span>
+      <span>Saturday, June 6, 2026</span>
+    </div>
+    <div class="hero-cta-group">
+      <a href="#register" class="btn btn-primary">Register Now →</a>
+      <a href="#schedule" class="btn btn-ghost">View Schedule</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── HIGHLIGHTS BAR ── -->
+<div class="highlights">
+  <div class="highlights-inner">
+    <div class="hl-item"><span class="hl-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span> Live Band &amp; Worship</div>
+    <div class="hl-item"><span class="hl-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></span> Salmon Bake Dinner</div>
+    <div class="hl-item"><span class="hl-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span> Door Prizes</div>
+    <div class="hl-item"><span class="hl-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg></span> Event T-Shirts</div>
+    <div class="hl-item"><span class="hl-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></span> Keynote: Tommy Woodard</div>
+  </div>
+</div>
+
+<!-- ── ABOUT CR ── -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/community-gathering.jpg" alt="CR community gathering — Fairbanks, Alaska">
+      </div>
+      <div class="about-content">
+        <div class="section-eyebrow">About Celebrate Recovery</div>
+        <h2>A Safe Place to Find Freedom</h2>
+        <p>Celebrate Recovery is a Christ-centered, 12-step recovery program for anyone struggling with hurt, pain, or addiction of any kind. It's a safe place to find community and freedom from issues controlling your life.</p>
+        <p>This isn't just for those dealing with addiction — <strong>over 70% of participants come for grief, anxiety, codependency, anger, and other hurts, hang-ups, and habits.</strong> Whoever you are and whatever you're carrying, you are welcome here.</p>
+        <p>Zion Lutheran Church in Fairbanks has been hosting CR for <strong>20 years</strong>, and this anniversary celebration brings together groups from across Alaska for a weekend of worship, community, and healing.</p>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-num">35,000+</div>
+            <div class="stat-label">Churches worldwide running CR programs</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">20 yrs</div>
+            <div class="stat-label">CR at Zion Lutheran Church, Fairbanks AK</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">70%</div>
+            <div class="stat-label">Of participants attend for non-addiction hurts</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">Alaska</div>
+            <div class="stat-label">Groups from Fairbanks, Anchorage, MatSu, Juneau &amp; more</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCHEDULE ── -->
+<section class="section schedule-bg" id="schedule">
+  <div class="section-inner">
+    <div class="section-eyebrow">Event Schedule</div>
+    <h2 class="section-title">Two Days of Celebration</h2>
+    <p class="section-lead">Join us Friday evening for large group, then return Saturday for a full day of worship, teaching, community — and a Salmon Bake to close it out.</p>
+
+    <div class="schedule-grid">
+      <!-- Friday -->
+      <div class="day-card">
+        <div class="day-header">
+          <h3>Friday Meeting</h3>
+          <div class="day-date">June 5, 2026</div>
+        </div>
+        <div class="day-body">
+          <div class="sched-item">
+            <div class="sched-time">6:30 PM</div>
+            <div class="sched-label"><strong>Light Dinner</strong><br>Doors open, fellowship begins</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">7:00 PM</div>
+            <div class="sched-label"><strong>Large Group Celebration</strong><br>Praise &amp; Worship — live music &amp; singing</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">Evening</div>
+            <div class="sched-label"><strong>Tommy Woodard — Live Testimony</strong><br>Personal story from our keynote speaker</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">Later</div>
+            <div class="sched-label"><strong>Open Share Small Groups</strong><br>Breakout sessions for community sharing</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">Close</div>
+            <div class="sched-label"><strong>Solid Rock Café</strong><br>Cookies, fruit, coffee &amp; tea</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saturday -->
+      <div class="day-card">
+        <div class="day-header">
+          <h3>Saturday Conference</h3>
+          <div class="day-date">June 6, 2026 · $20 Registration</div>
+        </div>
+        <div class="day-body">
+          <div class="sched-item">
+            <div class="sched-time">7:00 AM</div>
+            <div class="sched-label"><strong>Check-In &amp; Registration</strong><br>Receive name tag &amp; event T-shirt</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">7:30 AM</div>
+            <div class="sched-label"><strong>Continental Breakfast</strong><br>Served until 8:30 AM</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">Morning</div>
+            <div class="sched-label"><strong>Morning Celebration Session</strong><br>Father Dave &amp; the Church People · Pastor Scott Barkdull · Ministry Leader Introductions · Door Prizes</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">Midday</div>
+            <div class="sched-label"><strong>Keynote: Tommy Woodard</strong><br>Plus "Confessions of a Good Church Lady"</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">Lunch</div>
+            <div class="sched-label"><strong>Lunch Served</strong><br>More worship, stories &amp; door prizes</div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">Afternoon</div>
+            <div class="sched-label"><strong>Salmon Bake Dinner</strong><br>Hot Dogs, Hamburgers, Sides &amp; Dessert<br><em>Catered by Pike's Landing</em></div>
+          </div>
+          <div class="sched-item">
+            <div class="sched-time">4:30 PM</div>
+            <div class="sched-label"><strong>Closing: Hallelujah Chorus</strong><br>Presented by Quinhagak, AK 5th Grade Class</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPEAKER ── -->
+<section class="section speaker-section" id="speaker">
+  <div class="section-inner">
+    <div class="section-eyebrow">Keynote Speaker</div>
+    <h2 class="section-title">Meet Tommy Woodard</h2>
+
+    <div class="speaker-grid">
+      <div class="speaker-photo-wrap">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/tommy-woodard-headshot.png" alt="Tommy Woodard — Keynote Speaker">
+      </div>
+      <div class="speaker-content">
+        <div class="speaker-name">Tommy<br>Woodard</div>
+        <div class="speaker-role">Keynote Speaker · Saturday Conference</div>
+        <p class="speaker-bio">Tommy Woodard has spent 30+ years telling stories that make people laugh — and then, without warning, think about Jesus. His unique blend of humor, faith, and honest storytelling has reached audiences across stage and screen nationwide.</p>
+        <p class="speaker-bio">He starred in <strong>Family Camp</strong> (2022) and <strong>The Forge</strong> (2024), two faith-based feature films released in theaters nationwide. Today, Tommy creates new work through <strong>231 Collective</strong> — building films and art that use humor and story to encourage people and point them to what's true.</p>
+        <p class="speaker-bio">Tommy also serves as a pastor at New Church in Oklahoma City. He brings that same heart to live events: funny, faithful, and weirdly helpful.</p>
+        <div class="speaker-tags">
+          <span class="tag">Comedian &amp; Storyteller</span>
+          <span class="tag">Family Camp (2022)</span>
+          <span class="tag">The Forge (2024)</span>
+          <span class="tag">231 Collective</span>
+          <span class="tag">Pastor · New Church OKC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REGISTRATION FORM ── -->
+<section class="section reg-section" id="register">
+  <div class="section-inner">
+    <div class="reg-grid">
+      <div class="reg-info">
+        <div class="section-eyebrow">Registration</div>
+        <h2 class="section-title" style="font-size:clamp(24px,3.5vw,34px);">Reserve Your Spot</h2>
+        <p class="section-lead" style="font-size:15px;margin-bottom:28px;">Registration is required. Register online to secure your spot and guarantee a T-shirt.</p>
+        <ul>
+          <li><span class="ri-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><div><strong>Friday, June 5</strong> — Free to attend. Light dinner at 6:30 PM, large group at 7:00 PM.</div></li>
+          <li><span class="ri-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><div><strong>Saturday, June 6</strong> — $20 registration fee, payable at check-in (cash or check only). Scholarships available — no one turned away.</div></li>
+          <li><span class="ri-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg></span><div><strong>T-shirt deadline: May 5, 2026.</strong> Register by May 5 to have your size guaranteed on the day.</div></li>
+          <li><span class="ri-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div>Zion Lutheran Church · 2982 Davis Road · Fairbanks, AK 99709</div></li>
+        </ul>
+        <div class="reg-note">
+          <strong>Questions?</strong> <button class="contact-trigger" style="color:var(--orange-dk);font-size:inherit;" onclick="openContactModal()">Contact us — we'd love to help.</button>
+        </div>
+      </div>
+
+      <!-- NETLIFY FORM -->
+      <div class="cr-form">
+        <h3>Conference Registration Form</h3>
+        <form name="cr-registration" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you">
+          <!-- Honeypot -->
+          <input type="hidden" name="form-name" value="cr-registration">
+          <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+          <!-- Name -->
+          <div class="form-row">
+            <div class="field">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" name="first-name" placeholder="First Name" required>
+            </div>
+            <div class="field">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" name="last-name" placeholder="Last Name" required>
+            </div>
+          </div>
+
+          <!-- Phone + Email -->
+          <div class="form-row">
+            <div class="field">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" name="phone" placeholder="(907) 555-0100" required>
+            </div>
+            <div class="field">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="you@example.com">
+            </div>
+          </div>
+
+          <!-- Gender -->
+          <div class="form-row single">
+            <div class="field">
+              <label>Gender <span class="req">*</span></label>
+              <div class="radio-group" style="flex-direction:row;gap:24px;">
+                <label class="radio-label"><input type="radio" name="gender" value="Male" required> Male</label>
+                <label class="radio-label"><input type="radio" name="gender" value="Female"> Female</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-divider"></div>
+
+          <!-- Attendance -->
+          <div class="form-row single">
+            <div class="field">
+              <div class="field-section-label">Attendance</div>
+              <label>Attending <span class="req">*</span></label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="attendance" value="Friday only" id="att-fri" required onchange="updateConditionals()"> Friday only (June 5)</label>
+                <label class="radio-label"><input type="radio" name="attendance" value="Saturday only" id="att-sat" onchange="updateConditionals()"> Saturday only (June 6)</label>
+                <label class="radio-label"><input type="radio" name="attendance" value="Both days" id="att-both" onchange="updateConditionals()"> Both days (Friday &amp; Saturday)</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Friday-only: Open Share Groups -->
+          <div class="form-row single conditional" id="field-openShare">
+            <div class="field">
+              <label>Participate in Open Share Groups? (Friday)</label>
+              <div class="radio-group" style="flex-direction:row;gap:24px;">
+                <label class="radio-label"><input type="radio" name="open-share" value="Yes"> Yes</label>
+                <label class="radio-label"><input type="radio" name="open-share" value="No"> No</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small Groups interest -->
+          <div class="form-row single conditional" id="field-smallGroups">
+            <div class="field">
+              <label>Small Group Interest</label>
+              <div class="check-group">
+                <label class="check-label"><input type="checkbox" name="small-group" value="Addictions &amp; Dependencies"> Addictions &amp; Dependencies</label>
+                <label class="check-label"><input type="checkbox" name="small-group" value="Other Hurts/Hang-ups/Habits"> Other Hurts / Hang-ups / Habits</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saturday-only: T-Shirt size -->
+          <div class="form-row single conditional" id="field-tshirt">
+            <div class="field">
+              <label>T-Shirt Size (Saturday — register by May 5)</label>
+              <select name="tshirt-size">
+                <option value="">Select size…</option>
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-divider"></div>
+
+          <!-- Overnight Stay -->
+          <div class="form-row single">
+            <div class="field">
+              <div class="field-section-label">Lodging (Optional)</div>
+              <label>Overnight Stay</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="overnight" value="None"> Not staying overnight</label>
+                <label class="radio-label"><input type="radio" name="overnight" value="Friday night"> Friday night only</label>
+                <label class="radio-label"><input type="radio" name="overnight" value="Saturday night"> Saturday night only</label>
+                <label class="radio-label"><input type="radio" name="overnight" value="Both nights"> Both nights</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Salmon Bake -->
+          <div class="form-row single">
+            <div class="field">
+              <label>Attending the Salmon Bake Dinner? (Saturday)</label>
+              <div class="radio-group" style="flex-direction:row;gap:24px;">
+                <label class="radio-label"><input type="radio" name="salmon-bake" value="Yes"> Yes</label>
+                <label class="radio-label"><input type="radio" name="salmon-bake" value="No"> No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="btn-submit">Submit Registration</button>
+            <span class="submit-note">No payment collected here. $20 Saturday fee<br>paid at check-in (cash or check only).</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VENUE ── -->
+<section class="section venue-section" id="venue">
+  <div class="section-inner">
+    <div class="section-eyebrow">Location</div>
+    <h2 class="section-title">Zion Lutheran Church</h2>
+
+    <div class="venue-grid">
+      <div class="venue-info">
+        <div class="venue-detail">
+          <div class="vd-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="vd-text">
+            <h4>Address</h4>
+            <p>2982 Davis Road<br>Fairbanks, AK 99709<br>Venue for both Friday &amp; Saturday</p>
+          </div>
+        </div>
+        <div class="venue-detail">
+          <div class="vd-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="vd-text">
+            <h4>Event Dates</h4>
+            <p>Friday, June 5 — Dinner at 6:30 PM, Large Group at 7:00 PM<br>Saturday, June 6 — Check-in at 7:00 AM, Conference 7:00 AM–4:30 PM</p>
+          </div>
+        </div>
+        <div class="venue-detail">
+          <div class="vd-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
+          <div class="vd-text">
+            <h4>Catering</h4>
+            <p>Salmon Bake Dinner catered by<br><strong style="color:#fff;">Pike's Landing, Fairbanks</strong></p>
+          </div>
+        </div>
+        <div class="venue-detail">
+          <div class="vd-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="vd-text">
+            <h4>Contact</h4>
+            <p>Liz Gerdes — CR Alaska State Rep<br><button class="contact-trigger" style="color:var(--orange-lt);font-size:14px;" onclick="openContactModal()">Send us a message →</button></p>
+          </div>
+        </div>
+
+        <!-- Social placeholder -->
+        <div style="margin-top:28px;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px;">Follow &amp; Share</div>
+          <div class="social-placeholder">
+            <a href="#" class="soc-btn" title="Facebook">f</a>
+            <a href="#" class="soc-btn" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></a>
+            <a href="#" class="soc-btn" title="X / Twitter">𝕏</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="church-photo-wrap">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/zion-church-professional.jpg" alt="Zion Lutheran Church — 2982 Davis Road, Fairbanks AK">
+        <div class="church-photo-caption">
+          <span>Zion Lutheran Church · 2982 Davis Road · Fairbanks, AK 99709</span>
+          <a href="https://maps.google.com/?q=2982+Davis+Road+Fairbanks+AK" target="_blank" rel="noopener">Open in Maps →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery">
+        <p>20th Anniversary Celebration<br>Zion Lutheran Church · Fairbanks, Alaska<br>June 5–6, 2026</p>
+      </div>
+      <div class="footer-links">
+        <h4>Event</h4>
+        <a href="#about">About CR</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#speaker">Speaker</a>
+        <a href="#register">Register</a>
+        <a href="#venue">Venue</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <button class="contact-trigger" style="color:rgba(255,255,255,.60);font-size:13px;display:block;text-align:left;margin-bottom:6px;" onclick="openContactModal()">Liz Gerdes</button>
+        <button class="contact-trigger" style="color:rgba(255,255,255,.60);font-size:13px;display:block;text-align:left;" onclick="openContactModal()">Bill Slayden</button>
+        <a href="https://celebraterecovery.com" target="_blank" rel="noopener">CelebrateRecovery.com</a>
+      </div>
+      <div class="footer-links">
+        <h4>Campaign</h4>
+        <a href="campaign-assets.html">Emails &amp; Print Ads</a>
+        <a href="brand-guide.html">Brand Guide</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Celebrate Recovery — Zion Lutheran Church, Fairbanks AK. All rights reserved.</p>
+      <p>Celebrate Recovery is a ministry of <a href="https://celebraterecovery.com" target="_blank" rel="noopener">Celebrate Recovery</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Password overlay ──
+  const PASS = 'HopeHeals26';
+
+  function checkPassword() {
+    const val = document.getElementById('pw-input').value;
+    if (val === PASS) {
+      document.getElementById('pw-overlay').style.display = 'none';
+      sessionStorage.setItem('cr-unlocked', '1');
+    } else {
+      const err = document.getElementById('pw-error');
+      err.textContent = 'Incorrect password. Please try again.';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  }
+
+  // Allow Enter key
+  document.getElementById('pw-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  // Check session
+  if (sessionStorage.getItem('cr-unlocked')) {
+    document.getElementById('pw-overlay').style.display = 'none';
+  }
+
+  // ── Contact modal ──
+  function openContactModal() {
+    document.getElementById('contact-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('cm-name').focus(), 50);
+  }
+
+  function closeContactModal() {
+    document.getElementById('contact-modal').classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      document.getElementById('cm-form-body').style.display = '';
+      document.getElementById('cm-success').style.display = 'none';
+    }, 250);
+  }
+
+  document.getElementById('contact-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeContactModal();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('contact-modal').classList.contains('open')) {
+      closeContactModal();
+    }
+  });
+
+  document.getElementById('cm-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.cm-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(this)).toString()
+      });
+      document.getElementById('cm-form-body').style.display = 'none';
+      document.getElementById('cm-success').style.display = 'block';
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Send Message →';
+      alert('Something went wrong. Please email CRStateRepAK@gmail.com directly.');
+    }
+  });
+
+  // ── Conditional form fields ──
+  function updateConditionals() {
+    const fri = document.getElementById('att-fri').checked;
+    const sat = document.getElementById('att-sat').checked;
+    const both = document.getElementById('att-both').checked;
+
+    const showFri = fri || both;
+    const showSat = sat || both;
+
+    document.getElementById('field-openShare').classList.toggle('visible', showFri);
+    document.getElementById('field-smallGroups').classList.toggle('visible', showFri);
+    document.getElementById('field-tshirt').classList.toggle('visible', showSat);
+  }
+</script>
+
+<!-- ── CONTACT MODAL ── -->
+<div id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="cm-heading">
+  <div class="cm-card">
+    <button class="cm-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+
+    <div id="cm-form-body">
+      <div class="cm-eyebrow">Get in Touch</div>
+      <h2 class="cm-title" id="cm-heading">Have a Question?</h2>
+      <p class="cm-sub">Send us a message and Liz or Bill will get back to you shortly.</p>
+
+      <form id="cm-form" class="cm-form" name="cr-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="cr-contact">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="fg">
+          <label for="cm-name">Your Name</label>
+          <input type="text" id="cm-name" name="name" placeholder="First and last name" required>
+        </div>
+        <div class="fg">
+          <label for="cm-email">Email Address</label>
+          <input type="email" id="cm-email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="fg">
+          <label for="cm-message">Message</label>
+          <textarea id="cm-message" name="message" placeholder="What would you like to know?" required></textarea>
+        </div>
+        <button type="submit" class="cm-submit">Send Message →</button>
+      </form>
+    </div>
+
+    <div class="cm-success" id="cm-success">
+      <div class="cm-success-check">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>Message Sent!</h3>
+      <p>Thanks for reaching out.<br>We'll be in touch soon.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+hero-aurora-church=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029916/cr-zion-20th/hero-aurora-church.jpg
+social-chena-aurora=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029917/cr-zion-20th/social-chena-aurora.jpg
+social-story-birch-path=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029918/cr-zion-20th/social-story-birch-path.jpg
+print-alaska-range=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029921/cr-zion-20th/print-alaska-range.jpg
+community-gathering=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029922/cr-zion-20th/community-gathering.jpg
+hands-connecting=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029923/cr-zion-20th/hands-connecting.jpg
+zion-church-professional=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029925/cr-zion-20th/zion-church-professional.jpg
+tommy-woodard-cutout=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778031646/cr-zion-20th/tommy-woodard-cutout.png
+zion-lutheran-church-1=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029926/cr-zion-20th/zion-lutheran-church-1.jpg
+zion-lutheran-church-3=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029927/cr-zion-20th/zion-lutheran-church-3.jpg
+zion-lutheran-church-2=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029927/cr-zion-20th/zion-lutheran-church-2.png
+zion-lutheran-church-4=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029928/cr-zion-20th/zion-lutheran-church-4.png
+cr-logo-white=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029929/cr-zion-20th/cr-logo-white.svg
+tommy-woodard-portrait=https://res.cloudinary.com/dsbllwpbh/image/upload/v1778029932/cr-zion-20th/tommy-woodard-portrait.jpg

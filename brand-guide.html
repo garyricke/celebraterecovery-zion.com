@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Guide — Celebrate Recovery Zion 20th Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cr-navy:        #1E3A8A;
+      --cr-navy-dark:   #0F1F5C;
+      --cr-navy-light:  #2D4EA8;
+      --cr-orange:      #E8622A;
+      --cr-orange-dark: #BF4A18;
+      --cr-orange-lt:   #F07E50;
+      --cr-white:       #FFFFFF;
+      --cr-off-white:   #F8F9FC;
+      --cr-light:       #E8EBF4;
+      --cr-gray:        #6B7280;
+      --cr-gray-lt:     #D1D5DB;
+      --cr-dark:        #0D1733;
+      --cr-text:        #1A1E3A;
+
+      --font-head: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+
+      --sidebar: 240px;
+      --r: 8px;
+      --shadow: 0 4px 24px rgba(30,58,138,.10);
+      --shadow-sm: 0 2px 8px rgba(30,58,138,.08);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--cr-text);
+      background: var(--cr-off-white);
+      display: flex;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── SIDEBAR ─────────────────────────────── */
+    .sidebar {
+      width: var(--sidebar);
+      background: var(--cr-navy-dark);
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      z-index: 200;
+    }
+
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 2px; }
+
+    .sb-brand {
+      padding: 24px 20px 20px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .sb-brand img { width: 100%; max-width: 180px; display: block; }
+
+    .sb-tagline {
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cr-orange-lt);
+      margin-top: 10px;
+    }
+
+    .sb-label {
+      padding: 20px 20px 6px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+    }
+
+    .sb-label:first-of-type { padding-top: 16px; }
+
+    .sidebar nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 20px;
+      color: rgba(255,255,255,.60);
+      text-decoration: none;
+      font-family: var(--font-head);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .01em;
+      border-left: 3px solid transparent;
+      transition: all .18s ease;
+    }
+
+    .sidebar nav a .n {
+      background: rgba(255,255,255,.12);
+      color: rgba(255,255,255,.50);
+      font-size: 10px;
+      font-weight: 800;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all .18s ease;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      border-left-color: var(--cr-orange);
+    }
+
+    .sidebar nav a:hover .n,
+    .sidebar nav a.active .n {
+      background: var(--cr-orange);
+      color: #fff;
+    }
+
+    .sb-footer {
+      margin-top: auto;
+      padding: 16px 20px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      font-size: 10px;
+      color: rgba(255,255,255,.25);
+      font-family: var(--font-head);
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    /* ── MAIN CONTENT ────────────────────────── */
+    .main {
+      margin-left: var(--sidebar);
+      flex: 1;
+      padding: 56px 56px 100px;
+      max-width: calc(var(--sidebar) + 900px);
+    }
+
+    .page-header {
+      margin-bottom: 64px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--cr-light);
+    }
+
+    .page-header .eyebrow {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--cr-orange);
+      margin-bottom: 10px;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: 40px;
+      color: var(--cr-navy);
+      letter-spacing: -.03em;
+      line-height: 1.1;
+    }
+
+    .page-header p {
+      margin-top: 12px;
+      font-size: 15px;
+      color: var(--cr-gray);
+      max-width: 520px;
+    }
+
+    /* ── SECTIONS ────────────────────────────── */
+    .section {
+      margin-bottom: 88px;
+      scroll-margin-top: 32px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--cr-light);
+    }
+
+    .sec-num {
+      background: var(--cr-orange);
+      color: #fff;
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: 13px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(232,98,42,.35);
+    }
+
+    .sec-title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 26px;
+      color: var(--cr-navy);
+      letter-spacing: -.025em;
+    }
+
+    /* subsections */
+    .subsection { margin-bottom: 40px; }
+    .sub-label {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cr-gray);
+      margin-bottom: 14px;
+    }
+
+    /* ── 1. IDENTITY ─────────────────────────── */
+    .logo-panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .logo-panel {
+      border-radius: var(--r);
+      padding: 40px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-panel img { width: 100%; max-width: 260px; display: block; }
+    .logo-panel.navy { background: var(--cr-navy); }
+    .logo-panel.dark { background: var(--cr-navy-dark); }
+    .logo-panel.orange { background: var(--cr-orange); }
+    .logo-panel.black { background: #000; }
+
+    .logo-rules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .rule-card {
+      background: var(--cr-white);
+      border-radius: var(--r);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .rule-card .rule-head {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .rule-card.do .rule-head { color: #16a34a; }
+    .rule-card.dont .rule-head { color: #dc2626; }
+
+    .rule-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .rule-card li {
+      font-size: 13px;
+      color: var(--cr-text);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .rule-card.do li::before { content: ''; position: absolute; left: 0; top: 1px; width: 12px; height: 12px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+    .rule-card.dont li::before { content: ''; position: absolute; left: 0; top: 1px; width: 12px; height: 12px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+
+    .clearspace-box {
+      background: var(--cr-white);
+      border-radius: var(--r);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .cs-inner {
+      display: inline-block;
+      position: relative;
+      padding: 24px;
+      border: 1.5px dashed var(--cr-orange-lt);
+    }
+
+    .cs-inner .cs-label {
+      position: absolute;
+      font-size: 10px;
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--cr-orange);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .cs-inner .cs-label.top { top: -8px; left: 50%; transform: translateX(-50%); background: #fff; padding: 0 4px; }
+    .cs-inner .cs-label.left { left: -22px; top: 50%; transform: translateY(-50%) rotate(-90deg); background: #fff; padding: 0 4px; white-space: nowrap; }
+
+    .cs-logo-wrap {
+      background: var(--cr-navy);
+      padding: 20px 32px;
+      border-radius: 4px;
+    }
+    .cs-logo-wrap img { width: 180px; }
+
+    /* ── 2. COLORS ───────────────────────────── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+    }
+
+    .swatch {
+      border-radius: var(--r);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform .18s, box-shadow .18s;
+    }
+
+    .swatch:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+    .swatch-block { height: 90px; position: relative; }
+
+    .swatch-copy {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.30);
+      opacity: 0;
+      transition: opacity .18s;
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: .06em;
+    }
+
+    .swatch:hover .swatch-copy { opacity: 1; }
+
+    .swatch-info {
+      background: var(--cr-white);
+      padding: 11px 12px;
+    }
+
+    .swatch-name {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--cr-dark);
+    }
+
+    .swatch-hex {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--cr-gray);
+      margin-top: 2px;
+    }
+
+    .swatch-detail {
+      font-size: 10px;
+      color: var(--cr-gray);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    .color-usage {
+      background: var(--cr-white);
+      border-radius: var(--r);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-top: 20px;
+    }
+
+    .color-usage h4 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--cr-navy);
+      margin-bottom: 12px;
+    }
+
+    .cu-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .cu-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ── 3. TYPOGRAPHY ───────────────────────── */
+    .type-specimen {
+      background: var(--cr-white);
+      border-radius: var(--r);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 16px;
+    }
+
+    .type-meta {
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cr-gray);
+      margin-bottom: 8px;
+    }
+
+    .specimen-text { color: var(--cr-text); }
+
+    .type-scale {
+      background: var(--cr-white);
+      border-radius: var(--r);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .ts-row {
+      display: grid;
+      grid-template-columns: 80px 80px 1fr;
+      gap: 0;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--cr-light);
+    }
+
+    .ts-row:last-child { border-bottom: none; }
+
+    .ts-size, .ts-weight {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--cr-gray);
+    }
+
+    /* ── 4. COMPONENTS ───────────────────────── */
+    .comp-panel {
+      background: var(--cr-white);
+      border-radius: var(--r);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 16px;
+    }
+
+    .comp-panel.dark-bg {
+      background: var(--cr-navy);
+    }
+
+    .comp-panel h4 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cr-gray);
+      margin-bottom: 20px;
+    }
+
+    .comp-panel.dark-bg h4 { color: rgba(255,255,255,.45); }
+
+    /* Buttons */
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+    .btn {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .04em;
+      padding: 12px 28px;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all .18s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--cr-orange);
+      color: #fff;
+      border-color: var(--cr-orange);
+    }
+    .btn-primary:hover { background: var(--cr-orange-dark); border-color: var(--cr-orange-dark); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(232,98,42,.35); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--cr-navy);
+      border-color: var(--cr-navy);
+    }
+    .btn-secondary:hover { background: var(--cr-navy); color: #fff; }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,.5);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+
+    .btn-sm { padding: 8px 18px; font-size: 12px; }
+    .btn-lg { padding: 16px 36px; font-size: 16px; }
+    .btn-disabled { opacity: .4; cursor: not-allowed; }
+
+    /* Form elements */
+    .form-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--cr-navy);
+      letter-spacing: .04em;
+    }
+    .field label .req { color: var(--cr-orange); margin-left: 2px; }
+
+    .field input[type=text],
+    .field input[type=email],
+    .field input[type=tel],
+    .field select,
+    .field textarea {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--cr-text);
+      background: var(--cr-off-white);
+      border: 1.5px solid var(--cr-gray-lt);
+      border-radius: 6px;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color .18s, box-shadow .18s;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--cr-navy);
+      box-shadow: 0 0 0 3px rgba(30,58,138,.12);
+    }
+
+    .radio-group, .check-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .radio-item, .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .radio-item input[type=radio],
+    .check-item input[type=checkbox] {
+      width: 18px; height: 18px;
+      accent-color: var(--cr-orange);
+      cursor: pointer;
+    }
+
+    /* Cards */
+    .card-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+    .info-card {
+      background: var(--cr-white);
+      border-radius: var(--r);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--cr-orange);
+    }
+
+    .info-card .card-body { padding: 20px; }
+    .info-card .card-icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .info-card .card-title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--cr-navy);
+      margin-bottom: 6px;
+    }
+    .info-card .card-text { font-size: 13px; color: var(--cr-gray); line-height: 1.5; }
+
+    .speaker-card {
+      background: var(--cr-navy);
+      border-radius: var(--r);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 0;
+    }
+
+    .speaker-card .sc-img {
+      width: 180px;
+      flex-shrink: 0;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .speaker-card .sc-body {
+      padding: 28px;
+      color: #fff;
+    }
+
+    .speaker-card .sc-eyebrow {
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--cr-orange-lt);
+      margin-bottom: 6px;
+    }
+
+    .speaker-card .sc-name {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+
+    .speaker-card .sc-bio { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.75); }
+
+    /* ── 5. IMAGERY ──────────────────────────── */
+    .imagery-rules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .img-rule {
+      background: var(--cr-white);
+      border-radius: var(--r);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .img-rule h4 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .img-rule.use h4 { color: #16a34a; }
+    .img-rule.avoid h4 { color: #dc2626; }
+
+    .img-rule ul { list-style: none; }
+    .img-rule li {
+      font-size: 13px;
+      color: var(--cr-text);
+      padding: 4px 0 4px 18px;
+      position: relative;
+    }
+
+    .img-rule.use li::before { content: '→'; position: absolute; left: 0; color: #16a34a; }
+    .img-rule.avoid li::before { content: '→'; position: absolute; left: 0; color: #dc2626; }
+
+    /* ── 6. DIGITAL FORMATS ──────────────────── */
+    .social-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .social-format { text-align: center; }
+
+    .social-box {
+      background: var(--cr-navy);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.50);
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-align: center;
+      border: 1.5px dashed rgba(255,255,255,.20);
+      gap: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255,255,255,.03) 10px,
+        rgba(255,255,255,.03) 20px
+      );
+    }
+
+    .social-box .sb-name {
+      font-size: 11px;
+      font-weight: 800;
+      color: rgba(255,255,255,.7);
+      position: relative;
+    }
+
+    .social-box .sb-dim {
+      font-size: 9px;
+      color: rgba(255,255,255,.35);
+      position: relative;
+    }
+
+    .social-box .sb-icon {
+      font-size: 20px;
+      position: relative;
+    }
+
+    .soc-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cr-gray);
+      margin-top: 8px;
+    }
+
+    /* ── 7. PRINT SPECS ──────────────────────── */
+    .print-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--cr-white);
+      border-radius: var(--r);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .print-table th {
+      background: var(--cr-navy);
+      color: #fff;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 14px 18px;
+      text-align: left;
+    }
+
+    .print-table td {
+      padding: 14px 18px;
+      font-size: 13.5px;
+      color: var(--cr-text);
+      border-bottom: 1px solid var(--cr-light);
+    }
+
+    .print-table tr:last-child td { border-bottom: none; }
+    .print-table tr:nth-child(even) td { background: var(--cr-off-white); }
+
+    .print-table td strong {
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--cr-navy);
+    }
+
+    .cmyk-chips { display: flex; gap: 8px; margin-top: 12px; }
+
+    .cmyk-chip {
+      background: var(--cr-white);
+      border-radius: 6px;
+      border: 1px solid var(--cr-light);
+      padding: 10px 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cmyk-chip .ch-color {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      margin-bottom: 6px;
+    }
+
+    .cmyk-chip .ch-name {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--cr-dark);
+    }
+
+    .cmyk-chip .ch-val {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: var(--cr-gray);
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    /* ── 8. VOICE & TONE ─────────────────────── */
+    .vt-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+    .vt-col {
+      background: var(--cr-white);
+      border-radius: var(--r);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .vt-col h4 {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--cr-light);
+    }
+
+    .vt-col.do h4 { color: #16a34a; border-color: #bbf7d0; }
+    .vt-col.avoid h4 { color: #dc2626; border-color: #fecaca; }
+    .vt-col.example h4 { color: var(--cr-orange); border-color: #fed7aa; }
+
+    .vt-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .vt-col li { font-size: 13px; color: var(--cr-text); line-height: 1.5; }
+
+    .vt-col.do li::before { content: ''; display: inline-block; width: 12px; height: 12px; margin-right: 6px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; vertical-align: middle; }
+    .vt-col.avoid li::before { content: ''; display: inline-block; width: 12px; height: 12px; margin-right: 6px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; vertical-align: middle; }
+
+    .vt-col blockquote {
+      font-size: 13px;
+      color: var(--cr-navy);
+      line-height: 1.65;
+      font-style: italic;
+      padding: 12px 14px;
+      background: var(--cr-off-white);
+      border-left: 3px solid var(--cr-orange);
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 10px;
+    }
+
+    .vt-col .ex-label {
+      font-size: 10px;
+      font-family: var(--font-head);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cr-gray);
+      margin-bottom: 4px;
+    }
+
+    .key-phrases {
+      background: var(--cr-navy);
+      border-radius: var(--r);
+      padding: 28px;
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .phrase-tag {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.20);
+      color: #fff;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    /* ── TOAST ───────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      background: var(--cr-dark);
+      color: #fff;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all .25s ease;
+      pointer-events: none;
+      z-index: 9999;
+      border-left: 3px solid var(--cr-orange);
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ── HELPERS ─────────────────────────────── */
+    .note {
+      background: #FFF7ED;
+      border: 1px solid #FED7AA;
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #92400E;
+      margin-bottom: 16px;
+    }
+
+    .note strong { font-weight: 700; }
+
+    .divider { height: 1px; background: var(--cr-light); margin: 32px 0; }
+
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 32px 24px 80px; }
+      .logo-panels, .logo-rules, .color-grid,
+      .form-demo, .card-row, .vt-grid,
+      .imagery-rules { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-brand">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery">
+    <div class="sb-tagline">Brand Guide · 20th Anniversary</div>
+  </div>
+
+  <div class="sb-label">Brand System</div>
+  <nav>
+    <a href="#identity" class="active"><span class="n">1</span> Identity</a>
+    <a href="#colors"><span class="n">2</span> Color Palette</a>
+    <a href="#typography"><span class="n">3</span> Typography</a>
+    <a href="#components"><span class="n">4</span> UI Components</a>
+    <a href="#imagery"><span class="n">5</span> Imagery</a>
+    <a href="#digital"><span class="n">6</span> Digital Formats</a>
+    <a href="#print"><span class="n">7</span> Print Specs</a>
+    <a href="#voice"><span class="n">8</span> Voice &amp; Tone</a>
+  </nav>
+
+  <div class="sb-footer">CR Zion · Fairbanks, AK · 2026</div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <header class="page-header">
+    <div class="eyebrow">Official Brand Reference</div>
+    <h1>Brand Guide</h1>
+    <p>Visual standards, voice guidelines, and design specifications for the Celebrate Recovery Zion 20th Anniversary campaign — June 5–6, 2026, Fairbanks, Alaska.</p>
+  </header>
+
+  <!-- ── 1. IDENTITY ── -->
+  <section class="section" id="identity">
+    <div class="section-head">
+      <div class="sec-num">1</div>
+      <h2 class="sec-title">Identity &amp; Logo Usage</h2>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Approved Backgrounds</div>
+      <div class="logo-panels">
+        <div class="logo-panel navy">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="CR Logo on Navy">
+        </div>
+        <div class="logo-panel dark">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="CR Logo on Dark Navy">
+        </div>
+        <div class="logo-panel orange">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="CR Logo on Orange">
+        </div>
+        <div class="logo-panel black">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="CR Logo on Black">
+        </div>
+      </div>
+      <div class="note"><strong>Important:</strong> The primary logo file is white. It must always appear on a dark background — navy, dark navy, CR orange, or black. Never place it on white, off-white, or light gray backgrounds without acquiring the dark-color version from CR National.</div>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Clear Space</div>
+      <div class="clearspace-box">
+        <div class="cs-inner">
+          <span class="cs-label top">1× logo height clearance</span>
+          <span class="cs-label left">1× logo height</span>
+          <div class="cs-logo-wrap">
+            <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="CR Logo">
+          </div>
+        </div>
+        <p style="margin-top:16px;font-size:12px;color:var(--cr-gray);">Maintain a minimum clear space equal to the height of the logo emblem on all four sides.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Do / Don't</div>
+      <div class="logo-rules">
+        <div class="rule-card do">
+          <div class="rule-head">Do</div>
+          <ul>
+            <li>Use on navy, dark navy, or orange backgrounds</li>
+            <li>Scale proportionally — never stretch or squish</li>
+            <li>Maintain minimum width of 120px (digital) / 1.5 in (print)</li>
+            <li>Use SVG format for all digital applications</li>
+            <li>Request high-res EPS/PDF from CR National for large-format print</li>
+          </ul>
+        </div>
+        <div class="rule-card dont">
+          <div class="rule-head">Don't</div>
+          <ul>
+            <li>Place on light, white, or patterned backgrounds</li>
+            <li>Recolor, outline, or add drop shadows to the logo</li>
+            <li>Crop, rotate, or alter the proportions</li>
+            <li>Use at sizes below 120px wide (digital) or 1" wide (print)</li>
+            <li>Place on low-contrast or busy photographic backgrounds</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. COLORS ── -->
+  <section class="section" id="colors">
+    <div class="section-head">
+      <div class="sec-num">2</div>
+      <h2 class="sec-title">Color Palette</h2>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Primary Colors</div>
+      <div class="color-grid">
+        <div class="swatch" onclick="copyHex('#1E3A8A','CR Navy')">
+          <div class="swatch-block" style="background:#1E3A8A;">
+            <div class="swatch-copy">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Navy</div>
+            <div class="swatch-hex">#1E3A8A</div>
+            <div class="swatch-detail">RGB 30 58 138</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#0F1F5C','CR Navy Dark')">
+          <div class="swatch-block" style="background:#0F1F5C;">
+            <div class="swatch-copy">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Navy Dark</div>
+            <div class="swatch-hex">#0F1F5C</div>
+            <div class="swatch-detail">RGB 15 31 92</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#2D4EA8','CR Navy Light')">
+          <div class="swatch-block" style="background:#2D4EA8;">
+            <div class="swatch-copy">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Navy Light</div>
+            <div class="swatch-hex">#2D4EA8</div>
+            <div class="swatch-detail">RGB 45 78 168</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#E8622A','CR Orange')">
+          <div class="swatch-block" style="background:#E8622A;">
+            <div class="swatch-copy">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Orange</div>
+            <div class="swatch-hex">#E8622A</div>
+            <div class="swatch-detail">RGB 232 98 42</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#BF4A18','CR Orange Dark')">
+          <div class="swatch-block" style="background:#BF4A18;">
+            <div class="swatch-copy">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Orange Dark</div>
+            <div class="swatch-hex">#BF4A18</div>
+            <div class="swatch-detail">RGB 191 74 24</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#F07E50','CR Orange Light')">
+          <div class="swatch-block" style="background:#F07E50;">
+            <div class="swatch-copy">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Orange Light</div>
+            <div class="swatch-hex">#F07E50</div>
+            <div class="swatch-detail">RGB 240 126 80</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Supporting Colors</div>
+      <div class="color-grid">
+        <div class="swatch" onclick="copyHex('#FFFFFF','CR White')">
+          <div class="swatch-block" style="background:#FFFFFF;border:1px solid #E8EBF4;">
+            <div class="swatch-copy" style="background:rgba(0,0,0,.15);">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR White</div>
+            <div class="swatch-hex">#FFFFFF</div>
+            <div class="swatch-detail">Text on dark bgs</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#F8F9FC','CR Off-White')">
+          <div class="swatch-block" style="background:#F8F9FC;border:1px solid #E8EBF4;">
+            <div class="swatch-copy" style="background:rgba(0,0,0,.15);">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Off-White</div>
+            <div class="swatch-hex">#F8F9FC</div>
+            <div class="swatch-detail">Page backgrounds</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#E8EBF4','CR Light')">
+          <div class="swatch-block" style="background:#E8EBF4;">
+            <div class="swatch-copy" style="background:rgba(0,0,0,.15);">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Light</div>
+            <div class="swatch-hex">#E8EBF4</div>
+            <div class="swatch-detail">Borders, dividers</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#6B7280','CR Gray')">
+          <div class="swatch-block" style="background:#6B7280;">
+            <div class="swatch-copy">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Gray</div>
+            <div class="swatch-hex">#6B7280</div>
+            <div class="swatch-detail">Secondary text</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#0D1733','CR Dark')">
+          <div class="swatch-block" style="background:#0D1733;">
+            <div class="swatch-copy">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Dark</div>
+            <div class="swatch-hex">#0D1733</div>
+            <div class="swatch-detail">Deep backgrounds</div>
+          </div>
+        </div>
+        <div class="swatch" onclick="copyHex('#1A1E3A','CR Text')">
+          <div class="swatch-block" style="background:#1A1E3A;">
+            <div class="swatch-copy">Click to copy</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">CR Text</div>
+            <div class="swatch-hex">#1A1E3A</div>
+            <div class="swatch-detail">Body text on white</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-usage">
+      <h4>Color Usage Rules</h4>
+      <div class="cu-row"><div class="cu-dot" style="background:#1E3A8A;"></div><div><strong>CR Navy</strong> — Primary section backgrounds, headers, footers, text headings on white</div></div>
+      <div class="cu-row"><div class="cu-dot" style="background:#E8622A;"></div><div><strong>CR Orange</strong> — All CTAs and primary buttons, key accent elements, numbered badges, borders. Limit to 15–20% of any composition.</div></div>
+      <div class="cu-row"><div class="cu-dot" style="background:#F8F9FC;"></div><div><strong>CR Off-White</strong> — Page backgrounds, card backgrounds on light layouts</div></div>
+      <div class="cu-row"><div class="cu-dot" style="background:#6B7280;"></div><div><strong>CR Gray</strong> — Secondary body text, meta information, captions</div></div>
+    </div>
+
+    <div class="subsection" style="margin-top:24px;">
+      <div class="sub-label">Print CMYK Values</div>
+      <div class="cmyk-chips">
+        <div class="cmyk-chip">
+          <div class="ch-color" style="background:#1E3A8A;"></div>
+          <div class="ch-name">CR Navy</div>
+          <div class="ch-val">C87 M73 Y0 K46</div>
+        </div>
+        <div class="cmyk-chip">
+          <div class="ch-color" style="background:#0F1F5C;"></div>
+          <div class="ch-name">CR Navy Dark</div>
+          <div class="ch-val">C100 M87 Y0 K64</div>
+        </div>
+        <div class="cmyk-chip">
+          <div class="ch-color" style="background:#E8622A;"></div>
+          <div class="ch-name">CR Orange</div>
+          <div class="ch-val">C0 M62 Y82 K9</div>
+        </div>
+        <div class="cmyk-chip">
+          <div class="ch-color" style="background:#BF4A18;"></div>
+          <div class="ch-name">Orange Dark</div>
+          <div class="ch-val">C0 M75 Y87 K25</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. TYPOGRAPHY ── -->
+  <section class="section" id="typography">
+    <div class="section-head">
+      <div class="sec-num">3</div>
+      <h2 class="sec-title">Typography</h2>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Primary Typeface — Montserrat (Headings, CTAs, Labels)</div>
+      <div class="type-specimen">
+        <div class="type-meta">Montserrat 900 — Display / Hero</div>
+        <div class="specimen-text" style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:48px;letter-spacing:-.03em;line-height:1.05;color:var(--cr-navy);">20 Years of Hope<br>and Healing</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">Montserrat 800 — Section Headings</div>
+        <div class="specimen-text" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:32px;letter-spacing:-.025em;color:var(--cr-navy);">Celebrate Recovery in Alaska</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">Montserrat 700 — Subheadings / Labels</div>
+        <div class="specimen-text" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:var(--cr-navy);">June 5–6, 2026 · Fairbanks, Alaska</div>
+        <div class="specimen-text" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cr-orange);margin-top:12px;">Keynote Speaker</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Body Typeface — Open Sans (Body Copy, Form Labels, Captions)</div>
+      <div class="type-specimen">
+        <div class="type-meta">Open Sans 400 — Body copy</div>
+        <div class="specimen-text" style="font-family:'Open Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--cr-text);max-width:560px;">Celebrate Recovery is a safe place to find freedom from your hurts, hang-ups, and habits. Whether you're facing addiction, grief, anxiety, or any of life's challenges — you are welcome here. No one should have to face their pain alone.</div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">Open Sans 600 — Emphasis / Strong</div>
+        <div class="specimen-text" style="font-family:'Open Sans',sans-serif;font-weight:600;font-size:16px;color:var(--cr-text);">Registration required. T-shirt deadline: May 5, 2026.</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Type Scale</div>
+      <div class="type-scale">
+        <div class="ts-row">
+          <span class="ts-size">48px</span>
+          <span class="ts-weight">Mntsr 900</span>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:48px;letter-spacing:-.03em;color:var(--cr-navy);">Hero</span>
+        </div>
+        <div class="ts-row">
+          <span class="ts-size">36px</span>
+          <span class="ts-weight">Mntsr 800</span>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:36px;letter-spacing:-.025em;color:var(--cr-navy);">Heading 1</span>
+        </div>
+        <div class="ts-row">
+          <span class="ts-size">28px</span>
+          <span class="ts-weight">Mntsr 800</span>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:28px;letter-spacing:-.02em;color:var(--cr-navy);">Heading 2</span>
+        </div>
+        <div class="ts-row">
+          <span class="ts-size">22px</span>
+          <span class="ts-weight">Mntsr 700</span>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:var(--cr-navy);">Heading 3</span>
+        </div>
+        <div class="ts-row">
+          <span class="ts-size">18px</span>
+          <span class="ts-weight">Mntsr 600</span>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:18px;color:var(--cr-navy);">Subheading / Callout</span>
+        </div>
+        <div class="ts-row">
+          <span class="ts-size">16px</span>
+          <span class="ts-weight">OS 400</span>
+          <span style="font-family:'Open Sans',sans-serif;font-size:16px;color:var(--cr-text);">Body copy — default reading size</span>
+        </div>
+        <div class="ts-row">
+          <span class="ts-size">14px</span>
+          <span class="ts-weight">OS 400</span>
+          <span style="font-family:'Open Sans',sans-serif;font-size:14px;color:var(--cr-text);">Secondary body / form fields</span>
+        </div>
+        <div class="ts-row">
+          <span class="ts-size">12px</span>
+          <span class="ts-weight">Mntsr 700</span>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.10em;text-transform:uppercase;color:var(--cr-gray);">LABELS / EYEBROWS / CAPTIONS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 4. UI COMPONENTS ── -->
+  <section class="section" id="components">
+    <div class="section-head">
+      <div class="sec-num">4</div>
+      <h2 class="sec-title">UI Components</h2>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Buttons</div>
+      <div class="comp-panel">
+        <h4>Button Variants — Light Context</h4>
+        <div class="btn-row">
+          <a href="#" class="btn btn-primary">Register Now</a>
+          <a href="#" class="btn btn-secondary">Learn More</a>
+          <a href="#" class="btn btn-primary btn-sm">Reserve Seat</a>
+          <a href="#" class="btn btn-primary btn-lg">Save Your Spot →</a>
+          <a href="#" class="btn btn-primary btn-disabled" tabindex="-1">Sold Out</a>
+        </div>
+      </div>
+      <div class="comp-panel dark-bg">
+        <h4>Ghost Button — Dark Context</h4>
+        <div class="btn-row">
+          <a href="#" class="btn btn-ghost">View Schedule</a>
+          <a href="#" class="btn btn-primary">Register Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Form Elements</div>
+      <div class="comp-panel">
+        <h4>Registration Form Fields</h4>
+        <div class="form-demo">
+          <div class="field">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" placeholder="First Name">
+          </div>
+          <div class="field">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" placeholder="Last Name">
+          </div>
+          <div class="field">
+            <label>Phone <span class="req">*</span></label>
+            <input type="tel" placeholder="(907) 555-0100">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label>Attendance <span class="req">*</span></label>
+            <div class="radio-group">
+              <label class="radio-item"><input type="radio" name="attend" checked> Friday only (June 5)</label>
+              <label class="radio-item"><input type="radio" name="attend"> Saturday only (June 6)</label>
+              <label class="radio-item"><input type="radio" name="attend"> Both days</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>T-Shirt Size</label>
+            <select>
+              <option value="">Select size…</option>
+              <option>XS</option><option>S</option><option>M</option>
+              <option>L</option><option>XL</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field" style="grid-column:1/-1;">
+            <label>Small Group Interest</label>
+            <div class="check-group" style="flex-direction:row;gap:24px;">
+              <label class="check-item"><input type="checkbox"> Addictions &amp; Dependencies</label>
+              <label class="check-item"><input type="checkbox"> Other Hurts / Hang-ups / Habits</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Cards</div>
+      <div class="card-row">
+        <div class="info-card">
+          <div class="card-body">
+            <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div class="card-title">Friday Meeting</div>
+            <div class="card-text">June 5, 2026 · 7:00 PM<br>Light Dinner at 6:30 PM<br>Zion Lutheran Church</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="card-body">
+            <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+            <div class="card-title">Saturday Conference</div>
+            <div class="card-text">June 6, 2026 · 7:00 AM–4:30 PM<br>Live Band &amp; Worship<br>$20 registration fee</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="card-body">
+            <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
+            <div class="card-title">Salmon Bake</div>
+            <div class="card-text">Catered by Pike's Landing<br>Hot Dogs, Hamburgers<br>Dessert &amp; More</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <div class="speaker-card">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/tommy-woodard-portrait.jpg" alt="Tommy Woodard" class="sc-img">
+          <div class="sc-body">
+            <div class="sc-eyebrow">Keynote Speaker</div>
+            <div class="sc-name">Tommy Woodard</div>
+            <div class="sc-bio">Tommy has spent 30+ years telling stories that make people laugh — and then, without warning, think about Jesus. He starred in <em>Family Camp</em> (2022) and <em>The Forge</em> (2024), and leads 231 Collective creating faith-based films and art. He also serves as pastor at New Church, Oklahoma City.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 5. IMAGERY ── -->
+  <section class="section" id="imagery">
+    <div class="section-head">
+      <div class="sec-num">5</div>
+      <h2 class="sec-title">Imagery Guidelines</h2>
+    </div>
+
+    <div class="imagery-rules">
+      <div class="img-rule use">
+        <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px"><polyline points="20 6 9 17 4 12"/></svg> Use Images That Are…</h4>
+        <ul>
+          <li>Authentic and unposed — real moments of connection</li>
+          <li>Community-focused — groups, pairs, people together</li>
+          <li>Warm and hopeful — good light, positive expressions</li>
+          <li>Inclusive of diverse ages and backgrounds</li>
+          <li>Outdoors or natural Alaska settings when relevant</li>
+          <li>High-contrast, print-safe (300 DPI minimum for print)</li>
+        </ul>
+      </div>
+      <div class="img-rule avoid">
+        <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Avoid Images That Show…</h4>
+        <ul>
+          <li>Clinical or sterile environments suggesting treatment</li>
+          <li>Distressed, stigmatizing, or crisis-focused subjects</li>
+          <li>Isolated individuals looking hopeless or defeated</li>
+          <li>Generic stock photo aesthetics (too clean, too posed)</li>
+          <li>Imagery suggesting only addiction (70% of attendees are not)</li>
+          <li>Low-resolution images (below 72 DPI for web, 300 for print)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Speaker Photo — Tommy Woodard</div>
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:24px;background:var(--cr-white);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);">
+        <div>
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/tommy-woodard-portrait.jpg" alt="Tommy Woodard" style="width:100%;border-radius:var(--r);object-fit:cover;object-position:top;">
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:10px;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--cr-orange);">Photo Usage Notes</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:13px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg></span> Used for speaker bio sections on all media</li>
+            <li style="font-size:13px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg></span> Pair with navy background for contrast and warmth</li>
+            <li style="font-size:13px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg></span> Crop from shoulders up for email and social use</li>
+            <li style="font-size:13px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#dc2626;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Do not alter skin tone, add filters, or distort</li>
+            <li style="font-size:13px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#dc2626;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Usage subject to contract approval via Liz Gerdes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 6. DIGITAL FORMATS ── -->
+  <section class="section" id="digital">
+    <div class="section-head">
+      <div class="sec-num">6</div>
+      <h2 class="sec-title">Digital Formats</h2>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Social Media Template Sizes</div>
+      <div class="social-grid">
+
+        <div class="social-format">
+          <div class="social-box" style="width:120px;height:120px;">
+            <div class="sb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+            <div class="sb-name">FB / IG Post</div>
+            <div class="sb-dim">1080 × 1080</div>
+          </div>
+          <div class="soc-label">Square Post</div>
+        </div>
+
+        <div class="social-format">
+          <div class="social-box" style="width:68px;height:120px;">
+            <div class="sb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <div class="sb-name">Story</div>
+            <div class="sb-dim">1080×1920</div>
+          </div>
+          <div class="soc-label">IG / FB Story</div>
+        </div>
+
+        <div class="social-format">
+          <div class="social-box" style="width:240px;height:91px;">
+            <div class="sb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+            <div class="sb-name">Facebook Cover</div>
+            <div class="sb-dim">820 × 312 px</div>
+          </div>
+          <div class="soc-label">FB Cover Photo</div>
+        </div>
+
+        <div class="social-format">
+          <div class="social-box" style="width:176px;height:91px;">
+            <div class="sb-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+            <div class="sb-name">FB / Display Ad</div>
+            <div class="sb-dim">1200 × 628 px</div>
+          </div>
+          <div class="soc-label">Paid Ad (1.91:1)</div>
+        </div>
+
+        <div class="social-format">
+          <div class="social-box" style="width:160px;height:90px;">
+            <div class="sb-icon">𝕏</div>
+            <div class="sb-name">Twitter/X Post</div>
+            <div class="sb-dim">1200 × 675 px</div>
+          </div>
+          <div class="soc-label">Twitter / X Card</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Email Specifications</div>
+      <div class="comp-panel">
+        <h4>Email Octopus Campaign Format</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:13px;color:var(--cr-text);">
+          <div>
+            <strong style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--cr-navy);">Layout</strong>
+            <ul style="margin-top:6px;padding-left:16px;display:flex;flex-direction:column;gap:4px;">
+              <li>Max width: 600px</li>
+              <li>Single column, stacked sections</li>
+              <li>Preheader text: 90–140 characters</li>
+              <li>Inline CSS for all styles</li>
+            </ul>
+          </div>
+          <div>
+            <strong style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--cr-navy);">Images</strong>
+            <ul style="margin-top:6px;padding-left:16px;display:flex;flex-direction:column;gap:4px;">
+              <li>Header image: 600px wide, 200–250px tall</li>
+              <li>Always include alt text</li>
+              <li>72 DPI, sRGB color profile</li>
+              <li>JPG for photos, PNG for logos/graphics</li>
+            </ul>
+          </div>
+          <div>
+            <strong style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--cr-navy);">Sender</strong>
+            <ul style="margin-top:6px;padding-left:16px;display:flex;flex-direction:column;gap:4px;">
+              <li>From: Celebrate Recovery Zion</li>
+              <li>Reply-to: bill@zionlutherfairbanks.org</li>
+              <li>Send 3 emails: Announce → Speaker → Last Call</li>
+            </ul>
+          </div>
+          <div>
+            <strong style="font-family:'Montserrat',sans-serif;font-weight:700;color:var(--cr-navy);">Timing</strong>
+            <ul style="margin-top:6px;padding-left:16px;display:flex;flex-direction:column;gap:4px;">
+              <li>Email 1: 6+ weeks before (Announcement)</li>
+              <li>Email 2: 3 weeks before (Speaker spotlight)</li>
+              <li>Email 3: 1 week before (Last call / T-shirt deadline)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 7. PRINT SPECS ── -->
+  <section class="section" id="print">
+    <div class="section-head">
+      <div class="sec-num">7</div>
+      <h2 class="sec-title">Print Specifications</h2>
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Newspaper Ad Units</div>
+      <table class="print-table">
+        <thead>
+          <tr>
+            <th>Format</th>
+            <th>Dimensions</th>
+            <th>Publication</th>
+            <th>Resolution</th>
+            <th>Color Mode</th>
+            <th>Bleed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Quarter Page (Vertical)</strong></td>
+            <td>4.625" × 10.5"</td>
+            <td>Fairbanks News-Miner</td>
+            <td>300 DPI</td>
+            <td>CMYK</td>
+            <td>0.125" all sides</td>
+          </tr>
+          <tr>
+            <td><strong>Quarter Page (Vertical)</strong></td>
+            <td>4.625" × 10.5"</td>
+            <td>Anchorage Daily News</td>
+            <td>300 DPI</td>
+            <td>CMYK</td>
+            <td>0.125" all sides</td>
+          </tr>
+          <tr>
+            <td><strong>Half Page (Horizontal)</strong></td>
+            <td>9.375" × 10.5"</td>
+            <td>Anchorage Daily News</td>
+            <td>300 DPI</td>
+            <td>CMYK</td>
+            <td>0.125" all sides</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:16px;">
+      <strong>Verify with papers:</strong> Contact the Fairbanks News-Miner and Anchorage Daily News ad departments to confirm exact column-inch dimensions, bleed requirements, and preferred file formats (PDF/X-1a or PDF/X-4 are standard). Inquire about their print deadline schedules for the week of May 25–June 1.
+    </div>
+
+    <div class="subsection">
+      <div class="sub-label">Print File Checklist</div>
+      <div class="comp-panel">
+        <h4>Before Submitting to the Printer</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+            <li style="font-size:13px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span> Export as PDF/X-1a (CMYK, embedded fonts)</li>
+            <li style="font-size:13px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span> All colors converted from RGB to CMYK</li>
+            <li style="font-size:13px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span> All fonts embedded (Montserrat + Open Sans)</li>
+            <li style="font-size:13px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span> 300 DPI minimum for all raster images</li>
+          </ul>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+            <li style="font-size:13px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span> 0.125" bleed added on all sides</li>
+            <li style="font-size:13px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span> All critical content within 0.125" safety margin</li>
+            <li style="font-size:13px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span> Logo saved from SVG source, not rasterized screenshot</li>
+            <li style="font-size:13px;padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:1px;color:#16a34a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span> Proof approved by Liz Gerdes before submission</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 8. VOICE & TONE ── -->
+  <section class="section" id="voice">
+    <div class="section-head">
+      <div class="sec-num">8</div>
+      <h2 class="sec-title">Voice &amp; Tone</h2>
+    </div>
+
+    <div class="vt-grid">
+      <div class="vt-col do">
+        <h4>Do Write…</h4>
+        <ul>
+          <li>Warm and welcoming — lead with belonging</li>
+          <li>Hopeful and forward-looking, not crisis-focused</li>
+          <li>Community-first language ("we," "together," "join us")</li>
+          <li>Faith-centered without heavy doctrine</li>
+          <li>Specific and concrete (real dates, real people, real place)</li>
+          <li>Inclusive — CR is for all hurts, not just addiction</li>
+          <li>Action-oriented CTAs ("Register," "Join Us," "Come")</li>
+        </ul>
+      </div>
+      <div class="vt-col avoid">
+        <h4>Avoid…</h4>
+        <ul>
+          <li>Clinical or treatment language ("patients," "therapy")</li>
+          <li>Shame-based framing ("if you're struggling with...")</li>
+          <li>Assuming only addicts attend (only ~30% are)</li>
+          <li>Heavy doctrinal language that excludes seekers</li>
+          <li>Vague platitudes ("life-changing experience")</li>
+          <li>Urgency that feels manipulative or fear-based</li>
+          <li>Jargon non-CR people won't understand</li>
+        </ul>
+      </div>
+      <div class="vt-col example">
+        <h4>Example Copy</h4>
+        <div class="ex-label">Headline</div>
+        <blockquote>"20 Years of Hope and Healing in Alaska"</blockquote>
+        <div class="ex-label">Body</div>
+        <blockquote>"Whether you're facing addiction, grief, anxiety, or any of life's hurts, hang-ups, and habits — you are welcome here. No one should face their pain alone."</blockquote>
+        <div class="ex-label">CTA</div>
+        <blockquote>"Register now — T-shirts available for those who sign up by May 5."</blockquote>
+      </div>
+    </div>
+
+    <div class="key-phrases">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.40);width:100%;margin-bottom:4px;">Key Brand Phrases</div>
+      <span class="phrase-tag">Hurts, Hang-ups &amp; Habits</span>
+      <span class="phrase-tag">Find Freedom</span>
+      <span class="phrase-tag">No One Faces It Alone</span>
+      <span class="phrase-tag">Hope and Healing</span>
+      <span class="phrase-tag">Come As You Are</span>
+      <span class="phrase-tag">20 Years in Alaska</span>
+      <span class="phrase-tag">Christ-Centered Recovery</span>
+      <span class="phrase-tag">Safe Place</span>
+      <span class="phrase-tag">Real Community</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // Copy hex to clipboard
+  function copyHex(hex, name) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const t = document.getElementById('toast');
+      t.textContent = `Copied ${name}: ${hex}`;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    });
+  }
+
+  // Sidebar active state on scroll
+  const sections = document.querySelectorAll('.section[id]');
+  const navLinks = document.querySelectorAll('.sidebar nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
