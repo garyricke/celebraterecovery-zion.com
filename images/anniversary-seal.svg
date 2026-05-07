@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Celebrate Recovery 20 Years – Zion Lutheran, Fairbanks Alaska">
+  <defs>
+    <path id="seal-top-arc" d="M 50 200 A 150 150 0 0 1 350 200"/>
+    <path id="seal-bot-arc" d="M 60 215 A 142 142 0 0 0 340 215"/>
+    <radialGradient id="seal-glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#0F1F5C"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Layered circles -->
+  <circle cx="200" cy="200" r="195" fill="#0F1F5C"/>
+  <circle cx="200" cy="200" r="185" fill="none" stroke="#E8622A" stroke-width="2"/>
+  <circle cx="200" cy="200" r="178" fill="none" stroke="#E8622A" stroke-width="1" stroke-dasharray="1 5" opacity="0.85"/>
+  <circle cx="200" cy="200" r="165" fill="url(#seal-glow)"/>
+
+  <!-- Arched titles -->
+  <text font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="16" fill="#E8622A" letter-spacing="4">
+    <textPath href="#seal-top-arc" startOffset="50%" text-anchor="middle">★  CELEBRATE  RECOVERY  ★</textPath>
+  </text>
+  <text font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="12" fill="#ffffff" letter-spacing="3">
+    <textPath href="#seal-bot-arc" startOffset="50%" text-anchor="middle">ZION LUTHERAN  •  FAIRBANKS, ALASKA</textPath>
+  </text>
+
+  <!-- Aurora dots (kept clear of CR mark) -->
+  <g fill="#ffffff">
+    <circle cx="112" cy="128" r="1.8" opacity="0.7"/>
+    <circle cx="152" cy="100" r="1.2" opacity="0.5"/>
+    <circle cx="252" cy="100" r="1.8" opacity="0.7"/>
+    <circle cx="292" cy="128" r="1.2" opacity="0.5"/>
+  </g>
+
+  <!-- Mountain silhouette behind 20 -->
+  <path d="M 80 248 L 125 205 L 155 228 L 195 188 L 230 218 L 275 198 L 320 248 Z" fill="#ffffff" opacity="0.10"/>
+
+  <!-- C|R glyph -->
+  <g transform="translate(200,112)">
+    <circle r="26" fill="none" stroke="#ffffff" stroke-width="2.6"/>
+    <text y="-2" font-family="Montserrat, 'Arial Black', sans-serif" font-weight="900" font-size="26" fill="#ffffff" text-anchor="middle">C</text>
+    <line x1="-22" y1="0" x2="22" y2="0" stroke="#ffffff" stroke-width="2.4"/>
+    <text y="23" font-family="Montserrat, 'Arial Black', sans-serif" font-weight="900" font-size="26" fill="#ffffff" text-anchor="middle">R</text>
+  </g>
+
+  <!-- Big 20 -->
+  <text x="200" y="252" font-family="Montserrat, 'Arial Black', sans-serif" font-weight="900" font-size="110" fill="#ffffff" text-anchor="middle">20</text>
+
+  <!-- YEARS -->
+  <text x="200" y="280" font-family="Montserrat, sans-serif" font-weight="800" font-size="20" fill="#E8622A" text-anchor="middle" letter-spacing="10">YEARS</text>
+
+  <!-- Dates rule -->
+  <line x1="128" y1="302" x2="150" y2="302" stroke="#E8622A" stroke-width="1.2"/>
+  <text x="200" y="306" font-family="Montserrat, sans-serif" font-weight="600" font-size="10" fill="#ffffff" opacity="0.9" text-anchor="middle" letter-spacing="2">2006 — 2026</text>
+  <line x1="250" y1="302" x2="272" y2="302" stroke="#E8622A" stroke-width="1.2"/>
+</svg>

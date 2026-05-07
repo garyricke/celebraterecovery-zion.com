@@ -55,8 +55,9 @@
     }
 
     #pw-overlay img.pw-logo {
-      width: 260px;
-      margin-bottom: 40px;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 32px;
     }
 
     .pw-box {
@@ -138,11 +139,35 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
+      height: 112px;
       box-shadow: 0 2px 16px rgba(0,0,0,.25);
+      transition: height .35s cubic-bezier(.4,0,.2,1);
     }
 
-    .nav-logo { height: 36px; }
+    nav.scrolled { height: 64px; }
+
+    .nav-brand {
+      position: relative;
+      display: block;
+      width: 92px;
+      height: 92px;
+      transition: width  .35s cubic-bezier(.4,0,.2,1),
+                  height .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    .nav-logo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity .25s ease;
+    }
+
+    .nav-logo--mark { opacity: 0; }
+
+    nav.scrolled .nav-brand     { width: 48px; height: 48px; }
+    nav.scrolled .nav-logo--full { opacity: 0; }
+    nav.scrolled .nav-logo--mark { opacity: 1; }
 
     .nav-links {
       display: flex;
@@ -446,7 +471,45 @@
     }
 
     /* ── SCHEDULE ────────────────────────────── */
-    .schedule-bg { background: var(--navy-dark); }
+    /* ── AURORA STAGE: banner + schedule share one gradient ── */
+    .aurora-stage {
+      position: relative;
+      background:
+        radial-gradient(ellipse 70% 420px at 18% 0%,  rgba(232,98,42,.45), transparent 65%),
+        radial-gradient(ellipse 80% 480px at 82% 12%, rgba(64,140,200,.48), transparent 68%),
+        linear-gradient(180deg, #0a1340 0%, #0F1F5C 32%, var(--navy-dark) 100%);
+    }
+
+    /* ── ANNIVERSARY BANNER ──────────────────── */
+    .anniv-banner {
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 96px 24px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .anniv-banner::before,
+    .anniv-banner::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      background: rgba(232,98,42,.30);
+    }
+    .anniv-banner::before { left: 36px;  top: 28px; bottom: 28px; }
+    .anniv-banner::after  { right: 36px; top: 28px; bottom: 28px; }
+    .anniv-banner-mark {
+      width: clamp(176px, 26vw, 272px);
+      height: auto;
+      filter: drop-shadow(0 18px 48px rgba(0,0,0,.45));
+    }
+    @media (max-width: 768px) {
+      .anniv-banner { padding: 64px 24px 32px; }
+      .anniv-banner::before, .anniv-banner::after { display: none; }
+    }
+
+    .schedule-bg { background: transparent; }
 
     .schedule-bg .section-title { color: #fff; }
     .schedule-bg .section-lead { color: rgba(255,255,255,.60); }
@@ -1047,7 +1110,7 @@
       flex-wrap: wrap;
     }
 
-    .footer-logo img { height: 40px; margin-bottom: 10px; }
+    .footer-logo img { height: 76px; width: 76px; margin-bottom: 14px; display: block; }
 
     .footer-logo p {
       font-size: 13px;
@@ -1102,7 +1165,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 16px;
     }
 
     .footer-bottom p {
@@ -1115,9 +1178,31 @@
       text-decoration: none;
     }
 
+    .presented-by {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      opacity: .55;
+      transition: opacity .2s ease;
+    }
+    .presented-by:hover { opacity: 1; }
+    .presented-by-label {
+      font-family: var(--font-h);
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+    .presented-by img { height: 22px; width: auto; display: block; }
+
     /* ── RESPONSIVE ──────────────────────────── */
     @media (max-width: 768px) {
-      nav { padding: 0 20px; }
+      nav { padding: 0 20px; height: 84px; }
+      nav.scrolled { height: 56px; }
+      .nav-brand { height: 64px; width: 64px; }
+      nav.scrolled .nav-brand { height: 40px; width: 40px; }
       .nav-links { display: none; }
       .section { padding: 56px 20px; }
       .hero { padding: 60px 20px; }
@@ -1140,7 +1225,7 @@
 
 <!-- ── PASSWORD OVERLAY ── -->
 <div id="pw-overlay">
-  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery" class="pw-logo">
+  <img src="images/anniversary-seal.svg" alt="Celebrate Recovery 20 Years — Zion Lutheran, Fairbanks Alaska" class="pw-logo">
   <div class="pw-box">
     <h2>Preview Access</h2>
     <p>This page is password-protected for review.<br>Contact Celebrate Recovery Zion for access.</p>
@@ -1152,7 +1237,10 @@
 
 <!-- ── STICKY NAV ── -->
 <nav>
-  <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery" class="nav-logo">
+  <a href="#top" class="nav-brand" aria-label="Celebrate Recovery 20 Years — Zion Lutheran, Fairbanks Alaska">
+    <img src="images/anniversary-seal.svg"      alt="" class="nav-logo nav-logo--full" aria-hidden="true">
+    <img src="images/anniversary-seal-mark.svg" alt="" class="nav-logo nav-logo--mark" aria-hidden="true">
+  </a>
   <div class="nav-links">
     <a href="#about">About CR</a>
     <a href="#schedule">Schedule</a>
@@ -1229,6 +1317,14 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- ── AURORA STAGE: anniversary banner + schedule share one backdrop ── -->
+<div class="aurora-stage">
+
+<!-- ── ANNIVERSARY MARK BANNER ── -->
+<section class="anniv-banner" aria-label="20 Years of Hope and Healing">
+  <img src="images/anniversary-seal.svg" alt="Celebrate Recovery 20 Years — Zion Lutheran, Fairbanks Alaska" class="anniv-banner-mark">
 </section>
 
 <!-- ── SCHEDULE ── -->
@@ -1309,6 +1405,8 @@
     </div>
   </div>
 </section>
+
+</div><!-- /.aurora-stage -->
 
 <!-- ── SPEAKER ── -->
 <section class="section speaker-section" id="speaker">
@@ -1418,7 +1516,7 @@
           <!-- Friday-only: Open Share Groups -->
           <div class="form-row single conditional" id="field-openShare">
             <div class="field">
-              <label>Participate in Open Share Groups? (Friday)</label>
+              <label>If you are attending the Friday Meeting, will you be staying for the open share groups?</label>
               <div class="radio-group" style="flex-direction:row;gap:24px;">
                 <label class="radio-label"><input type="radio" name="open-share" value="Yes"> Yes</label>
                 <label class="radio-label"><input type="radio" name="open-share" value="No"> No</label>
@@ -1426,13 +1524,26 @@
             </div>
           </div>
 
-          <!-- Small Groups interest -->
+          <!-- Friday-only: Small Groups -->
           <div class="form-row single conditional" id="field-smallGroups">
             <div class="field">
-              <label>Small Group Interest</label>
-              <div class="check-group">
-                <label class="check-label"><input type="checkbox" name="small-group" value="Addictions &amp; Dependencies"> Addictions &amp; Dependencies</label>
-                <label class="check-label"><input type="checkbox" name="small-group" value="Other Hurts/Hang-ups/Habits"> Other Hurts / Hang-ups / Habits</label>
+              <label>Which small group will you attend?</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="small-group" value="Addictions/Dependencies"> Addictions/Dependencies</label>
+                <label class="radio-label"><input type="radio" name="small-group" value="Other Hurts/Hang-ups/Habits"> Other Hurts/Hang-ups/Habits</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saturday-only: $20 Fee Agreement -->
+          <div class="form-row single conditional" id="field-saturdayFee">
+            <div class="field">
+              <label class="check-label" style="align-items:flex-start;line-height:1.45;">
+                <input type="checkbox" name="saturday-fee-agree" value="Yes">
+                <span>If you are attending the Saturday Conference, please click here to agree to the terms:</span>
+              </label>
+              <div style="margin-top:12px;background:#FFF7ED;border:1px solid #FED7AA;border-radius:10px;padding:14px 18px;font-size:13px;color:#92400E;line-height:1.55;">
+                We ask that everyone who attends the Saturday event pay the event fee of $20.00, which includes a fabulous Event T-Shirt! Payment can be either cash or check. We currently are not set up to process other forms of payment. Thank you!
               </div>
             </div>
           </div>
@@ -1440,16 +1551,15 @@
           <!-- Saturday-only: T-Shirt size -->
           <div class="form-row single conditional" id="field-tshirt">
             <div class="field">
-              <label>T-Shirt Size (Saturday — register by May 5)</label>
-              <select name="tshirt-size">
-                <option value="">Select size…</option>
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>Other</option>
-              </select>
+              <label>T-shirt size if attending the Saturday Conference (Unisex Sizing):</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="tshirt-size" value="XS"> XS</label>
+                <label class="radio-label"><input type="radio" name="tshirt-size" value="S"> S</label>
+                <label class="radio-label"><input type="radio" name="tshirt-size" value="M"> M</label>
+                <label class="radio-label"><input type="radio" name="tshirt-size" value="L"> L</label>
+                <label class="radio-label"><input type="radio" name="tshirt-size" value="XL"> XL</label>
+                <label class="radio-label"><input type="radio" name="tshirt-size" value="Other"> Other</label>
+              </div>
             </div>
           </div>
 
@@ -1459,12 +1569,11 @@
           <div class="form-row single">
             <div class="field">
               <div class="field-section-label">Lodging (Optional)</div>
-              <label>Overnight Stay</label>
+              <label>If you are from out of town, will you need to sleep over at the church? <span style="font-weight:400;color:var(--gray);font-size:13px;display:block;margin-top:4px;line-height:1.5;">If you answer "yes," you will need to arrive between 4:00–7:00 PM. Those staying on Saturday night must leave the church premises by 7:00 AM in order to allow our volunteers to clean up and prepare the church for the Sunday Worship Service. Thank you!</span></label>
               <div class="radio-group">
-                <label class="radio-label"><input type="radio" name="overnight" value="None"> Not staying overnight</label>
-                <label class="radio-label"><input type="radio" name="overnight" value="Friday night"> Friday night only</label>
-                <label class="radio-label"><input type="radio" name="overnight" value="Saturday night"> Saturday night only</label>
-                <label class="radio-label"><input type="radio" name="overnight" value="Both nights"> Both nights</label>
+                <label class="radio-label"><input type="radio" name="overnight" value="Friday night only"> Yes, but only for Friday night</label>
+                <label class="radio-label"><input type="radio" name="overnight" value="Saturday night only"> Yes, but only for Saturday night</label>
+                <label class="radio-label"><input type="radio" name="overnight" value="Both nights"> Yes, for BOTH Friday and Saturday nights</label>
               </div>
             </div>
           </div>
@@ -1554,7 +1663,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-logo">
-        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery">
+        <img src="images/anniversary-seal.svg" alt="Celebrate Recovery 20 Years — Zion Lutheran, Fairbanks Alaska">
         <p>20th Anniversary Celebration<br>Zion Lutheran Church · Fairbanks, Alaska<br>June 5–6, 2026</p>
       </div>
       <div class="footer-links">
@@ -1579,12 +1688,34 @@
     </div>
     <div class="footer-bottom">
       <p>© 2026 Celebrate Recovery — Zion Lutheran Church, Fairbanks AK. All rights reserved.</p>
-      <p>Celebrate Recovery is a ministry of <a href="https://celebraterecovery.com" target="_blank" rel="noopener">Celebrate Recovery</a></p>
+      <a class="presented-by" href="https://celebraterecovery.com" target="_blank" rel="noopener" aria-label="Presented by Celebrate Recovery — visit CelebrateRecovery.com">
+        <span class="presented-by-label">Presented by</span>
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery">
+      </a>
     </div>
   </div>
 </footer>
 
 <script>
+  // ── Nav shrink on scroll ──
+  (function () {
+    const navEl = document.querySelector('nav');
+    if (!navEl) return;
+    const SHRINK_AT = 32;          // px scrolled before shrinking
+    let ticking = false;
+    function update() {
+      navEl.classList.toggle('scrolled', window.scrollY > SHRINK_AT);
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    update(); // run once on load
+  })();
+
   // ── Password overlay ──
   const PASS = 'HopeHeals26';
 
@@ -1668,6 +1799,7 @@
 
     document.getElementById('field-openShare').classList.toggle('visible', showFri);
     document.getElementById('field-smallGroups').classList.toggle('visible', showFri);
+    document.getElementById('field-saturdayFee').classList.toggle('visible', showSat);
     document.getElementById('field-tshirt').classList.toggle('visible', showSat);
   }
 </script>

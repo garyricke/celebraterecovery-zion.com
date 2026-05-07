@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" role="img" aria-label="20 Years of Hope and Healing in Alaska – Zion Lutheran, Fairbanks">
+  <defs>
+    <linearGradient id="aurora-1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8622A" stop-opacity="0"/>
+      <stop offset="18%" stop-color="#E8622A" stop-opacity="0.55"/>
+      <stop offset="50%" stop-color="#1E3A8A" stop-opacity="0.9"/>
+      <stop offset="82%" stop-color="#E8622A" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#E8622A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="aurora-2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E3A8A" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#E8622A" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#1E3A8A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Aurora ribbons -->
+  <path d="M 30 70 Q 160 20, 300 60 T 575 70" fill="none" stroke="url(#aurora-1)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 30 90 Q 160 45, 300 80 T 575 92" fill="none" stroke="url(#aurora-2)" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Big 20 (filled + outline) -->
+  <text x="40" y="200" font-family="Montserrat, 'Arial Black', sans-serif" font-weight="900" font-size="200" fill="#1E3A8A" letter-spacing="-6">20</text>
+  <!-- Small horizon mountains tucked into the 0 (decorative) -->
+  <g opacity="0.18" fill="#ffffff">
+    <path d="M 145 175 L 165 145 L 180 165 L 200 130 L 220 160 L 235 145 L 250 175 Z"/>
+  </g>
+
+  <!-- YEARS -->
+  <text x="280" y="95" font-family="Montserrat, sans-serif" font-weight="800" font-size="34" fill="#E8622A" letter-spacing="14">YEARS</text>
+
+  <!-- Italic tagline -->
+  <text x="280" y="130" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="400" font-size="20" fill="#1E3A8A">of Hope &amp; Healing in Alaska</text>
+
+  <!-- Divider -->
+  <line x1="280" y1="148" x2="328" y2="148" stroke="#E8622A" stroke-width="2"/>
+
+  <!-- Location lockup -->
+  <text x="280" y="178" font-family="Montserrat, sans-serif" font-weight="700" font-size="14" fill="#1E3A8A" letter-spacing="3">ZION LUTHERAN CHURCH</text>
+  <text x="280" y="200" font-family="Montserrat, sans-serif" font-weight="500" font-size="12" fill="#1E3A8A" opacity="0.7" letter-spacing="2.5">FAIRBANKS, ALASKA  •  2006 – 2026</text>
+</svg>

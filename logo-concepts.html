@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anniversary Mark — Concepts | CR Zion 20th</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600&family=Source+Serif+Pro:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --navy:#1E3A8A; --navy-dk:#0F1F5C; --orange:#E8622A;
+    --bone:#F4ECDF; --paper:#FDFAF4; --ink:#141826;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:'Open Sans',system-ui,sans-serif;
+    background:var(--paper); color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ——— top bar ——— */
+  header{
+    border-bottom:1px solid rgba(20,24,38,.12);
+    padding:28px 40px 24px;
+    display:flex; align-items:flex-end; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+  }
+  header .eyebrow{
+    font-family:Montserrat,sans-serif; font-weight:700; font-size:11px;
+    letter-spacing:3.5px; text-transform:uppercase; color:var(--orange);
+  }
+  header h1{
+    font-family:Montserrat,sans-serif; font-weight:800; font-size:30px;
+    margin:6px 0 4px; color:var(--navy-dk); letter-spacing:-.5px;
+  }
+  header p{margin:0; font-size:14px; color:#3a4159; max-width:60ch}
+  header .meta{
+    font-family:Montserrat,sans-serif; font-size:11px; letter-spacing:2px;
+    text-transform:uppercase; color:#7a7f93;
+  }
+
+  /* ——— concept grid ——— */
+  main{padding:40px}
+  .concept{
+    display:grid;
+    grid-template-columns: 280px 1fr;
+    gap:40px;
+    border-top:1px solid rgba(20,24,38,.10);
+    padding:40px 0;
+  }
+  .concept:first-child{border-top:0; padding-top:8px}
+  .meta-col h2{
+    font-family:Montserrat,sans-serif; font-weight:800; font-size:22px;
+    margin:0 0 6px; color:var(--navy-dk); letter-spacing:-.3px;
+  }
+  .meta-col .num{
+    font-family:'Source Serif Pro',Georgia,serif; font-style:italic;
+    font-size:13px; color:var(--orange); letter-spacing:2px; text-transform:uppercase;
+    margin-bottom:14px; display:block;
+  }
+  .meta-col p{font-size:13.5px; line-height:1.65; color:#3a4159; margin:0 0 14px}
+  .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px}
+  .tag{
+    font-family:Montserrat,sans-serif; font-weight:600; font-size:10.5px;
+    letter-spacing:1.5px; text-transform:uppercase;
+    background:var(--bone); color:var(--navy); padding:5px 10px; border-radius:100px;
+  }
+
+  /* ——— preview tiles ——— */
+  .tiles{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap:18px;
+  }
+  .tile{
+    border-radius:14px; padding:28px 22px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-height:240px; position:relative; overflow:hidden;
+  }
+  .tile.bone{background:var(--bone)}
+  .tile.paper{background:#fff; border:1px solid rgba(20,24,38,.08)}
+  .tile.navy{background:var(--navy-dk)}
+  .tile.aurora{
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(232,98,42,.35), transparent 55%),
+      radial-gradient(ellipse at 80% 30%, rgba(64,140,200,.4), transparent 55%),
+      linear-gradient(180deg, #0a1340 0%, #0F1F5C 100%);
+  }
+  .tile img{display:block; max-width:100%; height:auto}
+  .tile-label{
+    position:absolute; top:10px; left:14px;
+    font-family:Montserrat,sans-serif; font-weight:600; font-size:9.5px;
+    letter-spacing:2px; text-transform:uppercase; opacity:.55;
+  }
+  .tile.bone .tile-label, .tile.paper .tile-label{color:var(--ink)}
+  .tile.navy .tile-label, .tile.aurora .tile-label{color:#fff}
+
+  /* size-specific image controls */
+  .seal img{width:200px}
+  .seal .small img{width:64px}
+  .crest img{height:220px; width:auto}
+  .crest .small img{height:80px}
+  .aurora img{width:100%; max-width:380px}
+  .aurora .small img{width:200px}
+
+  /* favicon row */
+  .favicon-row{
+    display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+    margin-top:14px;
+  }
+  .fav{
+    width:48px; height:48px; border-radius:8px; overflow:hidden;
+    background:#fff; display:flex; align-items:center; justify-content:center;
+    border:1px solid rgba(20,24,38,.08);
+  }
+  .fav.dark{background:var(--navy-dk); border-color:transparent}
+  .fav-32{width:32px; height:32px; border-radius:6px}
+  .fav-16{width:16px; height:16px; border-radius:3px}
+  .fav img{max-width:80%; max-height:80%}
+
+  /* footer */
+  footer{
+    border-top:1px solid rgba(20,24,38,.10);
+    padding:30px 40px; margin-top:40px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+    color:#7a7f93; font-size:12px; font-family:Montserrat,sans-serif; letter-spacing:1.5px; text-transform:uppercase;
+  }
+  footer a{color:var(--orange); text-decoration:none; font-weight:700}
+
+  @media (max-width:780px){
+    .concept{grid-template-columns:1fr; gap:20px}
+    main, header{padding:24px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="eyebrow">Anniversary mark · concept review</div>
+    <h1>Three directions for a Zion-specific 20-year lockup</h1>
+    <p>Each concept incorporates the location (Zion Lutheran, Fairbanks AK) and the 20-year milestone, and is sized to live alongside — not replace — the registered <em>Celebrate Recovery</em> wordmark. Compare on light, paper, and dark/aurora backgrounds.</p>
+  </div>
+  <div class="meta">v1 · 2026-05-07</div>
+</header>
+
+<main>
+
+  <!-- Concept 1 -->
+  <section class="concept seal">
+    <div class="meta-col">
+      <span class="num">Concept 01</span>
+      <h2>Commemorative Seal</h2>
+      <p>A round badge in the tradition of military, civic, and church anniversary marks. Reads as <em>official</em> and <em>commemorative</em> — works as a square favicon, a hero badge, or a foil-stamp on print. Mountain silhouette and aurora pinpricks behind a centered "20" tie it to Alaska.</p>
+      <p><strong>Best for:</strong> favicon, lapel pin, T-shirt back print, Saturday program cover.</p>
+      <div class="tags">
+        <span class="tag">Square</span><span class="tag">Classic</span><span class="tag">Stamps small</span>
+      </div>
+      <div class="favicon-row">
+        <div class="fav dark"><img src="images/anniversary-seal.svg" alt=""></div>
+        <div class="fav fav-32 dark"><img src="images/anniversary-seal.svg" alt=""></div>
+        <div class="fav fav-16 dark"><img src="images/anniversary-seal.svg" alt=""></div>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile navy">
+        <span class="tile-label">Navy · primary</span>
+        <img src="images/anniversary-seal.svg" alt="Anniversary seal on navy">
+      </div>
+      <div class="tile aurora">
+        <span class="tile-label">Aurora · hero</span>
+        <img src="images/anniversary-seal.svg" alt="Anniversary seal on aurora">
+      </div>
+      <div class="tile bone small">
+        <span class="tile-label">Small / favicon</span>
+        <img src="images/anniversary-seal.svg" alt="Seal at small size">
+      </div>
+    </div>
+  </section>
+
+  <!-- Concept 2 -->
+  <section class="concept crest">
+    <div class="meta-col">
+      <span class="num">Concept 02</span>
+      <h2>Mountain Crest</h2>
+      <p>A taller shield with a cross at the apex, the Alaska Range layered through the body, a banner ribbon for the tagline, and the location seated at the base. Most explicit reference to <em>place</em> and <em>faith</em> of the three; carries the most weight as a heraldic event mark.</p>
+      <p><strong>Best for:</strong> print ad heads, program covers, banners — anywhere you want gravitas.</p>
+      <div class="tags">
+        <span class="tag">Vertical</span><span class="tag">Heraldic</span><span class="tag">Most narrative</span>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile paper">
+        <span class="tile-label">Paper · print</span>
+        <img src="images/anniversary-crest.svg" alt="Crest on paper">
+      </div>
+      <div class="tile aurora">
+        <span class="tile-label">Aurora · hero</span>
+        <img src="images/anniversary-crest.svg" alt="Crest on aurora">
+      </div>
+      <div class="tile bone small">
+        <span class="tile-label">Small</span>
+        <img src="images/anniversary-crest.svg" alt="Crest small">
+      </div>
+    </div>
+  </section>
+
+  <!-- Concept 3 -->
+  <section class="concept aurora">
+    <div class="meta-col">
+      <span class="num">Concept 03</span>
+      <h2>Aurora Wordmark</h2>
+      <p>Modern, editorial horizontal lockup. Massive "20" anchors the left, an aurora ribbon arcs across, the right column stacks <em>YEARS / Hope &amp; Healing in Alaska / Zion Lutheran · Fairbanks</em>. Cleanest fit for the website header next to the existing CR mark and for email banners.</p>
+      <p><strong>Best for:</strong> site header, email hero, social cover, half-page ad headline.</p>
+      <div class="tags">
+        <span class="tag">Horizontal</span><span class="tag">Editorial</span><span class="tag">Best for headers</span>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile paper">
+        <span class="tile-label">Paper · header</span>
+        <img src="images/anniversary-aurora.svg" alt="Aurora wordmark on paper">
+      </div>
+      <div class="tile bone">
+        <span class="tile-label">Bone</span>
+        <img src="images/anniversary-aurora.svg" alt="Aurora wordmark on bone">
+      </div>
+      <div class="tile bone small">
+        <span class="tile-label">Small</span>
+        <img src="images/anniversary-aurora.svg" alt="Aurora wordmark small">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>CR Zion 20th · Anniversary Mark Concepts</div>
+  <div><a href="brand-guide.html">← Back to brand guide</a></div>
+</footer>
+
+</body>
+</html>

@@ -89,40 +89,52 @@
     /* Logo band */
     .ad-logo-band {
       background: #1E3A8A;
-      padding: 18px 24px;
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .ad-logo-band img {
-      width: 100%;
-      max-width: 280px;
+      width: 130px;
+      height: 130px;
       display: block;
     }
 
-    /* Main content area */
+    /* Main content area — Zion church photo as background, navy gradient overlay for legibility */
     .ad-body {
       flex: 1;
-      background: #0F1F5C;
+      position: relative;
+      background-color: #0F1F5C;
+      background-image: url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/cr-zion-20th/zion-church-rainbow.jpg');
+      background-size: cover;
+      background-position: center 28%;
+      background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 24px 22px;
+      justify-content: flex-start;
+      padding: 26px 22px 20px;
       text-align: center;
       gap: 0;
     }
 
-    .ad-anniv {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 900;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #F07E50;
-      margin-bottom: 14px;
+    /* Gradient overlay — light at top so the rainbow/cross/sky come through clearly,
+       ramping to dark at bottom so highlights/venue copy stays readable */
+    .ad-body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(15,31,92,.18) 0%,
+        rgba(15,31,92,.35) 30%,
+        rgba(15,31,92,.72) 62%,
+        rgba(15,31,92,.92) 100%);
+      pointer-events: none;
     }
+
+    /* Lift all body content above the overlay */
+    .ad-body > * { position: relative; z-index: 1; }
 
     .ad-headline {
       font-family: 'Montserrat', Arial, sans-serif;
@@ -132,15 +144,23 @@
       line-height: 1.05;
       letter-spacing: -1px;
       margin-bottom: 6px;
+      /* Layered shadow: tight dark halo + soft drop, keeps the headline crisp over bright sky */
+      text-shadow:
+        0 0 4px rgba(0,0,0,.55),
+        0 2px 14px rgba(0,0,0,.55),
+        0 4px 24px rgba(0,0,0,.35);
     }
 
     .ad-subhead {
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
       font-size: 18px;
-      color: rgba(255,255,255,.70);
+      color: rgba(255,255,255,.85);
       letter-spacing: -.5px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      text-shadow:
+        0 0 3px rgba(0,0,0,.50),
+        0 2px 10px rgba(0,0,0,.45);
     }
 
     /* Orange divider */
@@ -149,7 +169,7 @@
       height: 3px;
       background: #E8622A;
       border-radius: 2px;
-      margin: 0 auto 20px;
+      margin: 0 auto 18px;
     }
 
     /* Date blocks */
@@ -157,14 +177,15 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
+      gap: 6px;
+      margin-bottom: 16px;
     }
 
     .ad-date-row {
-      background: rgba(255,255,255,.08);
+      background: rgba(15,31,92,.55);
+      backdrop-filter: blur(2px);
       border-left: 3px solid #E8622A;
-      padding: 10px 14px;
+      padding: 8px 14px;
       text-align: left;
     }
 
@@ -204,12 +225,36 @@
       margin-bottom: 2px;
     }
 
-    /* Speaker block */
+    /* Speaker block — orange card with circular headshot peeking above */
     .ad-speaker {
       background: #E8622A;
       width: 100%;
-      padding: 12px 16px;
+      padding: 38px 16px 14px;
+      margin-top: 36px;
       margin-bottom: 16px;
+      position: relative;
+      text-align: center;
+    }
+
+    .ad-speaker-photo {
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #E8622A;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+    }
+
+    .ad-speaker-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .ad-speaker-role {
@@ -218,7 +263,7 @@
       font-size: 9px;
       letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: rgba(255,255,255,.75);
+      color: rgba(255,255,255,.85);
       margin-bottom: 4px;
     }
 
@@ -230,13 +275,21 @@
       letter-spacing: -.5px;
     }
 
+    .ad-speaker-bio {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 10px;
+      color: rgba(255,255,255,.85);
+      letter-spacing: .5px;
+      margin-top: 3px;
+    }
+
     /* Highlights */
     .ad-highlights {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      margin-bottom: 16px;
+      gap: 4px;
+      margin-bottom: 14px;
     }
 
     .ad-highlight {
@@ -303,23 +356,25 @@
 
   <!-- Logo -->
   <div class="ad-logo-band">
-    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/cr-logo-white.svg" alt="Celebrate Recovery">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/cr-zion-20th/anniversary-seal.svg" alt="Celebrate Recovery">
   </div>
 
-  <!-- Body -->
+  <!-- Body — Zion church golden-hour photo behind a navy gradient overlay -->
   <div class="ad-body">
-
-    <div class="ad-anniv">20 Years · Alaska</div>
 
     <h1 class="ad-headline">20 Years of<br>Hope &amp;<br>Healing</h1>
     <p class="ad-subhead">in Alaska</p>
 
     <div class="ad-divider"></div>
 
-    <!-- Speaker -->
+    <!-- Speaker — circular headshot anchors the orange card -->
     <div class="ad-speaker">
+      <div class="ad-speaker-photo">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_180,h_180,c_fill,g_face/cr-zion-20th/tommy-woodard-headshot.png" alt="Tommy Woodard">
+      </div>
       <div class="ad-speaker-role">Keynote Speaker</div>
       <div class="ad-speaker-name">Tommy Woodard</div>
+      <div class="ad-speaker-bio">Comedian · Filmmaker · Pastor</div>
     </div>
 
     <!-- Dates -->

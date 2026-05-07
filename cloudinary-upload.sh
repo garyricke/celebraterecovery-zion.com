@@ -74,7 +74,9 @@ upload_image "$IMAGES_DIR/print-alaska-range.png"        "print-alaska-range"
 upload_image "$IMAGES_DIR/community-gathering.jpeg"      "community-gathering"
 upload_image "$IMAGES_DIR/hands-connecting.jpeg"         "hands-connecting"
 upload_image "$IMAGES_DIR/zion-church-professional.png"  "zion-church-professional"
+upload_image "$IMAGES_DIR/zion-church-rainbow.jpg"       "zion-church-rainbow"
 upload_image "$IMAGES_DIR/tommy-woodard-cutout.png"       "tommy-woodard-cutout"
+upload_image "$IMAGES_DIR/tommy-woodard-whitebackground-with-light-shadow-crop-headshot.png" "tommy-woodard-headshot"
 
 echo ""
 echo "── Church & Existing Assets ─────────────────────────────"
@@ -85,6 +87,9 @@ for img in "$IMAGES_DIR"/zion-lutheran-church-*.jpg "$IMAGES_DIR"/zion-lutheran-
 done
 
 upload_image "$IMAGES_DIR/Celebrate-Recovery-Logo-Left-White_RM.svg" "cr-logo-white"
+upload_image "$IMAGES_DIR/anniversary-seal.svg"                      "anniversary-seal"
+upload_image "$IMAGES_DIR/anniversary-seal-mark.svg"                  "anniversary-seal-mark"
+upload_image "$IMAGES_DIR/aurora-bg-email.png"                        "aurora-bg-email"
 
 # Also upload Tommy's portrait from project root
 TOMMY="$(dirname "$0")/tommy-woodard-portait-b.jpg"
