@@ -260,6 +260,55 @@
     .tag.depends { background: var(--indigo-bg); color: var(--indigo); }
     .tag.option  { background: var(--gray-bg);  color: var(--gray); }
 
+    /* ── prep box (what to gather) ──────────────── */
+    .prep-box {
+      background: #FFF7ED;
+      border: 1px solid #FED7AA;
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+    }
+    .prep-box .prep-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .04em;
+      color: var(--orange-dk);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .prep-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .prep-box li {
+      position: relative;
+      padding: 5px 0 5px 18px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #5C3A0E;
+    }
+    .prep-box li::before {
+      content: '□';
+      position: absolute;
+      left: 0; top: 4px;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* ── friendly step note (small italic context line) ── */
+    .step .body .step-note {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    .step .body .step-note strong { color: var(--orange-dk); font-style: normal; font-weight: 700; }
+
     /* ── handoff section ────────────────────────── */
     .handoff {
       margin-top: 56px;
@@ -342,66 +391,102 @@
     <!-- ── ZION ── -->
     <div class="track">
       <div class="label">Zion's steps</div>
-      <h2>Zion Lutheran (treasurer / Pastor Scott)</h2>
-      <p class="sub">Account ownership, identity verification, and bank-routing belong to the church. Stripe will not release funds without these.</p>
+      <h2>Zion Lutheran — starting from scratch</h2>
+      <p class="sub">No coding, no technical skill. Plan about <strong>15–20 minutes</strong> the first time, a <strong>1–2 day wait</strong> while Stripe approves the account, then <strong>5 minutes</strong> to flip the switch when I tell you we're ready. Each step below has one thing to do.</p>
+
+      <div class="prep-box">
+        <div class="prep-title">Gather these before you start</div>
+        <ul>
+          <li>Zion's <strong>EIN</strong> (the federal tax ID — the treasurer has this)</li>
+          <li>Zion's <strong>official mailing address</strong></li>
+          <li>Zion's <strong>bank routing &amp; account number</strong> (treasurer has these too)</li>
+          <li>Name, birthdate, and SSN of <strong>one authorized officer</strong> (Pastor Scott or a board member). Stripe is legally required to ask — it stays private.</li>
+        </ul>
+      </div>
 
       <ol class="steps">
+
         <li class="step">
           <span class="num">1</span>
           <div class="body">
-            <strong>Confirm Stripe account ownership.</strong>
-            <p>Decide whether to use an existing Zion Stripe account or create a fresh one for this event. If creating new, allow 1–2 business days for identity verification before any payments can clear.</p>
+            <strong>Sign up for Stripe.</strong>
+            <p>Go to <strong>stripe.com</strong> and click the <strong>"Start now"</strong> button in the top-right corner. Use a <strong>church email</strong> (not a personal Gmail) so anyone at Zion can get back in later. Pick a password and write it down somewhere safe.</p>
+            <span class="step-note">About 5 minutes. Signing up is <strong>free</strong>. Stripe only takes a small fee when someone actually pays.</span>
           </div>
         </li>
+
         <li class="step">
           <span class="num">2</span>
           <div class="body">
-            <strong>Business identity verification.</strong>
-            <p>Provide Stripe with Zion's EIN, legal name, address, and an authorized owner. If 501(c)(3), indicate non-profit status — affects tax handling on receipts.</p>
+            <strong>Tell Stripe who Zion is.</strong>
+            <p>Stripe will ask the questions from your prep list above — Zion's name, address, EIN, and the authorized officer's info. Fill them in carefully and click <strong>Submit</strong>.</p>
+            <span class="step-note">Stripe needs this so they know they're sending money to a real organization — it's the same kind of check a bank does. They'll review and email you when you're approved, usually <strong>within 1–2 business days</strong>.</span>
           </div>
         </li>
+
         <li class="step">
           <span class="num">3</span>
           <div class="body">
-            <strong>Link Zion's bank account for payouts.</strong>
-            <p>Connect Zion's operating bank account in the Stripe Dashboard. Stripe deposits registration funds <em>minus ~2.9% + 30¢ per transaction</em>, on the payout schedule chosen below.</p>
+            <strong>Tell Stripe where to send the money.</strong>
+            <p>In the same setup flow, Stripe asks for Zion's <strong>bank routing and account number</strong>. This is where registration deposits will land — the same account Zion uses for direct-deposit donations.</p>
+            <span class="step-note">Out of every <strong>$20</strong> registration, Stripe keeps about <strong>88¢</strong> as their processing fee. Zion gets <strong>$19.12</strong>. There's no monthly cost — only when someone pays.</span>
           </div>
         </li>
+
         <li class="step">
           <span class="num">4</span>
           <div class="body">
-            <strong>Choose payout schedule + statement descriptor.</strong>
-            <p>Payout schedule: daily, weekly, or monthly. Statement descriptor is what cardholders see on their bill — recommend something like <code>ZIONLUTH CR20</code>.</p>
+            <strong>Pick a deposit schedule and a statement name.</strong>
+            <p>Two quick questions in the setup screens:</p>
+            <p>&nbsp;&nbsp;• <strong>How often do you want deposits?</strong> Choose <strong>Daily</strong> (the default). You'll see deposits the next business day after someone pays.</p>
+            <p>&nbsp;&nbsp;• <strong>What name should show on attendees' credit-card bills?</strong> Type <code>ZIONLUTHERAN CR20</code>. (Short on purpose — Stripe has a character limit.)</p>
           </div>
         </li>
-        <li class="step done">
-          <span class="num">✓</span>
+
+        <li class="step">
+          <span class="num">5</span>
           <div class="body">
-            <strong>Add Gary as Developer on the Stripe account.<span class="tag done">Done</span></strong>
-            <p>Gary's already on the team as Developer per Zion's grant. No further action needed here.</p>
+            <strong>Add Gary so he can build the payment form.</strong>
+            <p>Once you're approved, click <strong>Settings → Team → Invite Members</strong>. Type Gary's email — <code>gary.ricke@orbisdesign.com</code> — and pick the role <strong>Developer</strong>. Click <strong>Send Invite</strong>.</p>
+            <span class="step-note">30 seconds. This lets Gary do the technical setup <strong>without you having to share your password</strong>.</span>
           </div>
         </li>
+
         <li class="step">
           <span class="num">6</span>
           <div class="body">
-            <strong>Approve test → live mode toggle.</strong>
-            <p>Once test transactions look right, a church admin (treasurer or owner) clicks "Activate live mode" in the Stripe Dashboard. Gary can request this, but the activation click should come from the church side for audit trail.</p>
+            <strong>Let Gary know you're ready.</strong>
+            <p>Send a one-line text or email: <em>"Stripe is set up — you can build it now."</em> That's all he needs.</p>
+            <span class="step-note">Gary will then build the registration → payment form and test it using <strong>fake card numbers</strong>. No real money moves until step 7.</span>
           </div>
         </li>
+
         <li class="step">
           <span class="num">7</span>
           <div class="body">
-            <strong>Monthly reconciliation.</strong>
-            <p>Treasurer cross-checks Stripe payouts against bank deposits. Stripe makes a monthly statement available; recommend keeping these with regular church financial records.</p>
+            <strong>Click "Activate live mode" when Gary says it's ready.</strong>
+            <p>When Gary finishes testing, he'll send a short note: <em>"Ready to accept real payments."</em> Log in to Stripe and click the <strong>"Activate live mode"</strong> button in the top-right corner of the screen. That's the moment real card payments start working.</p>
+            <span class="step-note">We save this click for you (not Gary) so there's a clear paper trail showing the church authorized going live.</span>
           </div>
         </li>
+
         <li class="step">
           <span class="num">8</span>
           <div class="body">
-            <strong>Designate a refund authority.</strong>
-            <p>Decide who at Zion can issue refunds (Liz? Treasurer?). Stripe makes refunds one-click in the Dashboard — no developer needed for that operation.</p>
+            <strong>Decide who handles refunds.</strong>
+            <p>If someone asks for their $20 back, refunding it is <strong>one click</strong> inside Stripe. Decide ahead of time who's allowed to do that — usually <strong>Liz</strong> or the <strong>treasurer</strong>. Gary will show that person how in under a minute.</p>
           </div>
         </li>
+
+        <li class="step">
+          <span class="num">9</span>
+          <div class="body">
+            <strong>Once a month, glance at Stripe vs. the bank statement.</strong>
+            <p>The treasurer logs into Stripe, sees the list of deposits Stripe sent to Zion, and confirms the totals line up with the bank statement.</p>
+            <span class="step-note">Five-minute job, once a month. Keep a copy with regular church financial records.</span>
+          </div>
+        </li>
+
       </ol>
     </div>
 
