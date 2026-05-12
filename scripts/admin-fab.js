@@ -20,10 +20,12 @@
   // ── style ─────────────────────────────────────────────────────
   const css = `
   .admin-fab {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 9000;
+    /* Lives inside the footer (or at end of body when there isn't one).
+       Absolute so it doesn't push footer content, anchored bottom-right. */
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 50;
     font-family: 'Montserrat', system-ui, sans-serif;
   }
   .admin-fab-toggle {
@@ -125,7 +127,7 @@
   .admin-fab-menu a:hover .ico,
   .admin-fab-menu a[aria-current="page"] .ico { color: inherit; }
   @media (max-width: 480px) {
-    .admin-fab { bottom: 16px; right: 16px; }
+    .admin-fab { bottom: 12px; right: 12px; }
   }
   `;
 
@@ -169,7 +171,17 @@
   `;
 
   function mount() {
-    document.body.appendChild(fab);
+    // Place the FAB inside the footer so it's only revealed when the
+    // user scrolls to the bottom. Falls back to body for pages that
+    // don't have a <footer> element. Whichever host we choose, make
+    // sure it's a positioning context so `position: absolute` on the
+    // FAB anchors to it.
+    const footer = document.querySelector('footer');
+    const host = footer || document.body;
+    if (getComputedStyle(host).position === 'static') {
+      host.style.position = 'relative';
+    }
+    host.appendChild(fab);
 
     const toggle = fab.querySelector('.admin-fab-toggle');
 
