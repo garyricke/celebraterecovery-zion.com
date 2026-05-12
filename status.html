@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Status — CR 20th Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="dns-prefetch" href="https://res.cloudinary.com">
+  <link rel="preload" as="image" href="images/anniversary-seal.svg?v=2" type="image/svg+xml" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1E3A8A;
+      --navy-dk:     #0F1F5C;
+      --orange:      #E8622A;
+      --orange-dk:   #C84F1A;
+      --bone:        #F4ECDF;
+      --paper:       #FDFAF4;
+      --ink:         #141826;
+      --green:       #2E7D32;
+      --green-bg:    #E8F3E9;
+      --amber:       #B45309;
+      --amber-bg:    #FFF7ED;
+      --gray:        #6B7280;
+      --gray-bg:     #F3F4F6;
+      --hair:        rgba(20,24,38,.10);
+    }
+
+    body {
+      font-family: 'Open Sans', system-ui, sans-serif;
+      background: #F8F9FC;
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── header ─────────────────────────────────── */
+    header {
+      background: var(--navy-dk);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    header .left { display: flex; align-items: center; gap: 18px; }
+    header img { height: 52px; width: 52px; }
+    header .h-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: .02em;
+      line-height: 1.25;
+    }
+    header .h-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    header a.back {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: color .15s;
+    }
+    header a.back:hover { color: #fff; }
+
+    /* ── countdown ──────────────────────────────── */
+    .countdown {
+      background: linear-gradient(180deg, #0F1F5C 0%, #1E3A8A 100%);
+      color: #fff;
+      padding: 28px 48px 36px;
+      text-align: center;
+      position: relative;
+    }
+    .countdown::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, transparent 0%, var(--orange) 50%, transparent 100%);
+    }
+    .countdown .label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: rgba(255,255,255,.6);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .countdown .days {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 6vw, 64px);
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+    .countdown .days .num { color: var(--orange); }
+    .countdown .when {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: rgba(255,255,255,.7);
+      letter-spacing: .04em;
+      margin-top: 8px;
+    }
+
+    /* ── page ───────────────────────────────────── */
+    .page-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 56px 32px 96px;
+    }
+
+    .page-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    h1.page-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--navy-dk);
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .page-lead {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #3A4159;
+      max-width: 68ch;
+      margin-bottom: 48px;
+    }
+    .page-lead em { color: var(--navy-dk); font-style: normal; font-weight: 700; }
+
+    /* ── section ────────────────────────────────── */
+    section.block {
+      margin-bottom: 56px;
+    }
+    section.block h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--navy-dk);
+      letter-spacing: -.01em;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--hair);
+      display: flex; align-items: baseline; gap: 14px;
+    }
+    section.block h2 .count {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: .08em;
+    }
+
+    /* ── status item ────────────────────────────── */
+    .item {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--hair);
+      align-items: flex-start;
+    }
+    .item:last-child { border-bottom: 0; }
+    .item .marker {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 12px;
+      line-height: 1;
+    }
+    .marker.done   { background: var(--green-bg);  color: var(--green); }
+    .marker.open   { background: var(--amber-bg);  color: var(--orange-dk); }
+    .marker.defer  { background: var(--gray-bg);   color: var(--gray); }
+    .item .text {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .item .text strong { color: var(--navy-dk); }
+    .item .text .meta {
+      display: block;
+      margin-top: 4px;
+      font-size: 12.5px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    .item .tag {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .tag.blocker  { background: var(--amber-bg); color: var(--orange-dk); }
+    .tag.pending  { background: #EEF2FF;          color: #4338CA; }
+    .tag.post     { background: var(--gray-bg);   color: var(--gray); }
+    .tag.optional { background: var(--gray-bg);   color: var(--gray); }
+
+    /* ── timeline ───────────────────────────────── */
+    .day {
+      margin-bottom: 38px;
+      padding-left: 22px;
+      border-left: 2px solid var(--hair);
+      position: relative;
+    }
+    .day::before {
+      content: '';
+      position: absolute;
+      left: -7px; top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 4px #F8F9FC;
+    }
+    .day.past::before { background: var(--gray); }
+    .day h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--navy-dk);
+      letter-spacing: .02em;
+      margin-bottom: 14px;
+    }
+    .day h3 .relative {
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: .04em;
+      margin-left: 8px;
+    }
+    .day ul {
+      list-style: none;
+      padding: 0;
+    }
+    .day li {
+      position: relative;
+      padding: 6px 0 6px 20px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .day li::before {
+      content: '✓';
+      position: absolute;
+      left: 0; top: 6px;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .day li strong { color: var(--navy-dk); }
+
+    /* ── footer ─────────────────────────────────── */
+    footer.note {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 32px 48px;
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.6;
+      border-top: 1px solid var(--hair);
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 18px 24px; }
+      .countdown { padding: 22px 24px 28px; }
+      .page-inner { padding: 40px 24px 64px; }
+      .item { grid-template-columns: 24px 1fr; }
+      .item .tag { grid-column: 2; margin-top: 4px; justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="left">
+    <img src="images/anniversary-seal.svg?v=2" alt="CR Zion 20th Anniversary">
+    <div>
+      <div class="h-title">CR Zion 20th Anniversary</div>
+      <div class="h-sub">Campaign Status</div>
+    </div>
+  </div>
+  <a class="back" href="index.html">← Back to site</a>
+</header>
+
+<div class="countdown">
+  <div class="label">Event opens</div>
+  <div class="days"><span class="num">25</span> days</div>
+  <div class="when">Friday, June 5 – Saturday, June 6, 2026 · Zion Lutheran Church, Fairbanks AK</div>
+</div>
+
+<div class="page-inner">
+
+  <div class="page-eyebrow">Snapshot · Updated May 11, 2026</div>
+  <h1 class="page-title">Where we are, what's left, and what's already done.</h1>
+  <p class="page-lead">Site, registration form, three emails, and two newspaper ads are all <em>launch-ready and reflect Liz's May 7 corrections.</em> Below: what's still outstanding before send-out, what's deferred until after launch, and a date-by-date log of everything accomplished.</p>
+
+  <!-- ─── OUTSTANDING ─────────────────────────────────────── -->
+  <section class="block">
+    <h2>Outstanding before launch <span class="count">5 items</span></h2>
+
+    <div class="item">
+      <span class="marker open">!</span>
+      <div class="text">
+        <strong>Re-import Email 1, 2, 3 HTML into the email service before next send.</strong>
+        <span class="meta">The on-disk + in-git HTML is current (May 15 T-shirt deadline, new seal, Crazy Story hook). If Mailchimp / Constant Contact / etc. already has earlier copies pasted in, those still say "May 5" and show the old seal. Re-paste before any send.</span>
+      </div>
+      <span class="tag blocker">Before send</span>
+    </div>
+
+    <div class="item">
+      <span class="marker open">!</span>
+      <div class="text">
+        <strong>Re-export half-page + quarter-page ad PDFs for newspaper submission.</strong>
+        <span class="meta">News-Miner / Anchorage Daily News need print-ready PDFs. The HTML templates (<code>ad-half.html</code>, <code>ad-quarter.html</code>) are updated with new seal + May 15 deadline + Crazy Story hook — but the deliverable PDF lives outside the repo.</span>
+      </div>
+      <span class="tag blocker">Before publish</span>
+    </div>
+
+    <div class="item">
+      <span class="marker open">?</span>
+      <div class="text">
+        <strong>Crazy Story session: lock speaker(s) and length.</strong>
+        <span class="meta">Liz noted the front-end-loader / jailbreak-attempt origin story will be told by the people who lived it, but session length is still undecided (1h–1h45). Confirm with Bill so the early-morning session can be sized correctly.</span>
+      </div>
+      <span class="tag pending">From Liz / Bill</span>
+    </div>
+
+    <div class="item">
+      <span class="marker open">?</span>
+      <div class="text">
+        <strong>T-shirt artwork (Alaska outline + "Hope &amp; Healing" + "Celebrate Recovery").</strong>
+        <span class="meta">Liz is hand-drawing this and will send a picture; goes to the T-shirt vendor. The current circular seal stays on website / form / emails / ads — confirmed.</span>
+      </div>
+      <span class="tag pending">From Liz</span>
+    </div>
+
+    <div class="item">
+      <span class="marker open">?</span>
+      <div class="text">
+        <strong>Saturday session run-times.</strong>
+        <span class="meta">Sessions are nominally 1h15–1h45 with breaks; specific clock times not locked. Site currently labels the four sessions as Early AM / Late AM / Early PM / Late PM. Lock exact times before printing the day-of program if a printed program is planned.</span>
+      </div>
+      <span class="tag optional">Nice-to-have</span>
+    </div>
+  </section>
+
+  <!-- ─── DEFERRED ────────────────────────────────────────── -->
+  <section class="block">
+    <h2>Deferred — explicitly post-launch <span class="count">2 items</span></h2>
+
+    <div class="item">
+      <span class="marker defer">⏸</span>
+      <div class="text">
+        <strong>Stripe payment for the $20 Saturday fee.</strong>
+        <span class="meta">Gary on May 11: "We can add the payment after we go live." Gary is on Zion's Stripe account as Developer. Form currently collects an acknowledgment that the $20 is cash/check at check-in.</span>
+      </div>
+      <span class="tag post">Post-launch</span>
+    </div>
+
+    <div class="item">
+      <span class="marker defer">⏸</span>
+      <div class="text">
+        <strong>Uncommitted Google Sheets webhook polish + JotForm migration script.</strong>
+        <span class="meta">scripts/google-sheets-webhook.gs has additional iteration not yet committed; scripts/migrate-jotforms-data.py and the migrated CSVs are also uncommitted. The base webhook (committed May 7) is live and logging registrations to Liz's sheet.</span>
+      </div>
+      <span class="tag optional">Polish</span>
+    </div>
+  </section>
+
+  <!-- ─── TIMELINE ────────────────────────────────────────── -->
+  <section class="block">
+    <h2>Timeline of work completed</h2>
+
+    <!-- May 11 -->
+    <div class="day">
+      <h3>Monday, May 11, 2026 <span class="relative">(today · 25 days to event)</span></h3>
+      <ul>
+        <li><strong>Anniversary seal redrawn.</strong> "CELEBRATE RECOVERY" is now the dominant element — stacked horizontal at 46pt instead of arched at 16pt. Compact C|R glyph above; Zion Lutheran / Fairbanks AK on the top arc; "Twentieth Anniversary" stamp on the bottom arc; 20 YEARS / 2006 – 2026 as supporting type.</li>
+        <li><strong>New seal pushed to Cloudinary</strong> (version <code>v1778548225</code>). Email + ad URLs pinned to that version so Gmail / Outlook image caches can't serve the old artwork.</li>
+        <li><strong>Site perf hints added</strong> on every page that uses the seal: <code>preload</code> the SVG with <code>fetchpriority=high</code>, plus <code>preconnect</code> + <code>dns-prefetch</code> to <code>res.cloudinary.com</code>. Local seal references carry <code>?v=2</code> so returning visitors with a cached page also pick up the new SVG.</li>
+        <li><strong>Saturday schedule rewritten</strong> from Liz's May 7 call. Added "The Crazy Story of How Celebrate Recovery Came to Alaska" to the Early Morning Session; separated Tommy Woodard from "Confessions of a Good Church Lady" (Liz solo, Late Morning Session); moved Salmon Bake to the very end.</li>
+        <li><strong>T-shirt deadline extended May 5 → May 15</strong> across <code>index.html</code>, <code>email-1-announce.html</code>, <code>email-2-speaker.html</code>, <code>ad-half.html</code>.</li>
+        <li><strong>"Crazy Story" added as a marketing hook</strong> in Email 1 and the half-page ad — visible up front, not buried in the schedule.</li>
+      </ul>
+    </div>
+
+    <!-- May 7 -->
+    <div class="day past">
+      <h3>Thursday, May 7, 2026 <span class="relative">(call with Liz)</span></h3>
+      <ul>
+        <li><strong>Gary / Liz working call.</strong> Walked the form, the schedule, and the seal end-to-end. Liz authorized: form rebuild on-site, schedule restructure, Crazy Story addition, T-shirt deadline extension, Tommy separated from Confessions of a Good Church Lady.</li>
+        <li><strong>Anniversary seal logo system created</strong> (circle frame, arched text, C|R glyph, big 20).</li>
+        <li><strong>Registration form rebuilt natively on the site</strong> with conditional Friday / Saturday fields (small group choice, $20 fee acknowledgment, T-shirt size, out-of-town sleep-over, salmon bake). Replaces the externally-hosted Jotform that recipients had to leave the page to reach.</li>
+        <li><strong>Form submissions wired</strong> to <code>lizandliberty@proton.me</code>. Verified during the call — Liz received the test submission.</li>
+        <li><strong>Aurora email backdrop</strong> added to email templates.</li>
+        <li><strong>Google Sheets logging script + setup guide.</strong> New submissions auto-append to Liz's existing registration spreadsheet so she has one live source of truth instead of doing manual data entry from proton-mail inbox.</li>
+      </ul>
+    </div>
+
+    <!-- May 5 -->
+    <div class="day past">
+      <h3>Tuesday, May 5, 2026</h3>
+      <ul>
+        <li><strong>Initial campaign build deployed</strong> — homepage, Saturday schedule (first draft), Tommy Woodard speaker section, registration block, salmon bake mention, Zion Lutheran location info.</li>
+        <li><strong>Favicon</strong> added.</li>
+        <li><strong>Contact modal</strong> added so visitors can reach the team without leaving the page.</li>
+        <li><strong>Campaign assets index page</strong> (<code>campaign-assets.html</code>) for internal review / sharing artwork.</li>
+        <li><strong>Brand guide page</strong> (<code>brand-guide.html</code>) — palette, type, seal usage.</li>
+        <li><strong>Logo concepts page</strong> for internal review.</li>
+        <li><strong>First Otter transcript</strong> captured from intro call.</li>
+      </ul>
+    </div>
+
+    <!-- April 24 -->
+    <div class="day past">
+      <h3>Friday, April 24, 2026 <span class="relative">(source materials)</span></h3>
+      <ul>
+        <li><strong>20th Anniversary Flyer Draft PDF</strong> — original print artwork that seeded the visual direction.</li>
+        <li><strong>20th Anniversary Program (docx)</strong> — first pass at the run-of-show.</li>
+        <li><strong>About Tommy Woodard (docx)</strong> — keynote bio source.</li>
+      </ul>
+    </div>
+
+  </section>
+
+</div>
+
+<footer class="note">
+  Status maintained by Gary Ricke · Updated whenever the codebase changes. View source: <code>status.html</code>. Linked from git history — every line item maps to a commit or a transcript on disk. Event: <strong>Celebrate Recovery 20th Anniversary, Zion Lutheran Church, Fairbanks AK, June 5–6, 2026</strong>.
+</footer>
+
+</body>
+</html>
