@@ -138,11 +138,13 @@
 
   // ── menu items (extend here when you add internal pages) ──────
   const items = [
-    { href: 'status.html',      label: 'Status',
+    { href: 'status.html',            label: 'Status',
       ico: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6"  y1="20" x2="6"  y2="14"/></svg>' },
-    { href: 'brand-guide.html', label: 'Brand Guide',
+    { href: 'brand-guide.html',       label: 'Brand Guide',
       ico: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5"  r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5"  cy="7.5"  r="1.5"/><circle cx="6.5"  cy="12.5" r="1.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1.4 0 2.5-1.1 2.5-2.5 0-.6-.2-1.2-.6-1.7-.4-.4-.6-1-.6-1.7 0-1.4 1.1-2.5 2.5-2.5H17c2.8 0 5-2.2 5-5C22 5.7 17.5 2 12 2z"/></svg>' },
-    { href: 'payments.html',    label: 'Payments',
+    { href: 'campaign-assets.html',   label: 'Emails &amp; Print Ads',
+      ico: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>' },
+    { href: 'payments.html',          label: 'Payments',
       ico: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>' },
   ];
 
