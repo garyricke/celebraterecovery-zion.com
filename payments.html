@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments — Stripe Setup · CR 20th Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="dns-prefetch" href="https://res.cloudinary.com">
+  <link rel="preload" as="image" href="images/anniversary-seal.svg?v=2" type="image/svg+xml" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1E3A8A;
+      --navy-dk:     #0F1F5C;
+      --orange:      #E8622A;
+      --orange-dk:   #C84F1A;
+      --bone:        #F4ECDF;
+      --paper:       #FDFAF4;
+      --ink:         #141826;
+      --green:       #2E7D32;
+      --green-bg:    #E8F3E9;
+      --amber:       #B45309;
+      --amber-bg:    #FFF7ED;
+      --indigo-bg:   #EEF2FF;
+      --indigo:      #4338CA;
+      --gray:        #6B7280;
+      --gray-bg:     #F3F4F6;
+      --hair:        rgba(20,24,38,.10);
+    }
+
+    body {
+      font-family: 'Open Sans', system-ui, sans-serif;
+      background: #F8F9FC;
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── header ─────────────────────────────────── */
+    header {
+      background: var(--navy-dk);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    header .left { display: flex; align-items: center; gap: 18px; }
+    header img { height: 52px; width: 52px; }
+    header .h-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: .02em;
+      line-height: 1.25;
+    }
+    header .h-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    header a.back {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      letter-spacing: .04em;
+    }
+    header a.back:hover { color: #fff; }
+
+    /* ── status banner ──────────────────────────── */
+    .status-banner {
+      background: linear-gradient(180deg, var(--amber-bg) 0%, #FFFBF1 100%);
+      border-bottom: 1px solid rgba(180, 83, 9, .2);
+      padding: 18px 48px;
+      text-align: center;
+    }
+    .status-banner .pill {
+      display: inline-block;
+      background: var(--amber);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .status-banner .msg {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--amber);
+      letter-spacing: .01em;
+    }
+
+    /* ── page ───────────────────────────────────── */
+    .page-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 56px 32px 96px;
+    }
+    .page-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    h1.page-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--navy-dk);
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .page-lead {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #3A4159;
+      max-width: 72ch;
+      margin-bottom: 16px;
+    }
+    .page-lead em { color: var(--navy-dk); font-style: normal; font-weight: 700; }
+    .page-meta {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+    .page-meta strong { color: var(--navy-dk); }
+
+    /* ── two-column track grid ──────────────────── */
+    .tracks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 880px) {
+      .tracks { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    .track {
+      background: #fff;
+      border: 1px solid var(--hair);
+      border-radius: 14px;
+      padding: 24px 26px 22px;
+      box-shadow: 0 2px 12px rgba(15,31,92,.04);
+    }
+    .track .label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+    .track h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 19px;
+      color: var(--navy-dk);
+      letter-spacing: -.01em;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+    .track .sub {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+
+    /* ── step list ──────────────────────────────── */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-top: 1px solid var(--hair);
+    }
+    .step:first-child { border-top: 0; padding-top: 4px; }
+    .step .num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--gray-bg);
+      color: var(--gray);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step.done .num   { background: var(--green-bg); color: var(--green); }
+    .step.now  .num   { background: var(--amber-bg); color: var(--orange-dk); }
+    .step .body strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--navy-dk);
+      letter-spacing: -.005em;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+    .step .body p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #3A4159;
+    }
+    .step .body code {
+      font-family: 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 12px;
+      background: var(--gray-bg);
+      color: var(--navy-dk);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .step .tag {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 9.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .tag.done    { background: var(--green-bg); color: var(--green); }
+    .tag.now     { background: var(--amber-bg); color: var(--orange-dk); }
+    .tag.depends { background: var(--indigo-bg); color: var(--indigo); }
+    .tag.option  { background: var(--gray-bg);  color: var(--gray); }
+
+    /* ── handoff section ────────────────────────── */
+    .handoff {
+      margin-top: 56px;
+      padding: 28px 32px;
+      background: #fff;
+      border: 1px solid var(--hair);
+      border-radius: 14px;
+    }
+    .handoff h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--navy-dk);
+      letter-spacing: -.005em;
+      margin-bottom: 12px;
+    }
+    .handoff p {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #3A4159;
+      margin-bottom: 10px;
+    }
+    .handoff p:last-child { margin-bottom: 0; }
+    .handoff code {
+      font-family: 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 12px;
+      background: var(--gray-bg);
+      color: var(--navy-dk);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    /* ── footer note ────────────────────────────── */
+    footer.note {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 28px 32px 48px;
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.6;
+      border-top: 1px solid var(--hair);
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 18px 24px; }
+      .status-banner { padding: 14px 24px; }
+      .page-inner { padding: 40px 24px 64px; }
+      .handoff { padding: 22px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="left">
+    <img src="images/anniversary-seal.svg?v=2" alt="CR Zion 20th Anniversary">
+    <div>
+      <div class="h-title">CR Zion 20th Anniversary</div>
+      <div class="h-sub">Payments · Stripe Setup</div>
+    </div>
+  </div>
+  <a class="back" href="index.html">← Back to site</a>
+</header>
+
+<div class="status-banner">
+  <span class="pill">Status</span>
+  <span class="msg">Deferred until after launch — by Gary's call on May 11. Setup plan below.</span>
+</div>
+
+<div class="page-inner">
+
+  <div class="page-eyebrow">Stripe Checkout · $20 Saturday Registration Fee</div>
+  <h1 class="page-title">Online payment for the $20 Saturday fee.</h1>
+  <p class="page-lead">Right now the form just collects an acknowledgment that the $20 is paid in cash or check at check-in. <em>Stripe Checkout adds a card-payment option so attendees can pre-pay during registration.</em> This page tracks the setup work on both sides — Zion's account-owner tasks (treasurer / Pastor Scott) and the developer tasks I'll handle once we're given the green light.</p>
+  <div class="page-meta">Owner: <strong>Zion Lutheran (treasurer)</strong> + <strong>Gary Ricke (developer)</strong> &nbsp;·&nbsp; Target: <strong>Post-launch, June 2026</strong></div>
+
+  <!-- ─── Two parallel tracks ─────────────────────────────── -->
+  <div class="tracks">
+
+    <!-- ── ZION ── -->
+    <div class="track">
+      <div class="label">Zion's steps</div>
+      <h2>Zion Lutheran (treasurer / Pastor Scott)</h2>
+      <p class="sub">Account ownership, identity verification, and bank-routing belong to the church. Stripe will not release funds without these.</p>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="num">1</span>
+          <div class="body">
+            <strong>Confirm Stripe account ownership.</strong>
+            <p>Decide whether to use an existing Zion Stripe account or create a fresh one for this event. If creating new, allow 1–2 business days for identity verification before any payments can clear.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">2</span>
+          <div class="body">
+            <strong>Business identity verification.</strong>
+            <p>Provide Stripe with Zion's EIN, legal name, address, and an authorized owner. If 501(c)(3), indicate non-profit status — affects tax handling on receipts.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">3</span>
+          <div class="body">
+            <strong>Link Zion's bank account for payouts.</strong>
+            <p>Connect Zion's operating bank account in the Stripe Dashboard. Stripe deposits registration funds <em>minus ~2.9% + 30¢ per transaction</em>, on the payout schedule chosen below.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">4</span>
+          <div class="body">
+            <strong>Choose payout schedule + statement descriptor.</strong>
+            <p>Payout schedule: daily, weekly, or monthly. Statement descriptor is what cardholders see on their bill — recommend something like <code>ZIONLUTH CR20</code>.</p>
+          </div>
+        </li>
+        <li class="step done">
+          <span class="num">✓</span>
+          <div class="body">
+            <strong>Add Gary as Developer on the Stripe account.<span class="tag done">Done</span></strong>
+            <p>Gary's already on the team as Developer per Zion's grant. No further action needed here.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">6</span>
+          <div class="body">
+            <strong>Approve test → live mode toggle.</strong>
+            <p>Once test transactions look right, a church admin (treasurer or owner) clicks "Activate live mode" in the Stripe Dashboard. Gary can request this, but the activation click should come from the church side for audit trail.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">7</span>
+          <div class="body">
+            <strong>Monthly reconciliation.</strong>
+            <p>Treasurer cross-checks Stripe payouts against bank deposits. Stripe makes a monthly statement available; recommend keeping these with regular church financial records.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">8</span>
+          <div class="body">
+            <strong>Designate a refund authority.</strong>
+            <p>Decide who at Zion can issue refunds (Liz? Treasurer?). Stripe makes refunds one-click in the Dashboard — no developer needed for that operation.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- ── GARY ── -->
+    <div class="track">
+      <div class="label">My steps</div>
+      <h2>Gary's developer tasks</h2>
+      <p class="sub">All of this can happen in Stripe <em>test mode</em> in parallel with Zion's account work — but nothing goes live until Zion finishes steps 1–4 above.</p>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="num">1</span>
+          <div class="body">
+            <strong>Create the $20 product in Stripe.</strong>
+            <p>Stripe Dashboard → Products → "CR 20th Anniversary — Saturday Registration", $20.00 USD, one-time. Build it in <em>test mode</em> first.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">2</span>
+          <div class="body">
+            <strong>Choose Payment Link vs. Checkout Session.<span class="tag depends">Decide</span></strong>
+            <p><strong>Payment Link</strong> (Stripe hosts the page, zero code) is fastest and lets us launch payment for late registrants with one URL. <strong>Checkout Session</strong> (small Netlify Function) gives us the registrant's name/email pre-filled and a clean post-pay redirect. Recommend Payment Link to start; upgrade later if needed.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">3</span>
+          <div class="body">
+            <strong>Wire the form's Saturday block to the Stripe URL.</strong>
+            <p>Replace (or augment) the cash/check acknowledgment with a "Pay $20 now" button that opens the Stripe-hosted Checkout. Cash/check stays as the fallback for anyone who'd rather pay at the door.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">4</span>
+          <div class="body">
+            <strong>Configure success + cancel URLs.</strong>
+            <p>Success: <code>thank-you.html?paid=1&amp;session={CHECKOUT_SESSION_ID}</code>. Cancel: back to <code>#register</code>.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">5</span>
+          <div class="body">
+            <strong>Webhook → Google Sheet update.</strong>
+            <p>Add a webhook endpoint (Netlify Function or extend the existing Google Apps Script) listening for <code>checkout.session.completed</code>. On fire, flip the registrant's row in Liz's sheet to <em>Payment status: Paid</em> and attach the Stripe receipt URL.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">6</span>
+          <div class="body">
+            <strong>Test-mode smoke test.</strong>
+            <p>Use Stripe's test card <code>4242 4242 4242 4242</code> (any future expiry, any CVC). Verify: form submits, Checkout opens, payment succeeds, thank-you page loads, webhook fires, Sheet row updates.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">7</span>
+          <div class="body">
+            <strong>Walkthrough with Liz.</strong>
+            <p>Five-minute screen-share so Liz sees what attendees see — and how she'll view paid vs. unpaid rows in her sheet.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">8</span>
+          <div class="body">
+            <strong>Flip to live keys.<span class="tag depends">After Zion 1–4</span></strong>
+            <p>Replace <code>STRIPE_SECRET_KEY_TEST</code> with the live key in Netlify env vars. Update the Payment Link / Session URL on the site to point at the live product.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">9</span>
+          <div class="body">
+            <strong>Live smoke test ($20 real transaction, then refund).</strong>
+            <p>One real card payment to confirm everything works end-to-end. Refund it from the Stripe Dashboard after — zero net cost.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">10</span>
+          <div class="body">
+            <strong>Verify first payout in Zion's bank.</strong>
+            <p>Wait one payout cycle (default daily after first); confirm the deposit lands in Zion's operating account. Take a screenshot for the handoff doc.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="num">11</span>
+          <div class="body">
+            <strong>Handoff doc for Liz / treasurer.<span class="tag option">Nice-to-have</span></strong>
+            <p>One-page PDF covering: log in to Stripe, view today's payments, issue a refund, pull a monthly report, and who to contact (Gary) if anything looks wrong.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+
+  <!-- ── handoff explainer ─────────────────────────────────── -->
+  <div class="handoff">
+    <h3>Why deferred until after launch?</h3>
+    <p>The campaign is launch-critical between now and June 5–6. Stripe identity verification takes 1–2 business days at the church side, and there's no margin in the current schedule for that to slip. Cash/check at check-in is a proven fallback. Once registrations start flowing through the existing form, we'll know the actual demand and can prioritize online payment if it matters.</p>
+    <p>Estimated time once we're green-lit: <strong>~2–4 hours of dev work</strong> on Gary's side (most of it is testing), plus <strong>1–2 business days waiting</strong> on Stripe identity verification if Zion creates a fresh account.</p>
+  </div>
+
+</div>
+
+<footer class="note">
+  Stripe setup plan for the $20 Saturday registration fee. Maintained alongside <a href="status.html" style="color:var(--orange-dk);">status.html</a>. Event: <strong>Celebrate Recovery 20th Anniversary, Zion Lutheran Church, Fairbanks AK, June 5–6, 2026</strong>.
+</footer>
+
+<script src="scripts/admin-fab.js" defer></script>
+</body>
+</html>
