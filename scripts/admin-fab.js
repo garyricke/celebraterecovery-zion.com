@@ -29,18 +29,21 @@
     font-family: 'Montserrat', system-ui, sans-serif;
   }
   .admin-fab-toggle {
-    width: 42px;
-    height: 42px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     border: 0;
     background: #0F1F5C;
     color: #fff;
     font-weight: 800;
-    font-size: 17px;
+    font-size: 14px;
     letter-spacing: .02em;
     cursor: pointer;
-    opacity: .28;
-    box-shadow: 0 2px 6px rgba(15,31,92,.12);
+    opacity: .55;
+    /* inset white ring makes the disc visible on the dark navy footer
+       (where bg matches the disc) — barely noticeable on light footers. */
+    box-shadow: 0 2px 6px rgba(15,31,92,.20),
+                inset 0 0 0 1.5px rgba(255,255,255,.45);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +54,9 @@
     opacity: 1;
     background: #1E3A8A;
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(15,31,92,.40), 0 1px 3px rgba(0,0,0,.12);
+    box-shadow: 0 6px 18px rgba(15,31,92,.40),
+                0 1px 3px rgba(0,0,0,.12),
+                inset 0 0 0 1.5px rgba(255,255,255,.55);
   }
   .admin-fab-toggle:focus-visible {
     outline: 2px solid #E8622A;
@@ -61,7 +66,9 @@
     opacity: 1;
     background: #1E3A8A;
     transform: rotate(45deg);
-    box-shadow: 0 6px 18px rgba(15,31,92,.40), 0 1px 3px rgba(0,0,0,.12);
+    box-shadow: 0 6px 18px rgba(15,31,92,.40),
+                0 1px 3px rgba(0,0,0,.12),
+                inset 0 0 0 1.5px rgba(255,255,255,.55);
   }
   .admin-fab-menu {
     position: absolute;
