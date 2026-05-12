@@ -37,13 +37,16 @@
     font-size: 17px;
     letter-spacing: .02em;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(15,31,92,.30), 0 1px 3px rgba(0,0,0,.12);
+    opacity: .28;
+    box-shadow: 0 2px 6px rgba(15,31,92,.12);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    transition: opacity .2s ease, transform .15s ease, box-shadow .15s ease, background .15s ease;
   }
-  .admin-fab-toggle:hover {
+  .admin-fab-toggle:hover,
+  .admin-fab-toggle:focus-visible {
+    opacity: 1;
     background: #1E3A8A;
     transform: translateY(-1px);
     box-shadow: 0 6px 18px rgba(15,31,92,.40), 0 1px 3px rgba(0,0,0,.12);
@@ -53,8 +56,10 @@
     outline-offset: 2px;
   }
   .admin-fab.open .admin-fab-toggle {
+    opacity: 1;
     background: #1E3A8A;
     transform: rotate(45deg);
+    box-shadow: 0 6px 18px rgba(15,31,92,.40), 0 1px 3px rgba(0,0,0,.12);
   }
   .admin-fab-menu {
     position: absolute;
