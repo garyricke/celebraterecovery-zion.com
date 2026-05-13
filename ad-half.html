@@ -45,7 +45,7 @@
     .print-meta {
       background: #333;
       color: #eee;
-      padding: 12px 20px;
+      padding: 14px 20px;
       border-radius: 8px;
       font-size: 13px;
       margin-bottom: 24px;
@@ -53,6 +53,23 @@
       line-height: 1.6;
       max-width: 800px;
     }
+    .print-meta a.dl {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 9px 16px;
+      border-radius: 100px;
+      background: #E8622A;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+    .print-meta a.dl:hover { background: #d04f1c; }
+    .print-meta a.dl svg { display: block; }
 
     /* Ad: 9.375in × 10.5in at 96dpi = 900px × 1008px
        Displayed at 90% scale: 810px × 907px */
@@ -280,7 +297,7 @@
     /* ── BOTTOM CTA ── */
     .ad-bottom {
       background: #E8622A;
-      padding: 16px 40px;
+      padding: 14px 36px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -304,8 +321,18 @@
       font-weight: 900;
       font-size: 18px;
       color: #fff;
-      letter-spacing: .5px;
+      letter-spacing: .3px;
     }
+
+    .cta-qr {
+      width: 76px;
+      height: 76px;
+      flex-shrink: 0;
+      background: #fff;
+      padding: 5px;
+      border-radius: 4px;
+    }
+    .cta-qr img { display: block; width: 100%; height: 100%; }
 
     .cta-right {
       font-family: 'Open Sans', Arial, sans-serif;
@@ -333,7 +360,10 @@
   <strong>Half-Page Horizontal Print Ad</strong><br>
   Final size: 9.375" × 10.5" at 300 DPI · CMYK · 0.125" bleed all sides<br>
   Recommended for: Anchorage Daily News (primary), Fairbanks News-Miner (optional)<br>
-  To export: File → Print → Save as PDF (set paper to 9.375" × 10.5")
+  <a class="dl" href="downloads/cr-zion-ad-half-9.375x10.5.pdf" download>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download print-ready PDF
+  </a>
 </div>
 
 <!-- AD -->
@@ -409,9 +439,10 @@
   <!-- Bottom CTA -->
   <div class="ad-bottom">
     <div class="cta-left">
-      <div class="reg-label">Registration Required</div>
-      <div class="reg-url">celebraterecoveryzion.com</div>
+      <div class="reg-label">Register · Scan to Sign Up</div>
+      <div class="reg-url">celebraterecovery-zion.com</div>
     </div>
+    <div class="cta-qr"><img src="images/qr-cr-zion.svg" alt="QR code · scan to register"></div>
     <div class="cta-right">
       <strong>Questions?</strong>
       CRStateRepAK@gmail.com<br>
