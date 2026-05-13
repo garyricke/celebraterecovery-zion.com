@@ -45,94 +45,6 @@
       line-height: 1.6;
     }
 
-    /* ── PASSWORD OVERLAY ────────────────────── */
-    #pw-overlay {
-      position: fixed;
-      inset: 0;
-      background: var(--navy-dark);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    #pw-overlay img.pw-logo {
-      width: 200px;
-      height: 200px;
-      margin-bottom: 32px;
-    }
-
-    .pw-box {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 14px;
-      padding: 40px 44px;
-      text-align: center;
-      max-width: 380px;
-      width: 90%;
-    }
-
-    .pw-box h2 {
-      font-family: var(--font-h);
-      font-weight: 800;
-      font-size: 20px;
-      color: #fff;
-      margin-bottom: 6px;
-      letter-spacing: -.02em;
-    }
-
-    .pw-box p {
-      font-size: 13px;
-      color: rgba(255,255,255,.55);
-      margin-bottom: 24px;
-    }
-
-    .pw-box input[type=password] {
-      width: 100%;
-      background: rgba(255,255,255,.08);
-      border: 1.5px solid rgba(255,255,255,.18);
-      border-radius: 8px;
-      padding: 13px 16px;
-      font-family: var(--font-b);
-      font-size: 15px;
-      color: #fff;
-      outline: none;
-      letter-spacing: .12em;
-      transition: border-color .2s;
-      margin-bottom: 14px;
-      text-align: center;
-    }
-
-    .pw-box input[type=password]:focus {
-      border-color: var(--orange);
-    }
-
-    .pw-btn {
-      width: 100%;
-      background: var(--orange);
-      color: #fff;
-      font-family: var(--font-h);
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: .04em;
-      border: none;
-      border-radius: 8px;
-      padding: 14px;
-      cursor: pointer;
-      transition: background .18s;
-    }
-
-    .pw-btn:hover { background: var(--orange-dk); }
-
-    .pw-error {
-      color: #fca5a5;
-      font-size: 13px;
-      margin-top: 10px;
-      min-height: 18px;
-    }
-
     /* ── NAV ─────────────────────────────────── */
     nav {
       background: var(--navy-dark);
@@ -1227,18 +1139,6 @@
 </head>
 <body>
 
-<!-- ── PASSWORD OVERLAY ── -->
-<div id="pw-overlay">
-  <img src="images/anniversary-seal.svg?v=2" alt="Celebrate Recovery 20 Years — Zion Lutheran, Fairbanks Alaska" class="pw-logo">
-  <div class="pw-box">
-    <h2>Preview Access</h2>
-    <p>This page is password-protected for review.<br>Contact Celebrate Recovery Zion for access.</p>
-    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off">
-    <button class="pw-btn" onclick="checkPassword()">Unlock Page</button>
-    <div class="pw-error" id="pw-error"></div>
-  </div>
-</div>
-
 <!-- ── STICKY NAV ── -->
 <nav>
   <a href="#top" class="nav-brand" aria-label="Celebrate Recovery 20 Years — Zion Lutheran, Fairbanks Alaska">
@@ -1721,32 +1621,6 @@
     }, { passive: true });
     update(); // run once on load
   })();
-
-  // ── Password overlay ──
-  const PASS = 'HopeHeals26';
-
-  function checkPassword() {
-    const val = document.getElementById('pw-input').value;
-    if (val === PASS) {
-      document.getElementById('pw-overlay').style.display = 'none';
-      sessionStorage.setItem('cr-unlocked', '1');
-    } else {
-      const err = document.getElementById('pw-error');
-      err.textContent = 'Incorrect password. Please try again.';
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-input').focus();
-    }
-  }
-
-  // Allow Enter key
-  document.getElementById('pw-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') checkPassword();
-  });
-
-  // Check session
-  if (sessionStorage.getItem('cr-unlocked')) {
-    document.getElementById('pw-overlay').style.display = 'none';
-  }
 
   // ── Contact modal ──
   function openContactModal() {
