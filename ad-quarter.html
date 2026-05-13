@@ -26,7 +26,6 @@
         page-break-after: avoid;
         box-shadow: none !important;
         margin: 0 !important;
-        border-radius: 0 !important;
       }
     }
 
@@ -72,14 +71,14 @@
     .print-meta a.dl:hover { background: #d04f1c; }
     .print-meta a.dl svg { display: block; }
 
-    /* Ad dimensions: 4.625in × 10.5in at 96dpi = 444px × 1008px
-       Displayed at ~90% for screen: 400px × 907px */
+    /* Ad dimensions in real inches so screen preview is 1:1 with print
+       output — at 96dpi this renders as 444px × 1008px in the browser
+       and matches the generated PDF layout exactly. */
     .ad-wrap {
-      width: 400px;
-      height: 907px;
+      width: 4.625in;
+      height: 10.5in;
       background: #0F1F5C;
       box-shadow: 0 8px 40px rgba(0,0,0,.35);
-      border-radius: 2px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
