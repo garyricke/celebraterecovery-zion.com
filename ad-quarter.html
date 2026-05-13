@@ -92,6 +92,7 @@
       background: #E8622A;
       padding: 10px 20px;
       text-align: center;
+      flex-shrink: 0;
     }
 
     .ad-stripe p {
@@ -110,6 +111,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     .ad-logo-band img {
@@ -121,7 +123,8 @@
     /* Main content area — Zion church photo as background, navy gradient overlay for legibility */
     .ad-body {
       flex: 1;
-      position: relative;
+      min-height: 0;            /* allow flex to shrink us so .ad-footer */
+      position: relative;       /* never gets pushed past wrap edge */
       background-color: #0F1F5C;
       background-image: url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/cr-zion-20th/zion-church-rainbow.jpg');
       background-size: cover;
@@ -327,6 +330,7 @@
       align-items: center;
       gap: 14px;
       justify-content: space-between;
+      flex-shrink: 0;
     }
 
     .ad-footer-text { text-align: left; }
