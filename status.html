@@ -317,15 +317,15 @@
 
 <div class="countdown">
   <div class="label">Event opens</div>
-  <div class="days"><span class="num">25</span> days</div>
+  <div class="days"><span class="num">22</span> days</div>
   <div class="when">Friday, June 5 – Saturday, June 6, 2026 · Zion Lutheran Church, Fairbanks AK</div>
 </div>
 
 <div class="page-inner">
 
-  <div class="page-eyebrow">Snapshot · Updated May 11, 2026</div>
+  <div class="page-eyebrow">Snapshot · Updated May 14, 2026</div>
   <h1 class="page-title">Where we are, what's left, and what's already done.</h1>
-  <p class="page-lead">Site, registration form, three emails, and two newspaper ads are all <em>launch-ready and reflect Liz's May 7 corrections.</em> Below: what's still outstanding before send-out, what's deferred until after launch, and a date-by-date log of everything accomplished.</p>
+  <p class="page-lead">Every campaign asset is now <em>live and shareable</em>: registration site, three emails (with a one-click Copy-HTML button), two press-ready newspaper ad PDFs (half + quarter at the News-Miner's 4.92" column spec), an 8.5×11 letter flyer for radio stations and community boards, and the brand guide. The Fairbanks News-Miner sent nonprofit rates on May 14 — choosing the run schedule and replying to Ann is now the headline pre-launch decision.</p>
 
   <!-- ─── OUTSTANDING ─────────────────────────────────────── -->
   <section class="block">
@@ -334,19 +334,19 @@
     <div class="item">
       <span class="marker open">!</span>
       <div class="text">
-        <strong>Re-import Email 1, 2, 3 HTML into the email service before next send.</strong>
-        <span class="meta">The on-disk + in-git HTML is current (May 15 T-shirt deadline, new seal, Crazy Story hook). If Mailchimp / Constant Contact / etc. already has earlier copies pasted in, those still say "May 5" and show the old seal. Re-paste before any send.</span>
+        <strong>Reply to Ann at News-Miner with run-schedule selection.</strong>
+        <span class="meta">Quoted nonprofit rates (May 14): <em>half-page</em> $1,577 weekday / $1,687.39 Sunday · <em>quarter-page</em> $947 weekday / $1,013.29 Sunday · 30% off 2nd run, 50% off 3rd. PDFs are press-ready and downloadable from <code>downloads/</code>. Decide (a) size, (b) which days, (c) how many runs; confirm Zion's 501(c)(3) is on file so nonprofit pricing actually applies. Useful window: late May through ~June 3. Ann has no ADN arrangement — Anchorage reach is a separate vendor hunt.</span>
       </div>
-      <span class="tag blocker">Before send</span>
+      <span class="tag blocker">Pre-launch</span>
     </div>
 
     <div class="item">
       <span class="marker open">!</span>
       <div class="text">
-        <strong>Re-export half-page + quarter-page ad PDFs for newspaper submission.</strong>
-        <span class="meta">News-Miner / Anchorage Daily News need print-ready PDFs. The HTML templates (<code>ad-half.html</code>, <code>ad-quarter.html</code>) are updated with new seal + May 15 deadline + Crazy Story hook — but the deliverable PDF lives outside the repo.</span>
+        <strong>Deploy form-submission dedup fix in Apps Script.</strong>
+        <span class="meta">Liz's sheet caught 4 identical rows on May 13 (timestamps <code>2026-05-13T20:57:29.278Z</code>) — concurrent Apps Script executions raced past the existing <code>isDuplicate_</code> cache check. Fix is in <code>scripts/google-sheets-webhook.gs</code> (wraps the get-check-put in <code>LockService</code>, bumps TTL 60s → 300s). To deploy: open the Sheet → Extensions → Apps Script → paste the new file → Deploy → Manage deployments → pencil → Version: <em>New version</em> → Deploy. Then delete the 3 duplicate rows from the Registrations tab.</span>
       </div>
-      <span class="tag blocker">Before publish</span>
+      <span class="tag blocker">Pre-launch</span>
     </div>
 
     <div class="item">
@@ -379,24 +379,15 @@
 
   <!-- ─── DEFERRED ────────────────────────────────────────── -->
   <section class="block">
-    <h2>Deferred — explicitly post-launch <span class="count">2 items</span></h2>
+    <h2>Deferred — explicitly post-launch <span class="count">1 item</span></h2>
 
     <div class="item">
       <span class="marker defer">⏸</span>
       <div class="text">
         <strong>Stripe payment for the $20 Saturday fee.</strong>
-        <span class="meta">Gary on May 11: "We can add the payment after we go live." Gary is on Zion's Stripe account as Developer. Form currently collects an acknowledgment that the $20 is cash/check at check-in.</span>
+        <span class="meta">Gary on May 11: "We can add the payment after we go live." Gary's Developer role on Zion's Stripe account is still part of the to-do, not done. Form currently collects an acknowledgment that the $20 is cash/check at check-in.</span>
       </div>
       <span class="tag post">Post-launch</span>
-    </div>
-
-    <div class="item">
-      <span class="marker defer">⏸</span>
-      <div class="text">
-        <strong>Uncommitted Google Sheets webhook polish + JotForm migration script.</strong>
-        <span class="meta">scripts/google-sheets-webhook.gs has additional iteration not yet committed; scripts/migrate-jotforms-data.py and the migrated CSVs are also uncommitted. The base webhook (committed May 7) is live and logging registrations to Liz's sheet.</span>
-      </div>
-      <span class="tag optional">Polish</span>
     </div>
   </section>
 
@@ -404,9 +395,44 @@
   <section class="block">
     <h2>Timeline of work completed</h2>
 
-    <!-- May 11 -->
+    <!-- May 14 -->
     <div class="day">
-      <h3>Monday, May 11, 2026 <span class="relative">(today · 25 days to event)</span></h3>
+      <h3>Thursday, May 14, 2026 <span class="relative">(today · 22 days to event)</span></h3>
+      <ul>
+        <li><strong>News-Miner nonprofit pricing in hand.</strong> Ann at the Fairbanks Daily News-Miner sent quotes: half-page $1,577 weekday / $1,687.39 Sunday, quarter $947 / $1,013.29, 30% off 2nd run, 50% off 3rd. ADN is not available through her — Anchorage is a separate vendor. Rates + spec saved to memory (<code>project-cr-news-miner-rates.md</code>) for Liz's reply.</li>
+        <li><strong>Quarter-page ad resized to 4.92" wide</strong> — that's the News-Miner's actual column spec (the design was originally drawn at 4.625"). HTML, print override, and download filename all updated; PDF verified at MediaBox 4.917 × 10.500 in, well within press tolerance.</li>
+        <li><strong>Letter flyer created</strong> for radio stations and community boards (<code>flyer.html</code> → <code>downloads/cr-zion-flyer-letter.pdf</code>). 8.5×11 single page: orange stripe, hero church photo with seal, Tommy Woodard speaker card with circular headshot, two date cards (Friday Free / Saturday $20), four highlights with icons, venue, and orange CTA bar with URL + QR + Liz's contact. Lead angle: "Two Days · Free Friday · All Welcome" so stations are more likely to run it as a PSA.</li>
+        <li><strong>Flyer refinements after first-cut feedback.</strong> Tommy's headshot bumped 76 → 104 px so he reads from across a lobby; box-shadow removed (10 px blur on orange was producing a square dark halo at zoom); hero shortened 280 → 240 px and main padding/gaps tightened to recover the 24 px the venue address was being clipped by.</li>
+      </ul>
+    </div>
+
+    <!-- May 13 -->
+    <div class="day past">
+      <h3>Wednesday, May 13, 2026</h3>
+      <ul>
+        <li><strong>Print ads now ship as downloadable PDFs.</strong> Both <code>ad-quarter.html</code> and <code>ad-half.html</code> have press-ready PDFs in <code>downloads/</code>; campaign-assets cards split into Preview link + Download PDF pill; each ad page also has a Download button in its on-screen banner. Half-page weight dropped from 22 MB to 656 KB by forcing Cloudinary to serve <code>f_jpg,q_80,w_1800</code> for the embedded photos (Chrome's <code>--print-to-pdf</code> was decoding the WebP and re-embedding it bloated).</li>
+        <li><strong>QR code generated and placed</strong> on both newspaper ads and the flyer, pointing to <code>https://www.celebraterecovery-zion.com/</code>. Error-correction H so it survives newsprint dot gain.</li>
+        <li><strong>Email register-button URL bug fixed.</strong> All six CTAs in the three email templates were pointing at <code>celebraterecoveryzion.com</code> (no hyphen) — the actual domain is <code>celebraterecovery-zion.com</code>. Every click would have failed. Corrected and pushed before any send.</li>
+        <li><strong>"Copy email HTML" button added</strong> to all three email preview pages (<code>scripts/email-copy-button.js</code>). One click puts both <code>text/html</code> (rich, for Gmail/Outlook compose paste) and <code>text/plain</code> (full source, for Mailchimp / Email Octopus HTML editors) on the clipboard — so re-importing the latest version into the ESP is now a single click instead of opening the raw HTML by hand. Hidden in headless Chrome so it doesn't appear in thumbnails or PDFs.</li>
+        <li><strong>Email 1 hero "lilac wash" fixed.</strong> The seal + orange pill were inside a <code>position:absolute</code> overlay that fell into normal flow below the photo, and its translucent navy bled with the off-white body to produce a pale-purple band. Restructured to match the email-2 / email-3 pattern: clean photo row + dedicated navy seal/pill row + existing navy hero row — one continuous block, no positioning tricks, email-client safe.</li>
+        <li><strong>Campaign-asset pages ungated.</strong> The asset index, three emails, two ads, and brand guide are now public so Liz can hand the preview links to vetted partners without giving out the password. <code>logo-concepts</code>, <code>payments</code>, and <code>status</code> remain gated.</li>
+        <li><strong>Print ad layout hardening.</strong> Web preview now renders at exact print dimensions (1:1 with PDF output at 96 dpi); top/bottom bars pinned with <code>flex-shrink: 0</code> + <code>min-height: 0</code> on the main row so the half-ad's bottom orange CTA can't be clipped when the highlights block wraps to 2 lines.</li>
+      </ul>
+    </div>
+
+    <!-- May 12 -->
+    <div class="day past">
+      <h3>Tuesday, May 12, 2026</h3>
+      <ul>
+        <li><strong>Design thumbnails on the campaign-assets index.</strong> Every card (3 emails, 2 ads, brand guide) now shows a 480×320 top-crop preview of the actual rendered design, generated by <code>scripts/make-asset-thumbs.py</code> (headless Chrome → PIL).</li>
+        <li><strong>Password gate for internal pages</strong> via shared <code>scripts/password-gate.js</code> — synchronous head-script so content doesn't flash, sessionStorage-persisted unlock across the same tab. (Most of these pages were ungated again on May 13 when Liz needed to share the previews; the gate is still in place on <code>logo-concepts</code>, <code>payments</code>, <code>status</code>.)</li>
+        <li><strong>Internal-pages admin menu</strong> (the "A" FAB in the footer) wired up so Liz can hop between Status / Brand Guide / Campaign Assets / Payments from anywhere on the site.</li>
+      </ul>
+    </div>
+
+    <!-- May 11 -->
+    <div class="day past">
+      <h3>Monday, May 11, 2026</h3>
       <ul>
         <li><strong>Anniversary seal redrawn.</strong> "CELEBRATE RECOVERY" is now the dominant element — stacked horizontal at 46pt instead of arched at 16pt. Compact C|R glyph above; Zion Lutheran / Fairbanks AK on the top arc; "Twentieth Anniversary" stamp on the bottom arc; 20 YEARS / 2006 – 2026 as supporting type.</li>
         <li><strong>New seal pushed to Cloudinary</strong> (version <code>v1778548225</code>). Email + ad URLs pinned to that version so Gmail / Outlook image caches can't serve the old artwork.</li>
