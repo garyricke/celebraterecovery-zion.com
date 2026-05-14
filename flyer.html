@@ -67,6 +67,47 @@
     .print-meta a.dl:hover { background: #d04f1c; }
     .print-meta a.dl svg { display: block; }
 
+    /* Update log — screen-only, sits below the download button. */
+    .meta-updates {
+      margin: 16px auto 0;
+      padding-top: 14px;
+      border-top: 1px solid #555;
+      text-align: left;
+      max-width: 560px;
+    }
+    .meta-updates-head {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #f2a07a;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .meta-updates ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .meta-updates li {
+      padding: 2px 0 2px 18px;
+      position: relative;
+      color: #d4d4d4;
+    }
+    .meta-updates li::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #E8622A;
+    }
+
     /* Real-inch dimensions so screen preview is 1:1 with the printed
        PDF (at 96dpi the browser renders 816 × 1056 px). */
     .flyer-wrap {
@@ -374,6 +415,16 @@
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
     Download print-ready PDF
   </a>
+  <div class="meta-updates">
+    <div class="meta-updates-head">Last updated · May 14, 2026 · 11:17 AM AKDT</div>
+    <ul>
+      <li>Saturday card: removed "Open Share Groups · Salmon Bake" line</li>
+      <li>Saturday card: added "Registration-fee scholarships available if needed" under the $20 cost</li>
+      <li>Meals highlight: changed "Salmon Bake Dinner" → "Continental Breakfast, Lunch &amp; Dinner"</li>
+      <li>New highlight: "Confessions of a Good Church Lady"</li>
+      <li>New highlight: "Faith in Jesus Christ Story" — Tommy Woodard</li>
+    </ul>
+  </div>
 </div>
 
 <div class="flyer-wrap">
