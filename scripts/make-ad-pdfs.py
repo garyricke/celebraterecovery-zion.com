@@ -78,7 +78,7 @@ html, body {{
   overflow: hidden !important;
 }}
 .print-meta {{ display: none !important; }}
-.ad-wrap {{
+.ad-wrap, .flyer-wrap {{
   width: {w} !important;
   height: {h} !important;
   margin: 0 !important;
@@ -109,6 +109,8 @@ JOBS = [
     # widened the wrap to match the column spec they actually print at.
     Job("ad-quarter.html", "cr-zion-ad-quarter-4.92x10.5.pdf",  4.92,  10.5),
     Job("ad-half.html",    "cr-zion-ad-half-9.375x10.5.pdf",   9.375, 10.5),
+    # US Letter flyer for radio stations / community bulletin boards.
+    Job("flyer.html",      "cr-zion-flyer-letter.pdf",          8.5,  11.0),
 ]
 
 
