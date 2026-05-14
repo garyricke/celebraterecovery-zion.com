@@ -9,7 +9,7 @@
   <style>
     /* ── PRINT SETUP ── */
     @page {
-      size: 4.625in 10.5in;
+      size: 4.92in 10.5in;
       margin: 0;
     }
 
@@ -21,7 +21,7 @@
       }
       .print-meta { display: none !important; }
       .ad-wrap {
-        width: 4.625in !important;
+        width: 4.92in !important;
         height: 10.5in !important;
         page-break-after: avoid;
         box-shadow: none !important;
@@ -72,10 +72,13 @@
     .print-meta a.dl svg { display: block; }
 
     /* Ad dimensions in real inches so screen preview is 1:1 with print
-       output — at 96dpi this renders as 444px × 1008px in the browser
-       and matches the generated PDF layout exactly. */
+       output — at 96dpi this renders as 472px × 1008px in the browser
+       and matches the generated PDF layout exactly.
+       4.92" wide is the Fairbanks News-Miner column-width spec (per
+       Ann, 2026-05-14); the design was originally drawn at 4.625" so
+       internal elements get a touch more breathing room horizontally. */
     .ad-wrap {
-      width: 4.625in;
+      width: 4.92in;
       height: 10.5in;
       background: #0F1F5C;
       box-shadow: 0 8px 40px rgba(0,0,0,.35);
@@ -378,9 +381,9 @@
 
 <div class="print-meta">
   <strong>Quarter-Page Vertical Print Ad</strong><br>
-  Final size: 4.625" × 10.5" at 300 DPI · CMYK · 0.125" bleed all sides<br>
-  For: Fairbanks News-Miner &amp; Anchorage Daily News<br>
-  <a class="dl" href="downloads/cr-zion-ad-quarter-4.625x10.5.pdf" download>
+  Final size: 4.92" × 10.5" at 300 DPI · CMYK · 0.125" bleed all sides<br>
+  For: Fairbanks News-Miner (4.92" column width per Ann, 2026-05-14)<br>
+  <a class="dl" href="downloads/cr-zion-ad-quarter-4.92x10.5.pdf" download>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
     Download print-ready PDF
   </a>

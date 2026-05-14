@@ -104,7 +104,10 @@ class Job:
 
 
 JOBS = [
-    Job("ad-quarter.html", "cr-zion-ad-quarter-4.625x10.5.pdf", 4.625, 10.5),
+    # Quarter-page width is 4.92" per Ann at the Fairbanks News-Miner
+    # (2026-05-14 email); design was originally drawn at 4.625" so we
+    # widened the wrap to match the column spec they actually print at.
+    Job("ad-quarter.html", "cr-zion-ad-quarter-4.92x10.5.pdf",  4.92,  10.5),
     Job("ad-half.html",    "cr-zion-ad-half-9.375x10.5.pdf",   9.375, 10.5),
 ]
 
