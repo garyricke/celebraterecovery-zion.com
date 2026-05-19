@@ -149,10 +149,10 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg,
-        rgba(15,31,92,.18) 0%,
-        rgba(15,31,92,.35) 30%,
-        rgba(15,31,92,.72) 62%,
-        rgba(15,31,92,.92) 100%);
+        rgba(15,31,92,.50) 0%,
+        rgba(15,31,92,.62) 30%,
+        rgba(15,31,92,.82) 62%,
+        rgba(15,31,92,.95) 100%);
       pointer-events: none;
     }
 
@@ -167,11 +167,9 @@
       line-height: 1.05;
       letter-spacing: -1px;
       margin-bottom: 6px;
-      /* Layered shadow: tight dark halo + soft drop, keeps the headline crisp over bright sky */
-      text-shadow:
-        0 0 4px rgba(0,0,0,.55),
-        0 2px 14px rgba(0,0,0,.55),
-        0 4px 24px rgba(0,0,0,.35);
+      /* No text-shadow: Chromium's --print-to-pdf rasterizes any blurred
+         text-shadow as a solid filled rectangle at the line-box size.
+         Legibility comes from the gradient overlay above. */
     }
 
     .ad-subhead {
@@ -181,9 +179,6 @@
       color: rgba(255,255,255,.85);
       letter-spacing: -.5px;
       margin-bottom: 18px;
-      text-shadow:
-        0 0 3px rgba(0,0,0,.50),
-        0 2px 10px rgba(0,0,0,.45);
     }
 
     /* Orange divider */
@@ -270,7 +265,8 @@
       overflow: hidden;
       border: 3px solid #E8622A;
       background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+      /* No box-shadow: Chromium PDF renders it as a black rectangle
+         that ignores the border-radius clip. */
     }
 
     .ad-speaker-photo img {
