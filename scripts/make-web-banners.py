@@ -89,12 +89,16 @@ def staged_source(job: Job) -> Path:
     return staged
 
 
+SCALE = 2  # retina multiplier — saves native 2x pixels for sharp display
+
+
 def render(job: Job) -> Path:
     out_path = OUT_DIR / job.out
     src = staged_source(job)
-    # Capture at 2x for retina-grade output, then downsample. Chrome's
-    # --force-device-scale-factor=2 produces a 2x-sized PNG that we Lanczos
-    # back to exact (width_px, height_px) — sharper than capturing at 1x.
+    # Capture at retina scale and SAVE at that resolution — don't downsample.
+    # Downsampling to exact (width_px, height_px) softens detail, and any
+    # 1x PNG gets bilinear-upscaled by the OS on retina displays so it
+    # looks blurry anyway. Modern display ad networks accept 2x assets.
     raw = OUT_DIR / f".raw-{job.out}"
     try:
         cmd = [
@@ -102,7 +106,7 @@ def render(job: Job) -> Path:
             "--headless=new",
             "--disable-gpu",
             "--hide-scrollbars",
-            "--force-device-scale-factor=2",
+            f"--force-device-scale-factor={SCALE}",
             "--virtual-time-budget=8000",
             f"--window-size={job.width_px},{job.height_px}",
             f"--screenshot={raw}",
@@ -112,11 +116,11 @@ def render(job: Job) -> Path:
         if not raw.exists():
             raise RuntimeError(f"Chrome produced no PNG for {job.src}")
         img = Image.open(raw).convert("RGB")
-        # Chrome's screenshot may include a few extra pixels — crop to spec.
+        # Crop to exact 2x dimensions (Chrome sometimes pads by a few px).
+        target_w, target_h = job.width_px * SCALE, job.height_px * SCALE
         cw, ch = img.size
-        if cw > job.width_px * 2 or ch > job.height_px * 2:
-            img = img.crop((0, 0, job.width_px * 2, job.height_px * 2))
-        img = img.resize((job.width_px, job.height_px), Image.LANCZOS)
+        if cw != target_w or ch != target_h:
+            img = img.crop((0, 0, min(cw, target_w), min(ch, target_h)))
         img.save(out_path, "PNG", optimize=True)
     finally:
         src.unlink(missing_ok=True)
