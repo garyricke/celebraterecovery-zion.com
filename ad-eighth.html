@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Print Ad — Eighth Page (3-col × 5") · Celebrate Recovery 20th Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── PRINT SETUP ── */
+    @page {
+      size: 4.92in 5in;
+      margin: 0;
+    }
+
+    @media print {
+      body { background: white !important; margin: 0; padding: 0; }
+      .print-meta { display: none !important; }
+      .ad-wrap {
+        width: 4.92in !important;
+        height: 5in !important;
+        page-break-after: avoid;
+        box-shadow: none !important;
+        margin: 0 !important;
+      }
+    }
+
+    /* ── SCREEN PREVIEW ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      font-family: 'Open Sans', Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    .print-meta {
+      background: #333;
+      color: #eee;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 24px;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+    .print-meta a.dl {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 9px 16px;
+      border-radius: 100px;
+      background: #E8622A;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+    .print-meta a.dl:hover { background: #d04f1c; }
+    .print-meta a.dl svg { display: block; }
+
+    /* Real inches so screen preview matches the printed output. At 96dpi
+       this renders 472px × 480px in the browser. 4.92" is the Fairbanks
+       News-Miner 3-column width spec (per Ann, 2026-05-14). */
+    .ad-wrap {
+      width: 4.92in;
+      height: 5in;
+      background: #0F1F5C;
+      box-shadow: 0 8px 40px rgba(0,0,0,.35);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Orange top stripe */
+    .ad-stripe {
+      background: #E8622A;
+      padding: 7px 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .ad-stripe p {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    /* Header row: seal beside headline */
+    .ad-head {
+      background: #1E3A8A;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .ad-head img {
+      width: 86px;
+      height: 86px;
+      flex-shrink: 0;
+      display: block;
+    }
+    .ad-head-text { flex: 1; min-width: 0; }
+    .ad-headline {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      color: #fff;
+      line-height: 1.02;
+      letter-spacing: -.5px;
+    }
+    .ad-headline em {
+      display: block;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 13px;
+      color: rgba(255,255,255,.78);
+      letter-spacing: 0;
+      margin-top: 4px;
+    }
+    .ad-keynote {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,.88);
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+    .ad-keynote strong {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      color: #F07E50;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      font-size: 9px;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    /* Dates — Zion church golden-hour photo behind a navy gradient overlay
+       (same pattern as the quarter-page hero, scaled for the smaller area) */
+    .ad-dates {
+      flex: 1;
+      min-height: 0;
+      padding: 14px 18px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+      position: relative;
+      background-color: #0F1F5C;
+      background-image: url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1200/cr-zion-20th/zion-church-rainbow.jpg');
+      background-size: cover;
+      background-position: center 38%;
+      background-repeat: no-repeat;
+    }
+    /* Light at top so the rainbow/cross/sky come through, ramping to dark
+       at bottom so date copy stays readable over the photo. */
+    .ad-dates::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(15,31,92,.45) 0%,
+        rgba(15,31,92,.62) 45%,
+        rgba(15,31,92,.88) 100%);
+      pointer-events: none;
+    }
+    .ad-dates > * { position: relative; z-index: 1; }
+    .ad-date-row {
+      background: rgba(15,31,92,.55);
+      border-left: 3px solid #E8622A;
+      padding: 8px 12px;
+      /* Leave room on the right for the keynote-speaker circle */
+      max-width: calc(100% - 92px);
+    }
+
+    /* Small circular knockout of Tommy Woodard, anchored to the right
+       of the dates band. Brand orange ring matches the quarter-page card. */
+    .ad-speaker-circle {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #E8622A;
+      background: #fff;
+      z-index: 2;
+      /* No box-shadow: Chromium PDF rasterizes shadows as black rectangles. */
+    }
+    .ad-speaker-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ad-date-label {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      color: #F07E50;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+    .ad-date-info {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,.88);
+      margin-top: 2px;
+      line-height: 1.35;
+    }
+
+    /* Footer CTA */
+    .ad-footer {
+      background: rgba(255,255,255,.06);
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding: 11px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .ad-footer-text { text-align: left; flex: 1; min-width: 0; }
+    .ad-register-label {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #F07E50;
+      margin-bottom: 3px;
+    }
+    .ad-url {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: .3px;
+      line-height: 1.1;
+    }
+    .ad-venue {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 10px;
+      color: rgba(255,255,255,.62);
+      margin-top: 3px;
+      line-height: 1.35;
+    }
+    .ad-qr {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      background: #fff;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .ad-qr img { display: block; width: 100%; height: 100%; }
+  </style>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+</head>
+<body>
+
+<div class="print-meta">
+  <strong>Eighth-Page Print Ad — 3 column × 5"</strong><br>
+  Final size: 4.92" × 5" at 300 DPI · CMYK · 0.125" bleed all sides<br>
+  For: Fairbanks News-Miner (3-column width per Ann, 2026-05-14)<br>
+  <a class="dl" href="downloads/cr-zion-ad-eighth-4.92x5.pdf" download>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download print-ready PDF
+  </a>
+</div>
+
+<!-- AD -->
+<div class="ad-wrap">
+
+  <!-- Orange stripe -->
+  <div class="ad-stripe">
+    <p>20th Anniversary Celebration</p>
+  </div>
+
+  <!-- Seal + headline -->
+  <div class="ad-head">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1778548225/cr-zion-20th/anniversary-seal.svg" alt="Celebrate Recovery 20 Years">
+    <div class="ad-head-text">
+      <h1 class="ad-headline">20 Years of Hope &amp; Healing<em>in Alaska</em></h1>
+      <p class="ad-keynote"><strong>Keynote Speaker</strong>Tommy Woodard · The Skit Guys</p>
+    </div>
+  </div>
+
+  <!-- Dates -->
+  <div class="ad-dates">
+    <div class="ad-date-row">
+      <div class="ad-date-label">Friday, June 5</div>
+      <div class="ad-date-info">7:00 PM · Free · Light dinner 6:30 PM</div>
+    </div>
+    <div class="ad-date-row">
+      <div class="ad-date-label">Saturday, June 6</div>
+      <div class="ad-date-info">7:00 AM – 4:30 PM · $20 · Worship · Salmon Bake</div>
+    </div>
+    <div class="ad-speaker-circle">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_180,h_180,c_fill,g_face/cr-zion-20th/tommy-woodard-headshot.png" alt="Tommy Woodard">
+    </div>
+  </div>
+
+  <!-- Footer / Register CTA -->
+  <div class="ad-footer">
+    <div class="ad-footer-text">
+      <div class="ad-register-label">Register · Scan QR</div>
+      <div class="ad-url">celebraterecovery-zion.com</div>
+      <div class="ad-venue">Zion Lutheran · 2982 Davis Rd · Fairbanks</div>
+    </div>
+    <div class="ad-qr"><img src="images/qr-cr-zion.svg" alt="QR code · scan to register"></div>
+  </div>
+
+</div>
+<!-- /ad -->
+
+</body>
+</html>

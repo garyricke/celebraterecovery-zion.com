@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Banner — Corkboard 300×250 · Celebrate Recovery 20th Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      font-family: 'Open Sans', Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    .print-meta {
+      background: #333;
+      color: #eee;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 24px;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+    .print-meta a.dl {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 9px 16px;
+      border-radius: 100px;
+      background: #E8622A;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+    .print-meta a.dl:hover { background: #d04f1c; }
+    .print-meta a.dl svg { display: block; }
+
+    /* 300 × 250 — News-Miner Corkboard / IAB Medium Rectangle */
+    .banner {
+      width: 300px;
+      height: 250px;
+      background: #0F1F5C;
+      box-shadow: 0 8px 40px rgba(0,0,0,.35);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .banner-stripe {
+      background: #E8622A;
+      padding: 5px 10px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .banner-stripe p {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 8px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .banner-body {
+      flex: 1;
+      min-height: 0;
+      padding: 10px 14px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+      position: relative;
+      background-color: #0F1F5C;
+      background-image: url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_900/cr-zion-20th/zion-church-rainbow.jpg');
+      background-size: cover;
+      background-position: center 38%;
+      background-repeat: no-repeat;
+    }
+    /* Navy gradient overlay — light at top so the rainbow/cross/sky come
+       through, ramping to dark at bottom so headline/dates stay readable. */
+    .banner-body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(15,31,92,.45) 0%,
+        rgba(15,31,92,.62) 45%,
+        rgba(15,31,92,.92) 100%);
+      pointer-events: none;
+    }
+    .banner-body > * { position: relative; z-index: 1; }
+
+    .banner-seal {
+      width: 78px;
+      height: 78px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .banner-headline {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.02;
+      letter-spacing: -.5px;
+    }
+    .banner-headline em {
+      display: block;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 11px;
+      color: rgba(255,255,255,.78);
+      letter-spacing: 0;
+      margin-top: 2px;
+    }
+
+    .banner-dates {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: .6px;
+      color: #F07E50;
+      text-transform: uppercase;
+    }
+    .banner-venue {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 9.5px;
+      color: rgba(255,255,255,.65);
+      margin-top: -4px;
+    }
+
+    .banner-cta {
+      margin-top: auto;
+      align-self: stretch;
+      background: #E8622A;
+      padding: 8px 10px;
+      text-align: center;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .banner-cta small {
+      display: block;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: .4px;
+      text-transform: none;
+      color: rgba(255,255,255,.92);
+      margin-top: 1px;
+    }
+  </style>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+</head>
+<body>
+
+<div class="print-meta">
+  <strong>Corkboard Web Banner — 300 × 250 px</strong><br>
+  IAB Medium Rectangle · For: Fairbanks News-Miner online Corkboard<br>
+  Static PNG export ships to advertiser; HTML is the design source.<br>
+  <a class="dl" href="downloads/cr-zion-corkboard-300x250.png" download>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download PNG
+  </a>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+
+  <div class="banner-stripe">
+    <p>20th Anniversary Celebration</p>
+  </div>
+
+  <div class="banner-body">
+    <img class="banner-seal" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1778548225/cr-zion-20th/anniversary-seal.svg" alt="Celebrate Recovery 20 Years">
+    <h1 class="banner-headline">20 Years of Hope &amp; Healing<em>in Alaska</em></h1>
+    <div class="banner-dates">June 5–6, 2026 · Fairbanks</div>
+    <div class="banner-venue">Zion Lutheran · Free Friday night</div>
+  </div>
+
+  <div class="banner-cta">
+    Register Now
+    <small>celebraterecovery-zion.com</small>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -108,6 +108,9 @@ JOBS = [
     # (2026-05-14 email); design was originally drawn at 4.625" so we
     # widened the wrap to match the column spec they actually print at.
     Job("ad-quarter.html", "cr-zion-ad-quarter-4.92x10.5.pdf",  4.92,  10.5),
+    # Eighth-page = 3-column × 5", same column width as the quarter. Sized
+    # to fit the $1,024.91 News-Miner package Ann quoted 2026-05-19.
+    Job("ad-eighth.html",  "cr-zion-ad-eighth-4.92x5.pdf",      4.92,   5.0),
     Job("ad-half.html",    "cr-zion-ad-half-9.375x10.5.pdf",   9.375, 10.5),
     # US Letter flyer for radio stations / community bulletin boards.
     Job("flyer.html",      "cr-zion-flyer-letter.pdf",          8.5,  11.0),

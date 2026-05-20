@@ -52,7 +52,9 @@ JOBS = [
     Job("email-2-speaker.html",  "email-2",     700, 900),
     Job("email-3-lastcall.html", "email-3",     700, 900),
     Job("ad-quarter.html",       "ad-quarter",  500, 1140, inject_bottom=HIDE_PRINT_META),
+    Job("ad-eighth.html",        "ad-eighth",   500,  520, inject_bottom=HIDE_PRINT_META),
     Job("ad-half.html",          "ad-half",     1000, 1120, inject_bottom=HIDE_PRINT_META),
+    Job("ad-corkboard-300x250.html", "ad-corkboard", 320, 270, inject_bottom=HIDE_PRINT_META),
     Job("flyer.html",            "flyer",       850, 1120, inject_bottom=HIDE_PRINT_META),
     Job("brand-guide.html",      "brand-guide", 1200, 900),
 ]
