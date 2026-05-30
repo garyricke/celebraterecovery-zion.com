@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Social Ad — Square 1080×1080 · Celebrate Recovery 20th Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: #fff;
+      font-family: 'Open Sans', Arial, sans-serif;
+    }
+
+    /* 1080 × 1080 — Facebook / Instagram feed square (works in every placement). */
+    .banner {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background-color: #0F1F5C;
+      background-image: url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1400/cr-zion-20th/zion-church-rainbow.jpg');
+      background-size: cover;
+      background-position: center 36%;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navy gradient: light at top so the rainbow + cross + sky read,
+       ramping dark toward the bottom so the type stays legible. */
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(15,31,92,.42) 0%,
+        rgba(15,31,92,.60) 42%,
+        rgba(15,31,92,.93) 100%);
+      pointer-events: none;
+    }
+    .banner > * { position: relative; z-index: 1; }
+
+    .stripe {
+      background: #E8622A;
+      text-align: center;
+      padding: 22px 10px;
+      flex-shrink: 0;
+    }
+    .stripe p {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .body {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 64px;
+      gap: 24px;
+    }
+
+    .seal { width: 230px; height: 230px; display: block; }
+
+    .headline {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 96px;
+      line-height: .98;
+      letter-spacing: -2px;
+      color: #fff;
+      text-shadow: 0 2px 18px rgba(0,0,0,.35);
+    }
+    .headline em {
+      display: block;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 46px;
+      letter-spacing: 1px;
+      color: #F9C9B4;
+      margin-top: 6px;
+    }
+
+    .dates {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 46px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #F07E50;
+    }
+    .venue {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: rgba(255,255,255,.88);
+      margin-top: -10px;
+    }
+
+    .cta {
+      flex-shrink: 0;
+      background: #E8622A;
+      text-align: center;
+      padding: 30px 20px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 40px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .cta small {
+      display: block;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: .5px;
+      text-transform: none;
+      color: rgba(255,255,255,.95);
+      margin-top: 4px;
+    }
+  </style>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<div class="banner">
+  <div class="stripe"><p>Celebrate Recovery · 20th Anniversary</p></div>
+
+  <div class="body">
+    <img class="seal" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1778548225/cr-zion-20th/anniversary-seal.svg" alt="Celebrate Recovery 20 Years">
+    <h1 class="headline">20 Years of<br>Hope &amp; Healing<em>in Alaska</em></h1>
+    <div class="dates">June 5–6, 2026 · Fairbanks</div>
+    <div class="venue">Zion Lutheran Church · Free Friday Night</div>
+  </div>
+
+  <div class="cta">
+    All Are Welcome
+    <small>celebraterecovery-zion.com</small>
+  </div>
+</div>
+
+</body>
+</html>

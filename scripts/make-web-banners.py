@@ -60,6 +60,13 @@ class Job:
 JOBS = [
     # News-Miner Corkboard placement (IAB Medium Rectangle).
     Job("ad-corkboard-300x250.html", "cr-zion-corkboard-300x250.png", 300, 250),
+    # Paid social (Facebook / Instagram) — feed + Stories/Reels sizes.
+    # These render at native pixel dimensions; the SCALE=2 retina multiplier
+    # below then doubles them, so the upload files are well above Meta's
+    # minimums with room to spare.
+    Job("ad-social-1x1.html",  "cr-zion-social-square-1080.png",        1080, 1080),
+    Job("ad-social-4x5.html",  "cr-zion-social-portrait-1080x1350.png", 1080, 1350),
+    Job("ad-social-9x16.html", "cr-zion-social-story-1080x1920.png",    1080, 1920),
 ]
 
 

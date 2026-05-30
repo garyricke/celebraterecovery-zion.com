@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Ads & Plan — CR 20th Anniversary</title>
+  <script src="scripts/password-gate.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="preload" as="image" href="images/anniversary-seal.svg?v=2" type="image/svg+xml" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1E3A8A;
+      --navy-dark: #0F1F5C;
+      --orange: #E8622A;
+      --ink: #1A1E3A;
+      --muted: #6B7280;
+      --line: #E8EBF4;
+      --bg: #F8F9FC;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    header {
+      background: var(--navy-dark);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    header img { height: 56px; width: 56px; }
+    header a.back {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: color .15s;
+    }
+    header a.back:hover { color: #fff; }
+
+    .page-inner { max-width: 1000px; margin: 0 auto; padding: 56px 32px 90px; }
+
+    .page-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: 11px;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 10px;
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: 38px;
+      color: var(--navy); letter-spacing: -.03em; margin-bottom: 8px;
+    }
+    .page-sub { font-size: 15px; color: var(--muted); max-width: 720px; }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: 22px;
+      color: var(--navy); letter-spacing: -.02em;
+      margin: 0 0 6px;
+    }
+    .section { margin-top: 56px; }
+    .section-lead { font-size: 14.5px; color: var(--muted); margin-bottom: 22px; max-width: 760px; }
+
+    /* Countdown banner */
+    .countdown {
+      margin-top: 28px;
+      background: #FFF7ED;
+      border: 1px solid #FBD9B8;
+      border-left: 4px solid var(--orange);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .countdown .num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: 42px; color: var(--orange);
+      line-height: 1; flex-shrink: 0;
+    }
+    .countdown .txt { font-size: 14px; color: #92400E; }
+    .countdown .txt strong { color: #7C3A0E; }
+
+    /* Recommendation callout */
+    .reco {
+      margin-top: 22px;
+      background: var(--navy-dark);
+      color: #fff;
+      border-radius: 16px;
+      padding: 30px 34px;
+      background-image:
+        radial-gradient(ellipse 60% 200px at 12% 0%, rgba(232,98,42,.30), transparent 70%),
+        radial-gradient(ellipse 70% 240px at 88% 10%, rgba(64,140,200,.30), transparent 72%);
+    }
+    .reco h2 { color: #fff; }
+    .reco p { font-size: 15px; color: rgba(255,255,255,.82); margin-top: 8px; }
+    .reco strong { color: #F9C9B4; }
+
+    /* Platform cards */
+    .platforms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .pf {
+      background: #fff; border: 1px solid var(--line);
+      border-radius: 14px; padding: 22px; position: relative;
+    }
+    .pf.primary { border-color: var(--navy); box-shadow: 0 6px 26px rgba(30,58,138,.10); }
+    .pf-rank {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: 10px; letter-spacing: .12em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 100px;
+      display: inline-block; margin-bottom: 12px;
+    }
+    .rank-primary { background: #EFF6FF; color: var(--navy); }
+    .rank-second  { background: #FFF7ED; color: #92400E; }
+    .rank-skip    { background: #FEF2F2; color: #B42318; }
+    .pf h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: 19px; color: var(--ink); margin-bottom: 4px;
+    }
+    .pf .share {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 13px; color: var(--orange); margin-bottom: 12px;
+    }
+    .pf p { font-size: 13.5px; color: var(--muted); }
+    .pf ul { list-style: none; margin-top: 10px; font-size: 13px; color: #374151; }
+    .pf li { padding-left: 20px; position: relative; margin-bottom: 6px; }
+    .pf li::before { content: '✓'; position: absolute; left: 0; color: #16A34A; font-weight: 800; }
+    .pf.skip li::before { content: '✕'; color: #DC2626; }
+
+    /* Generic table */
+    .tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 640px; }
+    thead th {
+      background: #F1F3F9; text-align: left;
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--line);
+    }
+    tbody td { padding: 13px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody td:first-child { font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .phase-tag {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 10px; letter-spacing: .06em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 100px; white-space: nowrap;
+    }
+    .t-warm { background: #EFF6FF; color: var(--navy); }
+    .t-push { background: #FFF7ED; color: #92400E; }
+    .t-final { background: #FEF2F2; color: #B42318; }
+    .t-day { background: #F0FDF4; color: #166534; }
+    .money { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--ink); }
+    tfoot td {
+      padding: 13px 16px; font-family: 'Montserrat', sans-serif;
+      font-weight: 800; color: var(--navy); border-top: 2px solid var(--line);
+      background: #FBFCFE;
+    }
+
+    /* Creatives */
+    .creatives { display: flex; flex-wrap: wrap; gap: 24px; }
+    .creative {
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      padding: 20px; display: flex; flex-direction: column; align-items: center;
+    }
+    .shot {
+      position: relative; overflow: hidden; border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(15,31,92,.18); background: var(--navy-dark);
+    }
+    .shot iframe { border: 0; transform-origin: top left; display: block; }
+    .shot a.cover {
+      position: absolute; inset: 0; z-index: 2; display: block;
+    }
+    .shot--sq    { width: 300px; height: 300px; }
+    .shot--sq iframe    { width: 1080px; height: 1080px; transform: scale(.27778); }
+    .shot--por   { width: 300px; height: 375px; }
+    .shot--por iframe   { width: 1080px; height: 1350px; transform: scale(.27778); }
+    .shot--story { width: 240px; height: 426px; }
+    .shot--story iframe { width: 1080px; height: 1920px; transform: scale(.22222); }
+
+    .creative h3 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 16px; color: var(--navy); margin: 18px 0 2px; text-align: center;
+    }
+    .creative .spec { font-size: 12.5px; color: var(--muted); text-align: center; margin-bottom: 4px; }
+    .creative .place { font-size: 12px; color: #374151; text-align: center; margin-bottom: 14px; }
+    .creative .place b { color: var(--navy); }
+    .creative .acts { display: flex; gap: 8px; }
+    .btn {
+      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px;
+      letter-spacing: .03em; padding: 9px 14px; border-radius: 100px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      transition: background .15s, transform .15s, border-color .15s;
+    }
+    .btn-open { background: var(--navy); color: #fff; }
+    .btn-open:hover { background: var(--orange); transform: translateY(-1px); }
+    .btn-dl { background: #fff; color: var(--navy); border: 1.5px solid var(--line); }
+    .btn-dl:hover { border-color: var(--navy); transform: translateY(-1px); }
+    .btn svg { display: block; }
+
+    /* Ad copy blocks */
+    .copy-card {
+      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      padding: 22px 24px; margin-bottom: 16px;
+    }
+    .copy-card .angle {
+      font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15px;
+      color: var(--navy); margin-bottom: 2px;
+    }
+    .copy-card .use { font-size: 12.5px; color: var(--muted); margin-bottom: 16px; }
+    .field { margin-bottom: 14px; }
+    .field .lbl {
+      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10.5px;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 5px; display: flex; align-items: center; gap: 8px;
+    }
+    .field .lbl .count { color: #9CA3AF; font-weight: 600; letter-spacing: 0; text-transform: none; }
+    .field .val {
+      background: #F8F9FC; border: 1px solid var(--line); border-radius: 8px;
+      padding: 11px 14px; font-size: 13.5px; color: var(--ink); white-space: pre-wrap;
+    }
+    .field .val.head { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--navy); }
+    .cta-row {
+      display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 12px; background: #EFF6FF; color: var(--navy);
+      padding: 6px 12px; border-radius: 8px;
+    }
+
+    /* Checklist */
+    .checklist { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px 8px; }
+    .checklist li {
+      list-style: none; padding: 13px 16px; border-bottom: 1px solid var(--line);
+      font-size: 14px; display: flex; gap: 12px; align-items: flex-start;
+    }
+    .checklist li:last-child { border-bottom: 0; }
+    .checklist .n {
+      flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+      background: var(--navy); color: #fff; font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center;
+    }
+    .checklist b { color: var(--navy); }
+
+    .note {
+      font-size: 12.5px; color: var(--muted); margin-top: 14px;
+      padding: 12px 16px; background: #fff; border: 1px dashed var(--line); border-radius: 10px;
+    }
+    .note b { color: var(--ink); }
+
+    footer {
+      text-align: center; padding: 32px; font-size: 12px; color: #9CA3AF;
+      border-top: 1px solid var(--line); margin-top: 60px;
+    }
+
+    @media (max-width: 760px) {
+      header { padding: 22px 20px; }
+      .page-inner { padding: 40px 18px 70px; }
+      h1 { font-size: 30px; }
+      .platforms { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+</head>
+<body>
+
+<header>
+  <img src="images/anniversary-seal.svg?v=2" alt="Celebrate Recovery 20 Years — Zion Lutheran, Fairbanks Alaska">
+  <a href="index.html" class="back">← Back to Landing Page</a>
+</header>
+
+<div class="page-inner">
+
+  <div class="page-eyebrow">CR 20th Anniversary · Fairbanks, AK · June 5–6, 2026</div>
+  <h1>Social Media Ads &amp; Promotion Plan</h1>
+  <p class="page-sub">Paid ad designs and a day-by-day plan for promoting the 20th Anniversary on social media between now and the event. Built to run through Facebook's ad tools, which also place ads on Instagram.</p>
+
+  <div class="countdown">
+    <div class="num">6</div>
+    <div class="txt"><strong>days until the free Friday night kickoff (June 5).</strong><br>
+      This is a short, all-out final-week push — not a slow build. Everything below is front-loaded so ads start working immediately. Facebook needs up to 24 hours to review and approve new ads, so the goal is to get them submitted right away.</div>
+  </div>
+
+  <!-- ───────────── THE RECOMMENDATION ───────────── -->
+  <div class="reco">
+    <h2>The short version</h2>
+    <p>Put the money on <strong>Facebook</strong>, let it run on <strong>Instagram</strong> for free at the same time, and <strong>skip paid TikTok</strong> for this event. Facebook is where our audience already is — the recovery and church community in Alaska skews 35+, we've advertised there before, and it's the best tool for inviting people to a local event. Instagram comes along for the ride through the same Facebook ad setup at no extra effort. TikTok's crowd is younger and a brand-new ad account couldn't get set up, approved, and effective in six days — it's not worth the spend this time.</p>
+  </div>
+
+  <!-- ───────────── PLATFORMS ───────────── -->
+  <div class="section">
+    <h2>Which platforms — and how much to lean on each</h2>
+    <p class="section-lead">Facebook and Instagram are run from the same place (Meta Ads Manager / the "Boost" button), so promoting on both is one job, not two. The percentages below are how the budget naturally splits when you let the system show the ad wherever it performs best.</p>
+    <div class="platforms">
+
+      <div class="pf primary">
+        <span class="pf-rank rank-primary">Primary · ~70–80%</span>
+        <h3>Facebook</h3>
+        <div class="share">Where most of the budget goes</div>
+        <p>The strongest fit for this event and audience.</p>
+        <ul>
+          <li>Our audience (35–65+, faith &amp; recovery) lives here</li>
+          <li>We've run Facebook ads before — proven channel</li>
+          <li>Best tools for targeting Alaska towns &amp; an event date</li>
+          <li>Great for "Friday is free — bring someone" invites</li>
+        </ul>
+      </div>
+
+      <div class="pf">
+        <span class="pf-rank rank-second">Secondary · ~20–30%</span>
+        <h3>Instagram</h3>
+        <div class="share">Comes free with Facebook</div>
+        <p>Same ad, no extra work — reaches a slightly younger crowd.</p>
+        <ul>
+          <li>Runs from the same Facebook ad — just leave it switched on</li>
+          <li>Reaches 25–45s, volunteers, adult kids of attendees</li>
+          <li>Stories &amp; Reels (the tall vertical ad) shine here</li>
+        </ul>
+      </div>
+
+      <div class="pf skip">
+        <span class="pf-rank rank-skip">Skip paid · this round</span>
+        <h3>TikTok</h3>
+        <div class="share">Not worth it in 6 days</div>
+        <p>Wrong audience and timing for a paid push right now.</p>
+        <ul>
+          <li>Audience skews 16–24 — younger than our attendees</li>
+          <li>New ad account setup + review would eat the whole window</li>
+          <li>Needs native-style video to not fall flat</li>
+        </ul>
+        <p style="margin-top:12px;"><b style="color:#374151;">Optional &amp; free:</b> post the tall vertical ad to TikTok / Reels organically — no ad dollars.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ───────────── BUDGET + FLIGHT PLAN ───────────── -->
+  <div class="section">
+    <h2>The plan: now → event day</h2>
+    <p class="section-lead">A sample <b>$400</b> total budget is shown below — adjust the daily numbers to whatever Zion is comfortable with; the shape of the plan stays the same. Run it all as one Facebook campaign with Instagram placements left on. Today is <b>Sat, May 30</b>.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Dates</th><th>Phase</th><th>What runs</th><th>Daily budget</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sat–Sun<br>May 30–31</td>
+            <td><span class="phase-tag t-warm">Set up</span></td>
+            <td>Get Robert's approval on the creative. Build the campaign in Facebook Ads Manager, upload the three images, and submit for review. (Optional warm-up: "Boost" an existing post for $5–10/day to wake up the audience.)</td>
+            <td><span class="money">$0–20</span></td>
+          </tr>
+          <tr>
+            <td>Mon–Wed<br>Jun 1–3</td>
+            <td><span class="phase-tag t-push">Awareness</span></td>
+            <td>Main push. Both the "20 Years of Hope &amp; Healing" ad and the "Tommy Woodard keynote" ad run to a broad Alaska audience. Goal: reach &amp; reminders.</td>
+            <td><span class="money">~$45/day</span></td>
+          </tr>
+          <tr>
+            <td>Thu–Fri<br>Jun 4–5</td>
+            <td><span class="phase-tag t-final">Final urgency</span></td>
+            <td>Switch the message to "This Friday — free, all are welcome." Heaviest spend of the week. Friday's ad says "Tonight."</td>
+            <td><span class="money">~$70/day</span></td>
+          </tr>
+          <tr>
+            <td>Sat<br>Jun 6</td>
+            <td><span class="phase-tag t-day">Walk-ins</span></td>
+            <td>Light same-day "Happening today — walk-ins welcome" ad for the Saturday sessions. Then pause everything that evening.</td>
+            <td><span class="money">~$30</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Total (sample)</td><td>≈ $400</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="note"><b>Why front-loaded?</b> With only six days, there's no time for a slow "build interest over weeks" approach. We spend a little to get approved and warmed up, then concentrate the real money in the final 48 hours when the "this is happening now" message converts best.</div>
+  </div>
+
+  <!-- ───────────── DOES A BIGGER BUDGET HELP? ───────────── -->
+  <div class="section">
+    <h2>Does a bigger budget help?</h2>
+    <p class="section-lead">A fair question — and the honest answer is <b>a little, but not much</b>. For an event like this, money isn't the limit. The size of our audience and Alaska's geography are. Here's the reasoning.</p>
+
+    <div class="reco" style="margin-top:0;">
+      <h2>The ceiling, in one line</h2>
+      <p>Our planned <strong>~$400 already covers Fairbanks</strong> at a healthy level. Spending much more there doesn't reach <em>new</em> people — it just shows the <strong>same people the same ad more often</strong>, which stops helping after about 4–5 views.</p>
+    </div>
+
+    <div style="margin-top:22px;">
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>If we spend…</th><th>What it actually buys</th><th>Worth it?</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>~$400<br><span style="font-weight:600;color:var(--muted);">Fairbanks focus</span></td>
+              <td>Reaches most interested people in Fairbanks &amp; North Pole about 4–5 times — enough to register without becoming repetitive.</td>
+              <td><span class="phase-tag t-day">✓ Recommended baseline</span></td>
+            </tr>
+            <tr>
+              <td>~$500–600<br><span style="font-weight:600;color:var(--muted);">top-up</span></td>
+              <td>Adds frequency / a little more local reach. Only useful if the first couple of days are clearly converting (registrations coming in, ad still fresh).</td>
+              <td><span class="phase-tag t-push">~ Only if it's working</span></td>
+            </tr>
+            <tr>
+              <td>$800+<br><span style="font-weight:600;color:var(--muted);">go statewide</span></td>
+              <td>Reaches Anchorage, the Mat-Su Valley, Juneau, Ketchikan — but a Fairbanks event is a flight or a long drive away, so few will attend in person.</td>
+              <td><span class="phase-tag t-final">✕ Weak for attendance</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><b>The geography catch:</b> this is a <b>Fairbanks</b> event. Someone in Anchorage won't fly up for a free Friday night, so dollars spent reaching them rarely turn into people in the room. Statewide spend only makes sense if the goal becomes <em>building awareness of Celebrate Recovery across Alaska</em> rather than filling these two days.</div>
+    </div>
+
+    <div class="section" style="margin-top:32px;">
+      <h2 style="font-size:18px;">What fills seats better than more ad money</h2>
+      <p class="section-lead">For a local faith event, the strongest tools are mostly free:</p>
+      <ol class="checklist">
+        <li><span class="n">1</span><div><b>The email list</b> (already built in Email Octopus) — warm, trusted people, at almost no cost.</div></li>
+        <li><span class="n">2</span><div><b>CR Alaska leaders &amp; Fairbanks churches sharing the post</b> — a share from a CR leader or pastor reaches this crowd better than any paid ad.</div></li>
+        <li><span class="n">3</span><div><b>Leading with the free Friday night</b> — the lowest-barrier invitation we have.</div></li>
+        <li><span class="n">4</span><div><b>Boosting one post to our existing page followers</b> — cheap reach to people who already know us.</div></li>
+      </ol>
+    </div>
+
+    <div class="note" style="margin-top:24px;"><b>Bottom line:</b> start at <b>~$400 focused on Fairbanks</b>, watch the first two days of registrations, and add <b>$100–200</b> only if it's clearly converting. Above roughly <b>$600</b> we're paying for repetition, not new people — at that point the free options above do more good than extra ad spend.</div>
+  </div>
+
+  <!-- ───────────── CREATIVES ───────────── -->
+  <div class="section">
+    <h2>The ad designs</h2>
+    <p class="section-lead">Three sizes cover every spot a Facebook/Instagram ad can appear. Each preview is the real, full-resolution design shown shrunk down — click to open it full size. Download buttons grab the ready-to-upload image once it's been generated (see the note under the gallery).</p>
+
+    <div class="creatives">
+
+      <div class="creative">
+        <div class="shot shot--sq">
+          <iframe src="ad-social-1x1.html" title="Square ad preview" scrolling="no" tabindex="-1"></iframe>
+          <a class="cover" href="ad-social-1x1.html" target="_blank" rel="noopener" aria-label="Open square ad full size"></a>
+        </div>
+        <h3>Square</h3>
+        <div class="spec">1080 × 1080 px · 1:1</div>
+        <div class="place">For: <b>Facebook &amp; Instagram feed</b>. The safe all-rounder.</div>
+        <div class="acts">
+          <a class="btn btn-open" href="ad-social-1x1.html" target="_blank" rel="noopener">Open full size</a>
+          <a class="btn btn-dl" href="downloads/cr-zion-social-square-1080.png" download>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PNG
+          </a>
+        </div>
+      </div>
+
+      <div class="creative">
+        <div class="shot shot--por">
+          <iframe src="ad-social-4x5.html" title="Portrait ad preview" scrolling="no" tabindex="-1"></iframe>
+          <a class="cover" href="ad-social-4x5.html" target="_blank" rel="noopener" aria-label="Open portrait ad full size"></a>
+        </div>
+        <h3>Portrait <span style="color:#16A34A;font-size:12px;">★ recommended</span></h3>
+        <div class="spec">1080 × 1350 px · 4:5</div>
+        <div class="place">For: <b>Facebook &amp; Instagram feed</b>. Takes up the most screen — best feed performer.</div>
+        <div class="acts">
+          <a class="btn btn-open" href="ad-social-4x5.html" target="_blank" rel="noopener">Open full size</a>
+          <a class="btn btn-dl" href="downloads/cr-zion-social-portrait-1080x1350.png" download>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PNG
+          </a>
+        </div>
+      </div>
+
+      <div class="creative">
+        <div class="shot shot--story">
+          <iframe src="ad-social-9x16.html" title="Story/Reel ad preview" scrolling="no" tabindex="-1"></iframe>
+          <a class="cover" href="ad-social-9x16.html" target="_blank" rel="noopener" aria-label="Open story ad full size"></a>
+        </div>
+        <h3>Story / Reel</h3>
+        <div class="spec">1080 × 1920 px · 9:16</div>
+        <div class="place">For: <b>Stories &amp; Reels</b> (full-screen vertical). Also the one to post for free on TikTok.</div>
+        <div class="acts">
+          <a class="btn btn-open" href="ad-social-9x16.html" target="_blank" rel="noopener">Open full size</a>
+          <a class="btn btn-dl" href="downloads/cr-zion-social-story-1080x1920.png" download>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            PNG
+          </a>
+        </div>
+      </div>
+
+      <div class="creative">
+        <div class="shot shot--story">
+          <video src="downloads/cr-zion-social-reel-1080x1920-music.mp4"
+                 poster="downloads/cr-zion-social-reel-poster.jpg"
+                 controls playsinline preload="metadata"
+                 style="width:240px;height:426px;object-fit:cover;display:block;background:#0F1F5C;"></video>
+        </div>
+        <h3>Reel / Video <span style="color:#16A34A;font-size:12px;">★ for organic</span></h3>
+        <div class="spec">1080 × 1920 px · 12s · MP4 · with music</div>
+        <div class="place">For: <b>Reels, Stories &amp; TikTok</b>. The motion version — best for free reach. <b>Press play to review with sound.</b></div>
+        <div class="acts">
+          <a class="btn btn-open" href="downloads/cr-zion-social-reel-1080x1920-music.mp4" target="_blank" rel="noopener">Play full size</a>
+          <a class="btn btn-dl" href="downloads/cr-zion-social-reel-1080x1920-music.mp4" download>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            MP4
+          </a>
+        </div>
+        <div style="margin-top:10px;font-size:11.5px;color:var(--muted);text-align:center;">
+          Prefer no baked-in music? <a href="downloads/cr-zion-social-reel-1080x1920.mp4" download style="color:var(--navy);font-weight:600;">Download the silent version</a> and add audio in-app.
+        </div>
+      </div>
+
+    </div>
+    <div class="note"><b>Generating the upload files:</b> the PNG buttons come from <code>python3 scripts/make-web-banners.py</code> (the three image sizes) and the Reel from <code>python3 scripts/make-social-reel.py --audio downloads/cr-reel-music.mp3 --audio-start 30</code> (12s vertical video, built from the church cinemagraph + hands photo + the end-card design, with the music track muxed on). Run each once and the downloads appear. A <b>silent master is also produced</b> (linked under the Reel) for anyone who'd rather add music from the platform's own audio library when posting.</div>
+  </div>
+
+  <!-- ───────────── AD COPY ───────────── -->
+  <div class="section">
+    <h2>Ad wording — ready to paste</h2>
+    <p class="section-lead">When you build an ad, Facebook asks for three pieces of text. Copy these straight in. Two angles are provided so the same person doesn't see the identical ad over and over.</p>
+
+    <div class="copy-card">
+      <div class="angle">Angle A — “20 Years of Hope &amp; Healing” (run Jun 1–5)</div>
+      <div class="use">Pair with the Square or Portrait design. The lead invitation — warm, milestone, open-door.</div>
+      <div class="field">
+        <div class="lbl">Primary text <span class="count">(the post caption)</span></div>
+        <div class="val">For 20 years, Celebrate Recovery has been a place of hope and healing right here in Alaska — and we're celebrating. 🎉
+
+Join us June 5–6 at Zion Lutheran Church in Fairbanks for two days of worship, real stories, and community. Friday night is FREE and everyone is welcome — come as you are, and bring someone who needs encouragement.
+
+Details &amp; registration → celebraterecovery-zion.com</div>
+      </div>
+      <div class="field">
+        <div class="lbl">Headline <span class="count">(bold line under the image)</span></div>
+        <div class="val head">20 Years of Hope &amp; Healing in Alaska</div>
+      </div>
+      <div class="field">
+        <div class="lbl">Description <span class="count">(small line below)</span></div>
+        <div class="val">June 5–6 · Fairbanks · Free Friday night</div>
+      </div>
+      <span class="cta-row">Button: “Learn More” → celebraterecovery-zion.com</span>
+    </div>
+
+    <div class="copy-card">
+      <div class="angle">Angle B — Keynote spotlight: Tommy Woodard (run Jun 1–4)</div>
+      <div class="use">Pair with the Story/Reel design (has Tommy's photo) or the Portrait. Draws people who know The Skit Guys.</div>
+      <div class="field">
+        <div class="lbl">Primary text <span class="count">(the post caption)</span></div>
+        <div class="val">Comedian, actor, and speaker Tommy Woodard of The Skit Guys is headlining our Celebrate Recovery 20th Anniversary in Fairbanks! 🙌
+
+Saturday, June 6 at Zion Lutheran Church — worship, powerful stories, and Tommy's keynote. Friday night, June 5, kicks things off FREE and open to all.
+
+20 years of hope and healing in Alaska — come be part of it.
+
+Register → celebraterecovery-zion.com</div>
+      </div>
+      <div class="field">
+        <div class="lbl">Headline <span class="count">(bold line under the image)</span></div>
+        <div class="val head">Keynote: Tommy Woodard · June 5–6, Fairbanks</div>
+      </div>
+      <div class="field">
+        <div class="lbl">Description <span class="count">(small line below)</span></div>
+        <div class="val">Celebrate Recovery 20th Anniversary · Zion Lutheran Church</div>
+      </div>
+      <span class="cta-row">Button: “Learn More” → celebraterecovery-zion.com</span>
+    </div>
+
+    <div class="copy-card">
+      <div class="angle">Angle C — Final urgency (swap in Jun 4–6)</div>
+      <div class="use">Same designs, shortened. Change “This Friday” to “Tonight” on the 5th, and “Today” on the 6th.</div>
+      <div class="field">
+        <div class="lbl">Primary text <span class="count">(the post caption)</span></div>
+        <div class="val">This Friday in Fairbanks 💙 Celebrate Recovery's 20th Anniversary kicks off with a FREE night of worship and hope — everyone welcome. Saturday continues with keynote speaker Tommy Woodard.
+
+June 5–6 · Zion Lutheran Church · Walk-ins welcome
+celebraterecovery-zion.com</div>
+      </div>
+      <div class="field">
+        <div class="lbl">Headline <span class="count">(bold line under the image)</span></div>
+        <div class="val head">This Weekend — Free Friday Night, All Are Welcome</div>
+      </div>
+      <div class="field">
+        <div class="lbl">Description <span class="count">(small line below)</span></div>
+        <div class="val">June 5–6 · Fairbanks · Walk-ins welcome</div>
+      </div>
+      <span class="cta-row">Button: “Learn More” → celebraterecovery-zion.com</span>
+    </div>
+  </div>
+
+  <!-- ───────────── TARGETING + SETUP ───────────── -->
+  <div class="section">
+    <h2>How to set it up (plain steps)</h2>
+    <p class="section-lead">In Facebook Ads Manager, create one campaign with the goal set to <b>Traffic</b> (sends people to the website) or <b>Engagement</b>. Then:</p>
+    <ol class="checklist">
+      <li><span class="n">1</span><div><b>Who sees it (location):</b> Start with <b>Fairbanks + North Pole</b> (a 25-mile radius). If budget allows, add Anchorage, the Mat-Su Valley (Wasilla/Palmer), Juneau, and Ketchikan.</div></li>
+      <li><span class="n">2</span><div><b>Who sees it (people):</b> Ages <b>30–65+</b>, all genders. Add interests like <em>Celebrate Recovery, Christianity, recovery/sobriety, church, Christian music</em>. Keep it fairly broad — Alaska is a small market.</div></li>
+      <li><span class="n">3</span><div><b>Placements:</b> Choose <b>Advantage+ / Automatic placements</b> so Facebook and Instagram (feed, Stories, Reels) are all on. Upload all three image sizes so each spot looks right.</div></li>
+      <li><span class="n">4</span><div><b>Schedule:</b> Set the end date to <b>end of day June 6</b> so nothing runs (or charges) after the event.</div></li>
+      <li><span class="n">5</span><div><b>Link:</b> Send everyone to <b>celebraterecovery-zion.com</b> with the “Learn More” button.</div></li>
+      <li><span class="n">6</span><div><b>Before you publish:</b> get <b>Robert's approval</b> on the artwork and wording (promotional materials need sign-off before they go live).</div></li>
+    </ol>
+    <div class="note"><b>One tip:</b> the easiest path, if Ads Manager feels like a lot, is to make a normal post on the Celebrate Recovery / Zion Facebook page using Angle A's wording and the Square image, then hit <b>Boost Post</b> and apply the location/age settings above. It's the same engine with fewer buttons.</div>
+  </div>
+
+</div>
+
+<footer>
+  Celebrate Recovery · Zion Lutheran Church · Fairbanks, AK 99709 · June 5–6, 2026<br>
+  Internal planning page — for review by Gary, Robert &amp; the Zion team.
+</footer>
+
+<script src="scripts/admin-fab.js" defer></script>
+</body>
+</html>

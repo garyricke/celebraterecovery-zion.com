@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Social Ad — Story/Reel 1080×1920 · Celebrate Recovery 20th Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: #fff;
+      font-family: 'Open Sans', Arial, sans-serif;
+    }
+
+    /* 1080 × 1920 — 9:16 vertical for Instagram / Facebook Stories & Reels.
+       Content is kept inside the central safe area (away from the top ~250px
+       and bottom ~310px, which the platform UI covers). */
+    .banner {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      background-color: #0F1F5C;
+      background-image: url('https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_1400/cr-zion-20th/zion-church-rainbow.jpg');
+      background-size: cover;
+      background-position: center 28%;
+      background-repeat: no-repeat;
+    }
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(15,31,92,.55) 0%,
+        rgba(15,31,92,.42) 24%,
+        rgba(15,31,92,.62) 58%,
+        rgba(15,31,92,.96) 100%);
+      pointer-events: none;
+    }
+
+    /* Tommy cutout (RGBA — sits cleanly on the photo). Anchored to the
+       bottom so the headline reads above his head. */
+    .tommy {
+      position: absolute;
+      bottom: 250px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 760px;
+      height: auto;
+      z-index: 1;
+      filter: drop-shadow(0 12px 40px rgba(0,0,0,.45));
+    }
+
+    .inner {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 230px 70px 300px;
+    }
+
+    .top { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+    .seal { width: 190px; height: 190px; display: block; }
+
+    .headline {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 104px;
+      line-height: .96;
+      letter-spacing: -2px;
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,.45);
+    }
+    .headline em {
+      display: block;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 50px;
+      letter-spacing: 1px;
+      color: #F9C9B4;
+      margin-top: 8px;
+    }
+
+    /* Keynote caption chip — pinned just above Tommy. */
+    .keynote-chip {
+      position: absolute;
+      bottom: 690px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      background: rgba(232,98,42,.95);
+      border-radius: 100px;
+      padding: 16px 34px;
+      white-space: nowrap;
+    }
+    .keynote-chip span {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .keynote-chip small {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 28px;
+      letter-spacing: .5px;
+      text-transform: none;
+      color: rgba(255,255,255,.92);
+    }
+
+    /* Bottom block — dates + CTA, above the story UI safe zone. */
+    .bottom {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 150px;
+      z-index: 3;
+      text-align: center;
+      padding: 0 70px;
+    }
+    .dates {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 58px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #F07E50;
+      text-shadow: 0 2px 16px rgba(0,0,0,.45);
+    }
+    .venue {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: rgba(255,255,255,.9);
+      margin: 8px 0 26px;
+    }
+    .cta-pill {
+      display: inline-block;
+      background: #E8622A;
+      border-radius: 100px;
+      padding: 28px 58px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 42px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .url {
+      display: block;
+      margin-top: 22px;
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 30px;
+      color: rgba(255,255,255,.85);
+    }
+  </style>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<div class="banner">
+
+  <img class="tommy" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,h_1100/cr-zion-20th/tommy-woodard-cutout.png" alt="Keynote speaker Tommy Woodard">
+
+  <div class="inner">
+    <div class="top">
+      <img class="seal" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1778548225/cr-zion-20th/anniversary-seal.svg" alt="Celebrate Recovery 20 Years">
+      <h1 class="headline">20 Years of<br>Hope &amp; Healing<em>in Alaska</em></h1>
+    </div>
+  </div>
+
+  <div class="keynote-chip">
+    <span>Keynote</span> &nbsp;<small>Tommy Woodard · The Skit Guys</small>
+  </div>
+
+  <div class="bottom">
+    <div class="dates">June 5–6, 2026</div>
+    <div class="venue">Zion Lutheran Church · Fairbanks · Free Friday Night</div>
+    <span class="cta-pill">Join Us</span>
+    <span class="url">celebraterecovery-zion.com</span>
+  </div>
+
+</div>
+
+</body>
+</html>

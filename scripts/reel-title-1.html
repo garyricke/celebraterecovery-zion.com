@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { margin: 0; background: transparent; }
+
+    /* Transparent overlay composited over Scene 1. The church cinemagraph
+       runs as a full-width sharp BAND across the middle (y 659–1261); this
+       overlay carries the navy gradient + the seal/eyebrow ABOVE the band
+       and the headline BELOW it, so nothing collides with the footage. */
+    .frame {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      font-family: 'Open Sans', Arial, sans-serif;
+      background: linear-gradient(180deg,
+        rgba(15,31,92,.80) 0%,
+        rgba(15,31,92,.58) 26%,
+        rgba(15,31,92,.30) 40%,
+        rgba(15,31,92,.30) 60%,
+        rgba(15,31,92,.66) 74%,
+        rgba(15,31,92,.94) 100%);
+    }
+    .top {
+      position: absolute; left: 0; right: 0; top: 210px;
+      display: flex; flex-direction: column; align-items: center; gap: 22px;
+    }
+    .seal { width: 188px; height: 188px; display: block; }
+    .eyebrow {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 800; font-size: 30px;
+      letter-spacing: 7px; text-transform: uppercase;
+      color: #F07E50; text-shadow: 0 2px 14px rgba(0,0,0,.5);
+    }
+    .bottom {
+      position: absolute; left: 0; right: 0; bottom: 250px;
+      text-align: center; padding: 0 70px;
+    }
+    h1 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900; font-size: 96px; line-height: .96;
+      letter-spacing: -2px; color: #fff;
+      text-shadow: 0 3px 22px rgba(0,0,0,.6);
+    }
+    h1 em {
+      display: block; font-style: normal; font-weight: 800;
+      font-size: 48px; letter-spacing: 1px; color: #F9C9B4; margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top">
+      <img class="seal" src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/v1778548225/cr-zion-20th/anniversary-seal.svg" alt="">
+      <div class="eyebrow">Celebrate Recovery</div>
+    </div>
+    <div class="bottom">
+      <h1>20 Years of<br>Hope &amp; Healing<em>in Alaska</em></h1>
+    </div>
+  </div>
+</body>
+</html>
