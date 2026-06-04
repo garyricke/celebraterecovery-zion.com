@@ -185,6 +185,7 @@ function computeReport_() {
   const col = {
     source:    at("Source"),
     first:     at("First Name"),
+    last:      at("Last Name"),
     gender:    at("Gender"),
     attend:    at("Attendance"),
     openShare: at("Open Share Groups"),
@@ -214,6 +215,7 @@ function computeReport_() {
     overnight:  {},
     salmonBake: {},
     source:     {},
+    roster:     [],
   };
 
   values.forEach(row => {
@@ -242,6 +244,22 @@ function computeReport_() {
     if (ov) bump(r.overnight, ov);
 
     bump(r.salmonBake, get(row, col.salmon) || "—");
+
+    r.roster.push({
+      last:       get(row, col.last),
+      first:      first,
+      attendance: get(row, col.attend),
+      paid:       get(row, col.paid),
+      shirt:      size,
+      salmon:     get(row, col.salmon),
+    });
+  });
+
+  // Alphabetical by last name, then first.
+  r.roster.sort((a, b) => {
+    const al = a.last.toLowerCase(), bl = b.last.toLowerCase();
+    if (al !== bl) return al < bl ? -1 : 1;
+    return a.first.toLowerCase() < b.first.toLowerCase() ? -1 : 1;
   });
 
   return r;
