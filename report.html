@@ -237,11 +237,29 @@
     return d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
   }
 
-  // ── JSONP loader (sidesteps CORS for Apps Script GET) ─────────────
+  // ── data loader ───────────────────────────────────────────────────
+  // Primary: a normal CORS fetch — the endpoint returns
+  // Access-Control-Allow-Origin: * on every hop. Fallback: JSONP via
+  // <script>, which sidesteps CORS entirely if something blocks the
+  // fetch. (JSONP gives no real error info, so it's the backup only.)
   function fetchReport() {
     if (!ENDPOINT || ENDPOINT.indexOf('PASTE') !== -1) { notConfigured(); return; }
-
     refreshEl.classList.add('spin');
+
+    const url = ENDPOINT + (ENDPOINT.indexOf('?') === -1 ? '?' : '&') + '_=' + Date.now();
+    fetch(url, { method: 'GET', redirect: 'follow' })
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(d => {
+        refreshEl.classList.remove('spin');
+        if (!d || d.ok === false) showError(d && d.error); else render(d);
+      })
+      .catch(err => {
+        console.warn('[report] fetch failed, falling back to JSONP:', err);
+        jsonpReport();
+      });
+  }
+
+  function jsonpReport() {
     const cb = 'crReport_' + Date.now();
     const script = document.createElement('script');
     let done = false;
@@ -252,6 +270,7 @@
       delete window[cb];
       script.remove();
       refreshEl.classList.remove('spin');
+      if (err) console.warn('[report] JSONP failed:', err);
       if (err || !data || data.ok === false) showError(data && data.error);
       else render(data);
     };
