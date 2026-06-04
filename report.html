@@ -21,6 +21,7 @@
       --paper:     #FDFAF4;
       --ink:       #141826;
       --green:     #2E7D32;
+      --green-bg:  #E8F3E9;
       --amber:     #B45309;
       --gray:      #6B7280;
       --hair:      rgba(20,24,38,.10);
@@ -177,6 +178,28 @@
       header { padding: 18px 22px; }
     }
 
+    /* ── ad snapshot (manual, separate from the live sheet data) ─── */
+    #ad-snapshot { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--hair); }
+    .section-head {
+      display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 18px;
+    }
+    .section-head h2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 19px;
+      color: var(--navy-dk); letter-spacing: -.01em;
+    }
+    .section-head .asof { font-size: 12.5px; color: var(--gray); }
+    .section-head .asof strong { color: var(--ink); font-weight: 700; }
+    .ad-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+    .ad-meta .chip {
+      background: #fff; border: 1px solid var(--hair); border-radius: 9px;
+      padding: 8px 13px; font-size: 13px; color: var(--ink);
+      box-shadow: 0 1px 3px rgba(15,31,92,.04);
+    }
+    .ad-meta .chip b {
+      color: var(--gray); font-weight: 700; margin-right: 6px;
+      font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em;
+    }
+
     footer.note {
       max-width: 1040px; margin: 0 auto; padding: 24px;
       font-size: 12px; color: var(--gray); line-height: 1.6;
@@ -208,6 +231,8 @@
   <div id="content">
     <div class="msg">Loading the latest numbers…</div>
   </div>
+
+  <section id="ad-snapshot"></section>
 </div>
 
 <footer class="note">
@@ -225,6 +250,31 @@
   const ENDPOINT   = 'https://script.google.com/macros/s/AKfycbxVkb670CchTuaW57z7HuiUZ0x42ig7SqKuQkcp2vF1J88-wxE08sfHGpBLabp6sRQl/exec';
   const REFRESH_MS = 60000;   // auto-refresh cadence
   const TIMEOUT_MS = 12000;
+
+  // ── Paid ad snapshot ──────────────────────────────────────────────
+  // Manually maintained (Facebook doesn't expose this without an API
+  // setup). To refresh: drop the latest "View results" numbers in here
+  // and bump `asOf`. Everything below renders from this object.
+  const AD_SNAPSHOT = {
+    asOf:             'Jun 4, 2026 · 6:34 AM AKDT',
+    platform:         'Boosted Facebook post',
+    status:           'In review',
+    goal:             'Get more website visitors',
+    spend:            '$171.94',
+    dailyBudget:      '$70.00',
+    duration:         '6 days',
+    reach:            '12,922',
+    views:            '22,913',
+    landingPageViews: 278,
+    costPerLPV:       '$0.62',
+    audience:         '58.4% women · 41.6% men',
+    activity: {
+      'Post engagements':  333,
+      'Link clicks':       315,
+      'Landing page views': 278,
+      'Post reactions':    16,
+    },
+  };
 
   const metaEl    = document.getElementById('meta');
   const contentEl = document.getElementById('content');
@@ -351,6 +401,43 @@
     metaEl.innerHTML = `<span class="dot"></span>Updated <strong>${timeStr(when)}</strong> · auto-refreshes every ${REFRESH_MS / 1000}s`;
   }
 
+  function renderAdSnapshot() {
+    const el = document.getElementById('ad-snapshot');
+    if (!el) return;
+    const a = AD_SNAPSHOT;
+
+    const cards = [
+      statCard(a.spend, 'Ad Spend', null, false),
+      statCard(a.reach, 'Reach', 'accounts', false),
+      statCard(a.landingPageViews, 'Landing Page Views', 'to the site', true),
+      statCard(a.costPerLPV, 'Cost / Landing Page View', null, false),
+    ].join('');
+
+    const activity = panel('Ad Activity', a.activity,
+      ['Post engagements', 'Link clicks', 'Landing page views', 'Post reactions', 'Post shares'],
+      { wide: true });
+
+    const chips = [
+      ['Status', a.status],
+      ['Goal', a.goal],
+      ['Daily budget', a.dailyBudget],
+      ['Duration', a.duration],
+      ['Impressions', a.views],
+      ['Audience', a.audience],
+      ['Type', a.platform],
+    ].filter(pair => pair[1])
+     .map(pair => `<span class="chip"><b>${esc(pair[0])}</b>${esc(pair[1])}</span>`).join('');
+
+    el.innerHTML = `
+      <div class="section-head">
+        <h2>Paid Ad Snapshot</h2>
+        <span class="asof">as of <strong>${esc(a.asOf)}</strong> · manual snapshot — send a new screenshot to refresh</span>
+      </div>
+      <div class="stats">${cards}</div>
+      <div class="grid">${activity}</div>
+      <div class="ad-meta">${chips}</div>`;
+  }
+
   function showError(code) {
     metaEl.innerHTML = '<span class="dot err"></span>Couldn’t reach the sheet';
     contentEl.innerHTML =
@@ -367,6 +454,7 @@
 
   // ── wire up ───────────────────────────────────────────────────────
   refreshEl.addEventListener('click', fetchReport);
+  renderAdSnapshot();
   fetchReport();
   setInterval(fetchReport, REFRESH_MS);
 })();
