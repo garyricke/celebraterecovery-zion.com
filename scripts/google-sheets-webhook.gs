@@ -133,6 +133,121 @@ function doPost(e) {
 }
 
 
+/**
+ * GET endpoint — live aggregate counts for the report dashboard
+ * (report.html). Everything is tallied server-side so ONLY totals leave
+ * the sheet; no registrant names, phones, or emails are ever sent over
+ * the wire.
+ *
+ * Supports JSONP: append `?callback=fn` and the body comes back as
+ * `fn({…})`, which lets the static report page read it cross-origin
+ * without tripping CORS. Honors the same `?key=` secret gate as doPost
+ * when SECRET is set.
+ */
+function doGet(e) {
+  e = e || {};
+  const params = e.parameter || {};
+  if (SECRET && (params.key || "") !== SECRET) {
+    return reply_(params, { ok: false, error: "unauthorized" });
+  }
+  return reply_(params, computeReport_());
+}
+
+
+/** Serialize as JSON, or JSONP when a ?callback= is supplied. */
+function reply_(params, obj) {
+  const json = JSON.stringify(obj);
+  if (params && params.callback) {
+    return ContentService
+      .createTextOutput(params.callback + "(" + json + ");")
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  }
+  return ContentService
+    .createTextOutput(json)
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+
+/**
+ * Tally the Registrations tab into the shape report.html expects. A row
+ * counts as a registrant when First Name is non-empty (matches the
+ * COUNTA(First Name) the Summary tab uses); "Inquiry" source rows are
+ * excluded from the headline total but still reported under `source`.
+ */
+function computeReport_() {
+  const ss  = SpreadsheetApp.getActiveSpreadsheet();
+  const tab = ss.getSheetByName("Registrations");
+  if (!tab) return { ok: false, error: "no-registrations-tab" };
+
+  const values  = tab.getDataRange().getValues();
+  const headers = (values.shift() || []).map(h => String(h || "").trim());
+  const at = name => headers.indexOf(name);
+  const col = {
+    source:    at("Source"),
+    first:     at("First Name"),
+    gender:    at("Gender"),
+    attend:    at("Attendance"),
+    openShare: at("Open Share Groups"),
+    small:     at("Small Group"),
+    leader:    at("Leader"),
+    paid:      at("Paid"),
+    tshirt:    at("T-Shirt Size"),
+    overnight: at("Overnight Stay"),
+    salmon:    at("Salmon Bake"),
+  };
+
+  const get  = (row, i) => (i < 0 ? "" : String(row[i] == null ? "" : row[i]).trim());
+  const bump = (obj, key) => { obj[key] = (obj[key] || 0) + 1; };
+
+  const r = {
+    ok: true,
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    shirtsOrdered: 0,
+    leaders: 0,
+    gender:     {},
+    attendance: {},
+    openShare:  {},
+    smallGroup: {},
+    paid:       {},
+    tshirts:    {},
+    overnight:  {},
+    salmonBake: {},
+    source:     {},
+  };
+
+  values.forEach(row => {
+    if (!get(row, col.first)) return;                  // skip blank rows
+
+    const source = get(row, col.source) || "—";
+    bump(r.source, source);
+    if (source.toLowerCase() === "inquiry") return;    // not a registrant
+
+    r.total++;
+    bump(r.gender,     get(row, col.gender)    || "Unspecified");
+    bump(r.attendance, get(row, col.attend)    || "Unspecified");
+    bump(r.openShare,  get(row, col.openShare) || "—");
+
+    const sg = get(row, col.small);
+    if (sg) bump(r.smallGroup, sg);
+
+    if (get(row, col.leader).toLowerCase() === "yes") r.leaders++;
+
+    bump(r.paid, get(row, col.paid) || "—");
+
+    const size = get(row, col.tshirt);
+    if (size) { bump(r.tshirts, size); r.shirtsOrdered++; }
+
+    const ov = get(row, col.overnight);
+    if (ov) bump(r.overnight, ov);
+
+    bump(r.salmonBake, get(row, col.salmon) || "—");
+  });
+
+  return r;
+}
+
+
 /** Append a row, creating the tab + header row on first use. */
 function appendRow_(ss, tabName, headers, row) {
   let tab = ss.getSheetByName(tabName);
