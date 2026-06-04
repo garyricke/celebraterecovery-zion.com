@@ -256,17 +256,18 @@
   // setup). To refresh: drop the latest "View results" numbers in here
   // and bump `asOf`. Everything below renders from this object.
   const AD_SNAPSHOT = {
-    asOf:             'Jun 4, 2026 · 6:34 AM AKDT',
+    asOf:             'Jun 4, 2026 · 7:54 AM AKDT',
     platform:         'Boosted Facebook post',
-    status:           'In review',
+    status:           'Active',
     goal:             'Get more website visitors',
-    spend:            '$171.94',
+    spend:            '$172.09',
     dailyBudget:      '$70.00',
     duration:         '6 days',
     startDate:        'May 31, 2026',
     endDate:          'Jun 6, 2026',
-    reach:            '12,922',
-    views:            '22,913',
+    location:         'Fairbanks, AK (+25 mi)',
+    reach:            '12,932',
+    views:            '22,948',
     landingPageViews: 278,
     costPerLPV:       '$0.62',
     audience:         '58.4% women · 41.6% men',
@@ -427,6 +428,7 @@
       ['Flight', a.startDate && a.endDate ? a.startDate + ' – ' + a.endDate : ''],
       ['Impressions', a.views],
       ['Audience', a.audience],
+      ['Location', a.location],
       ['Type', a.platform],
     ].filter(pair => pair[1])
      .map(pair => `<span class="chip"><b>${esc(pair[0])}</b>${esc(pair[1])}</span>`).join('');
