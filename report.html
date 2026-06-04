@@ -161,6 +161,32 @@
     }
     .panel .empty { font-size: 13px; color: var(--gray); font-style: italic; }
 
+    /* ── roster table ───────────────────────────── */
+    .roster { margin-top: 16px; }
+    .roster .r-filter {
+      width: 100%; max-width: 320px; margin-bottom: 14px;
+      border: 1.5px solid var(--hair); border-radius: 8px;
+      padding: 9px 12px; font: inherit; font-size: 13.5px; color: var(--ink);
+      outline: none; background: #fff;
+    }
+    .roster .r-filter:focus { border-color: var(--orange); }
+    .r-scroll {
+      max-height: 460px; overflow-y: auto;
+      border: 1px solid var(--hair); border-radius: 10px;
+    }
+    .r-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .r-table thead th {
+      position: sticky; top: 0; background: #F3F4F6; z-index: 1;
+      text-align: left; font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+      color: var(--gray); padding: 10px 12px; border-bottom: 1px solid var(--hair);
+    }
+    .r-table tbody td { padding: 9px 12px; border-bottom: 1px solid #F1F2F6; }
+    .r-table tbody tr:last-child td { border-bottom: 0; }
+    .r-table tbody tr:hover { background: #FAFBFD; }
+    .r-table .r-num { color: var(--gray); width: 38px; font-variant-numeric: tabular-nums; }
+    .r-table .r-name { font-weight: 700; color: var(--ink); white-space: nowrap; }
+
     /* ── states ─────────────────────────────────── */
     .msg {
       background: #fff; border: 1px solid var(--hair); border-radius: 14px;
@@ -282,6 +308,7 @@
   const metaEl    = document.getElementById('meta');
   const contentEl = document.getElementById('content');
   const refreshEl = document.getElementById('refresh');
+  let   rosterQuery = '';   // preserved across the 60s auto-refresh
 
   const esc = s => String(s).replace(/[&<>"]/g, c =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -398,10 +425,52 @@
     ].join('');
 
     contentEl.innerHTML =
-      `<div class="stats">${cards}</div><div class="grid">${panels}</div>`;
+      `<div class="stats">${cards}</div>` +
+      `<div class="grid">${panels}</div>` +
+      renderRoster(d.roster);
+    wireRosterFilter();
 
     const when = new Date(d.generatedAt || Date.now());
     metaEl.innerHTML = `<span class="dot"></span>Updated <strong>${timeStr(when)}</strong> · auto-refreshes every ${REFRESH_MS / 1000}s`;
+  }
+
+  function renderRoster(list) {
+    if (!list || !list.length) return '';
+    const rows = list.map((p, i) => `
+      <tr>
+        <td class="r-num">${i + 1}</td>
+        <td class="r-name">${esc(p.last)}${p.last && p.first ? ', ' : ''}${esc(p.first)}</td>
+        <td>${esc(p.attendance || '')}</td>
+        <td>${esc(p.paid || '')}</td>
+        <td>${esc(p.shirt || '')}</td>
+        <td>${esc(p.salmon || '')}</td>
+      </tr>`).join('');
+    return `
+      <section class="panel wide roster">
+        <h3>Registrant Roster <span class="sum">${list.length} people · A–Z by last name</span></h3>
+        <input type="search" class="r-filter" placeholder="Filter by name…" aria-label="Filter roster by name">
+        <div class="r-scroll">
+          <table class="r-table">
+            <thead><tr><th>#</th><th>Name</th><th>Attendance</th><th>Paid</th><th>Shirt</th><th>Salmon</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </section>`;
+  }
+
+  function wireRosterFilter() {
+    const filter = contentEl.querySelector('.r-filter');
+    if (!filter) return;
+    const apply = () => {
+      rosterQuery = filter.value.trim().toLowerCase();
+      contentEl.querySelectorAll('.r-table tbody tr').forEach(tr => {
+        const name = tr.querySelector('.r-name').textContent.toLowerCase();
+        tr.style.display = name.indexOf(rosterQuery) !== -1 ? '' : 'none';
+      });
+    };
+    filter.value = rosterQuery;
+    filter.addEventListener('input', apply);
+    if (rosterQuery) apply();
   }
 
   function renderAdSnapshot() {
